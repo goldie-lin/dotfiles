@@ -1,0 +1,148 @@
+! Goldie Lin's ~/.Xdefaults for urxvt (rxvt-unicode)
+!   After modified, use `xrdb -merge ~/.Xdefaults`
+!   to reload setting, and then restart urxvt.
+! Required packages: (via `sudo apt-get install ...`)
+!   Fonts:
+!     xfonts-wqy xfonts-terminus xfonts-terminus-oblique
+!   For urxvt/perl/clipboard:
+!     xsel xclip
+
+! DO NOT uncomment this line, or it will result in unusable terminal.
+! https://bbs.archlinux.org/viewtopic.php?id=70070
+!URxvt.borderLess: false
+
+! URXVT options:
+URxvt.geometry: 86x28
+URxvt.scrollstyle:        next
+!URxvt.scrollBar:          true
+!URxvt.scrollBar_right:    true
+!URxvt.scrollBar_floating: false
+!URxvt.scrollBar_align:    centre
+URxvt.scrollTtyOutput:   true
+URxvt.scrollWithBuffer:  true
+URxvt.scrollTtyKeypress: false
+URxvt.saveLines:         1000
+URxvt.visualBell:  true
+URxvt.cursorBlink: true
+!URxvt.termName:   rxvt-unicode
+
+! Multichar encoding:
+!URxvt.multichar_encoding:big5
+
+! URXVT font settings:
+! List X11 core fonts:
+!   `xlsfonts`
+!   `cat /usr/share/fonts/X11/misc/fonts.alias`
+! Terminus-12 + ArphicUming-8 (no Bold fontstyle)
+!URxvt.font:     terminus-12,xft:AR PL UMing TW-8:antialias=false
+!URxvt.boldFont: terminus-bold-12,xft:AR PL UMing TW-8:Bold:antialias=false
+! Terminus-14 + ArphicUming-12
+URxvt.font:     terminus-14,xft:AR PL UMing TW-12:antialias=false
+URxvt.boldFont: terminus-bold-14,xft:AR PL UMing TW-12:Bold:antialias=false
+! Terminus-16 + ArphicUming-13
+!URxvt.font:     terminus-16,xft:AR PL UMing TW-13:antialias=false
+!URxvt.boldFont: terminus-bold-16,xft:AR PL UMing TW-13:Bold:antialias=false
+! Terminus-12 + WenQuanYi-10 (no Bold fontstyle & not enough heigh for Chinese)
+!URxvt.font:     terminus-12,xft:WenQuanYi Bitmap Song-10:antialias=false
+!URxvt.boldFont: terminus-bold-12,xft:WenQuanYi Bitmap Song-10:Bold:antialias=false
+! Terminus-14 + WenQuanYi-10
+!URxvt.font:     terminus-14,xft:WenQuanYi Bitmap Song-10:antialias=false
+!URxvt.boldFont: terminus-bold-14,xft:WenQuanYi Bitmap Song-10:Bold:antialias=false
+! Terminus-16 + WenQuanYi-12
+!URxvt.font:     terminus-16,xft:WenQuanYi Bitmap Song-12:antialias=false
+!URxvt.boldFont: terminus-bold-16,xft:WenQuanYi Bitmap Song-12:Bold:antialias=false
+
+! Color defines:
+! Black
+URxvt.color0:  #000000
+URxvt.color8:  #555753
+! Red
+URxvt.color1:  #CC0000
+URxvt.color9:  #EF2929
+! Green
+URxvt.color2:  #4E9A06
+URxvt.color10: #7AE234
+! Yellow
+URxvt.color3:  #C4A000
+URxvt.color11: #FCE94F
+! Blue
+URxvt.color4:  #3465A4
+URxvt.color12: #729FCF
+! Magenta
+URxvt.color5:  #75507B
+URxvt.color13: #AD7FA8
+! Cyan
+URxvt.color6:  #06989A
+URxvt.color14: #34E2E2
+! White
+URxvt.color7:  #D3D7CF
+URxvt.color15: #ECEDEE
+
+! Color settings:
+URxvt.background:   #000000
+URxvt.foreground:   #AAAAAA
+URxvt.colorBD:      #FFFF00
+URxvt.colorIT:      #FF00FF
+URxvt.colorUL:      Blue3
+URxvt.cursorColor:  #EE8888
+URxvt.cursorColor2: Gray25
+
+! Transparent:
+!URxvt.transparent: true
+! 0 to 99 darkens, 101 to 200 lightens
+!URxvt.shading:     10
+! Avoid using shading if you have tintColor set.
+!URxvt.tintColor:   Blue3
+
+! Enable default/matcher/tabbed/clipboard urxvt perl extensions.
+! default:
+!   selection:
+!     Double click and further clicks.
+!   option-popup (Options menu):
+!     Ctrl + Middle mouse button.
+!   selection-popup (Convert Selection menu):
+!     Ctrl + Right mouse button.
+!   searchable-scrollback:
+!     Alt + S: Regex search the scrollback buffer.
+!     in search mode, normal terminal I/O is suspended
+!     and a regex is displayed at the bottom of the screen.
+!       Backspace : Remove a character from the regex.
+!       Up/Down   : Search upwards/downwards in the scrollback buffer.
+!       End       : Jump to the bottom.
+!       Escape    : Leave search mode and return to the
+!                   point where the search was started.
+!       Enter     : stay at the current position.
+!       and additionally store the first match in current line into
+!       the primary selection if the 'Shift' modifier is active.
+!   readline:
+!     React to clicking shift-left mouse button.
+! matcher:
+!   Clickable URLs.
+! tabbed:
+!   Shift + DownArrow  : Create a new tab.
+!   Shift + Left/Right : Switch between tabs.
+!   Ctrl  + Left/Right : Move tab to left/right.
+!   Ctrl  + D          : Close tab.
+! clipboard:
+!   Auto copy selection to or paste from clipboard.
+URxvt.perl-lib:        /home/goldie/.urxvt
+URxvt.perl-ext-common: default,matcher,tabbed,clipboard,selection-autotransform
+! Selection patterns:
+URxvt.selection.pattern-0: ([^:$#[:space:]]+)
+URxvt.selection.pattern-1: (^[^:[:space:]]+:\\d+:)
+!URxvt.selection.pattern-2: ([^&()*,;<=>?@[\\\\]^`{|})]+)
+! Set URL open by urlLauncher via left mouse button (1), middle mouse button (2):
+URxvt.urlLauncher:    x-www-browser
+URxvt.matcher.button: 2
+! Tab color settings:
+URxvt.tabbed.tabbar-fg: 8
+URxvt.tabbed.tabbar-bg: 7
+URxvt.tabbed.tab-fg:    15
+URxvt.tabbed.tab-bg:    12
+! Clipboard: (M=Alt, C=Ctrl, S=Shift)
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+! Selection autotransforms:
+URxvt.selection-autotransform.0: s/^([^:[:space:]]+):(\\d+):?$/vi +$2 \\Q$1\\E\\x0d/
+URxvt.selection-autotransform.1: s/^([^:[:space:]]+):(\\d+):?$/:e \\Q$1\\E\\x0d:$2\\x0d/

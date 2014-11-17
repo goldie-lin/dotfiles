@@ -1,0 +1,45 @@
+[color]
+	ui = auto
+[core]
+	editor = vim
+[diff]
+	tool = vimdiff3
+	renamelimit = 0
+[merge]
+	tool = vimdiff
+[pager]
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
+[grep]
+	lineNumber = true
+[push]
+	default = matching
+[pack]
+	threads = 0
+[alias]
+	st = status
+	br = branch
+	co = checkout
+	ci = commit
+	ca = commit -a
+	unstage = reset HEAD --
+	uncommit = reset --soft HEAD^ --
+	egrep = grep -n --color=auto -E
+	fgrep = grep -n --color=auto -F
+	ggrep = grep -n --color=auto
+	who = shortlog -n -s --no-merges
+	last = log -1 HEAD
+	hist = log --graph --pretty=format:'%Cred%h%Creset <%Cgreen%ai%Creset> %C(bold blue)[%an]%Creset %s%C(yellow)%d%Creset'
+[sendemail]
+	smtpencryption = tls
+	smtpserver = 
+	smtpserverport = 587
+	smtpuser = goldie_lin@compal.com
+[user]
+	name = Goldie Lin
+	email = goldie.lin@gmail.com
+[github]
+	user = goldie-lin
+[http]
+	#proxy = http://127.0.0.1:3128/
