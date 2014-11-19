@@ -3,8 +3,8 @@
 
 ### Aliases
 alias ..='up'
-alias cp="${HOME}/bin/cp_g -g"
-alias mv="${HOME}/bin/mv_g -g"
+alias cp="${HOME}/bin/cp_g -ig"
+alias mv="${HOME}/bin/mv_g -ig"
 alias rm='rm -i'
 alias du='du -h'
 alias df='df -hT'
@@ -13,7 +13,7 @@ alias ll='ls -alF --time-style="+%Y-%m-%d_%H-%M-%S"'
 alias la='ls -AF'
 alias l='ls -CF'
 alias cgitroot='git rev-parse --is-inside-work-tree >/dev/null && cd "$(git rev-parse --show-toplevel)"'
-alias cleanrepo='repo status; repo branch; read -p "Really? It will git reset hard!"; rm -vf makeMtk.ini {checkenv,auto_sync_android}.log; rm -rf out; repo forall -c "git reset --hard; git clean -dfx"'
+alias cleanrepo='repo status; repo branch; read -p "Really? It will git reset hard!"; rm -vf .ccienv_default makeMtk.ini {checkenv,auto_sync_android}.log; rm -rf out; repo forall -c "git reset --hard; git clean -dfx"'
 alias man='man -S 2:3:1'  # add C function manual
 alias vless='/usr/share/vim/vimcurrent/macros/less.sh'
 alias grep='grep --color=auto --exclude-dir=.repo --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.bzr --exclude-dir=.hg --exclude=cscope.files --exclude=cscope.out --exclude=cscope.in.out --exclude=cscope.po.out --exclude=tags'
@@ -64,7 +64,7 @@ export PATH="${JAVA_HOME}/bin:${JRE_HOME}/bin:${PATH}"
 ## Default text editor for: crontab, git
 export EDITOR="vim"
 ## CCache
-export CCACHE_MAX_SIZE="100G" # No need to export
+export CCACHE_MAX_SIZE="30G"
 export CCACHE_DIR="${HOME}/.ccache"
 ## Minicom: linewrap, colorful
 export MINICOM="-w -c on"
