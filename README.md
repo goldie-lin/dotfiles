@@ -58,7 +58,7 @@ To apply the change:
 xrdb -merge ~/.Xdefaults
 ```
 
-Add external URxvt perl libs (extensions):
+Add external URxvt perl libs (extensions):  
 e.g. ,Bert Münnich's Perl extensions for URxvt.
 
 ```bash
