@@ -1,4 +1,4 @@
-! Goldie Lin's ~/.Xdefaults for urxvt (rxvt-unicode)
+! Goldie Lin`s ~/.Xdefaults for urxvt (rxvt-unicode)
 !   After modified, use `xrdb -merge ~/.Xdefaults`
 !   to reload setting, and then restart urxvt.
 ! Required packages: (via `sudo apt-get install ...`)
