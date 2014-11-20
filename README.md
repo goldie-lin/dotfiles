@@ -32,12 +32,12 @@ Required packages:
 
 .Xdefaults
 ----------
-My preferred URXVT (rxvt-unicode) settings, included font, font-size, color
+My preferred URxvt (rxvt-unicode) settings, included font, font-size, color
 definitions, url launcher, selection autotransforms.  With regard to the
 font, I preferred the bitmap fonts, like the Terminus.  Additionally, I had
 mixed the CJK and the english fonts, e.g. Terminus + AR PL UMing (文鼎明體).
 
-Install URXVT:
+Install URxvt:
 
 ```bash
 sudo apt-get install rxvt-unicode-256color
