@@ -126,7 +126,7 @@ URxvt.cursorColor2: Gray25
 ! clipboard:
 !   Auto copy selection to or paste from clipboard.
 URxvt.perl-lib:        /home/goldie/.urxvt
-URxvt.perl-ext-common: default,matcher,tabbed,clipboard,selection-autotransform
+URxvt.perl-ext-common: default,matcher,tabbed,clipboard,selection-autotransform,confirm-paste
 ! Selection patterns:
 URxvt.selection.pattern-0: ([^:$#[:space:]]+)
 URxvt.selection.pattern-1: (^[^:[:space:]]+:\\d+:)
