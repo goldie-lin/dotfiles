@@ -41,7 +41,6 @@ Install URxvt:
 
 ```bash
 sudo apt-get install rxvt-unicode-256color
-
 ```
 
 Required packages:
@@ -50,5 +49,4 @@ Required packages:
 sudo apt-get install xsel xclip
 sudo apt-get install xfonts-terminus
 sudo apt-get install fonts-arphic-uming
-
 ```
