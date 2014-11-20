@@ -35,7 +35,8 @@ Required packages:
 My preferred URxvt (rxvt-unicode) settings, included font, font-size, color
 definitions, url launcher, selection autotransforms.  With regard to the
 font, I preferred the bitmap fonts, like the Terminus.  Additionally, I had
-mixed the CJK and the english fonts, e.g. Terminus + AR PL UMing (文鼎明體).
+mixed the CJK and the english fonts, e.g., Terminus + AR PL UMing (文鼎明體).
+See the file content for more details.
 
 Install URxvt:
 
@@ -49,4 +50,33 @@ Required packages:
 sudo apt-get install xsel xclip
 sudo apt-get install xfonts-terminus
 sudo apt-get install fonts-arphic-uming
+```
+
+To apply the change:
+
+```bash
+xrdb -merge ~/.Xdefaults
+```
+
+Add external URxvt perl libs (extensions):
+e.g. ,Bert Münnich's Perl extensions for URxvt.
+
+```bash
+git clone https://github.com/muennich/urxvt-perls.git
+
+# Make a directory for placing custom urxvt perl libs:
+mkdir ~/.urxvt
+cd ~/.urxvt
+ln -s /PATH/TO/urxvt-perls/{clipboard,keyboard-select,url-select} .
+
+# Modify the .Xdefaults of urxvt:
+vi ~/.Xdefaults
+#--------------------8<--------------------#
+URxvt.perl-lib:        /home/goldie/.urxvt
+URxvt.perl-ext-common: default,matcher,tabbed,clipboard,selection-autotransform
+! Clipboard: (M=Alt, C=Ctrl, S=Shift)
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+#--------------------8<--------------------#
 ```
