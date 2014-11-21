@@ -24,7 +24,7 @@ Required packages:
 1.  `diff-highlight` for pagers.  
     It located at official [git](https://github.com/git/git.git) repository.
     You need to git clone it,  And symlink it
-    (contrib/diff-highlight/diff-highlight) into your $PATH.
+    ([contrib/diff-highlight/diff-highlight](https://github.com/git/git/tree/master/contrib/diff-highlight)) into your $PATH.
 
 2.  `vim` and `vimdiff` for editor and diff tool.  
     `sudo apt-get install vim`
@@ -59,7 +59,7 @@ xrdb -merge ~/.Xdefaults
 ```
 
 Add external URxvt perl libs (extensions):  
-e.g. ,Bert Münnich's Perl extensions for URxvt.
+e.g., [Bert Münnich's Perl extensions for URxvt](https://github.com/muennich/urxvt-perls).
 
 ```bash
 git clone https://github.com/muennich/urxvt-perls.git
