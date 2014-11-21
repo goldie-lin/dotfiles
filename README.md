@@ -44,6 +44,13 @@ Install URxvt:
 sudo apt-get install rxvt-unicode-256color
 ```
 
+`rxvt-unicode-256color` is only existed on Ubuntu 12.04 and 14.04+,
+please install `rxvt-unicode` instead if you are using other Ubuntu version.
+
+```bash
+sudo apt-get install rxvt-unicode
+```
+
 Required packages:
 
 ```bash
@@ -80,3 +87,7 @@ URxvt.keysym.M-v:   perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 #--------------------8<--------------------#
 ```
+
+p.s. `confirm-paste` URxvt perl lib only existed on Ubuntu 12.04 and 14.04+,
+please remove it from `URxvt.perl-ext-common:` line if you are using other
+Ubuntu version.
