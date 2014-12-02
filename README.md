@@ -9,6 +9,13 @@ dotfiles in my home directory on Ubuntu.
 My bash aliases, functions, environment variables,
 and tab auto-completions sourcing.
 
+Requirement:
+
+1.  Bash-compatible tab auto-completion source files.
+    * [git](https://github.com/git/git)
+    * [Android git-repo](https://github.com/aartamonau/repo.bash_completion) (repo)
+    * [Android tools](https://github.com/mbrubeck/android-completion) (adb, fastboot, etc.)
+    * [crosstool-NG](http://crosstool-ng.org/git/crosstool-ng/)
 
 .curlrc
 -------
