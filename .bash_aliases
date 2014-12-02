@@ -63,7 +63,7 @@ export PATH="${JAVA_HOME}/bin:${JRE_HOME}/bin:${PATH}"
 ### Program settings
 ## Default text editor for: crontab, git
 export EDITOR="vim"
-## CCache
+## Ccache
 export CCACHE_MAX_SIZE="30G"
 export CCACHE_DIR="${HOME}/.ccache"
 ## Minicom: linewrap, colorful
@@ -88,7 +88,7 @@ up() {
     echo "usage: up N"
   fi
 }
-## CCache
+## Ccache toggle for Android codebase
 # Disable ccache
 ccache_disable() {
   unset USE_CCACHE
