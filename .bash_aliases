@@ -89,6 +89,14 @@ up() {
     echo "usage: up N"
   fi
 }
+## Clear memory cache
+# https://www.kernel.org/doc/Documentation/sysctl/vm.txt
+clear_cache() {
+  # Mark more objects as clean objects to minimize the number of dirty objects
+  sync
+  # Free pagecache and reclaimable slab objects (includes dentries and inodes)
+  sudo sysctl -w vm.drop_caches=3
+}
 ## Ccache toggle for Android codebase
 # Disable ccache
 ccache_disable() {
