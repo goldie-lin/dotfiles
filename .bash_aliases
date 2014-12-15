@@ -32,7 +32,7 @@ source "${HOME}/opt/android-completion/android"
 source "${HOME}/opt/crosstool-ng/src/ct-ng.comp"
 
 ### Colorful man page
-export PAGER="$(which less) -s"
+export PAGER="$(which less) -s -R"
 export BROWSER="${PAGER}"
 export LESS_TERMCAP_mb=$'\e[0;34m'
 export LESS_TERMCAP_md=$'\e[0;34m'
