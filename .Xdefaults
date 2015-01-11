@@ -83,7 +83,7 @@ URxvt.background:   #000000
 URxvt.foreground:   #AAAAAA
 URxvt.colorBD:      #FFFF00
 URxvt.colorIT:      #FF00FF
-URxvt.colorUL:      Blue3
+URxvt.colorUL:      #3465A4
 URxvt.cursorColor:  #EE8888
 URxvt.cursorColor2: Gray25
 
