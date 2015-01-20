@@ -55,11 +55,6 @@ export LESS_TERMCAP_us=$'\e[0;33m'
 export PATH="${HOME}/opt/crosstool-ng/bin/bin:${PATH}"
 ## My private bin
 export PATH="${HOME}/bin:${PATH}"
-## Manually installed Sun Java JDK
-export JAVA_HOME="${HOME}/opt/java/jdk"
-export JRE_HOME="${JAVA_HOME}/jre"
-export CLASSPATH=".:${CLASSPATH}:${JAVA_HOME}/lib:${JRE_HOME}/lib"
-export PATH="${JAVA_HOME}/bin:${JRE_HOME}/bin:${PATH}"
 
 ### Program settings
 ## Default text editor for: crontab, git
