@@ -22,19 +22,19 @@
 select_no_input_f(){
   # $1  arg
   # $2~ item list
-  local arg=$1
+  local arg="$1"
   local input=
   shift
-  select var in $@ ; do
-    test -n "$var" && echo "$@" | grep -q "$var" && input="$var" && break
+  select var in "$@"; do
+    test -n "${var}" && echo "$@" | grep -q "${var}" && input="${var}" && break
   done
-  eval $arg="$input"
+  eval "${arg}=${input}"
 }
 
 ## Dynamically choose the version of Oracle (Sun) JDK
 jdk_version_list=( 5 6 7 8 )  # TODO: Need update this list for new version JDK
 echo "Which version of Oracle (Sun) JDK would you like to use? [1..${#jdk_version_list[@]}]"
-select_no_input_f "jdk_version" ${jdk_version_list[@]}
+select_no_input_f "jdk_version" "${jdk_version_list[@]}"
 echo "You chose version 'JDK ${jdk_version}'"
 
 ## Export a specific version of Oracle (Sun) JDK to PATH
