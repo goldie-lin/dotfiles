@@ -70,7 +70,7 @@ export XZ_OPT="--x86 --lzma2=preset=9e,dict=128MiB"
 ### Functions
 ## Find the package name of a specific command
 whichpkg() {
-  readlink -f "$(which $1)" | xargs --no-run-if-empty dpkg -S
+  readlink -f "$(which "$1")" | xargs --no-run-if-empty dpkg -S
 }
 ## cd up
 up() {
