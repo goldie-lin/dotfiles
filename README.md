@@ -13,6 +13,7 @@ Requirement:
 
 1.  Bash-compatible tab auto-completion source files.
     * [git](https://github.com/git/git)
+    * [hub](https://github.com/github/hub/releases)
     * [Android git-repo](https://github.com/aartamonau/repo.bash_completion) (repo)
     * [Android tools](https://github.com/mbrubeck/android-completion) (adb, fastboot, etc.)
     * [crosstool-NG](http://crosstool-ng.org/git/crosstool-ng/)
