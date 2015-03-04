@@ -34,14 +34,14 @@ URxvt.cursorBlink: true
 !   `xlsfonts`
 !   `cat /usr/share/fonts/X11/misc/fonts.alias`
 ! Terminus-12 + ArphicUming-8 (no bold fontstyle)
-!URxvt.font:     terminus-12,xft:AR PL UMing TW-8:antialias=false
-!URxvt.boldFont: terminus-bold-12,xft:AR PL UMing TW-8:bold:antialias=false
+!URxvt.font:     terminus-12,      xft:AR PL UMing TW-8:antialias=false
+!URxvt.boldFont: terminus-bold-12, xft:AR PL UMing TW-8:bold:antialias=false
 ! Terminus-14 + ArphicUming-12
-URxvt.font:     terminus-14,xft:AR PL UMing TW-12:antialias=false
-URxvt.boldFont: terminus-bold-14,xft:AR PL UMing TW-12:bold:antialias=false
+URxvt.font:     terminus-14,      xft:AR PL UMing TW-12:antialias=false
+URxvt.boldFont: terminus-bold-14, xft:AR PL UMing TW-12:bold:antialias=false
 ! Terminus-16 + ArphicUming-13
-!URxvt.font:     terminus-16,xft:AR PL UMing TW-13:antialias=false
-!URxvt.boldFont: terminus-bold-16,xft:AR PL UMing TW-13:bold:antialias=false
+!URxvt.font:     terminus-16,      xft:AR PL UMing TW-13:antialias=false
+!URxvt.boldFont: terminus-bold-16, xft:AR PL UMing TW-13:bold:antialias=false
 
 ! Color defines:
 ! Black
