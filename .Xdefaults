@@ -33,24 +33,24 @@ URxvt.cursorBlink: true
 ! List X11 core fonts:
 !   `xlsfonts`
 !   `cat /usr/share/fonts/X11/misc/fonts.alias`
-! Terminus-12 + ArphicUming-8 (no Bold fontstyle)
+! Terminus-12 + ArphicUming-8 (no bold fontstyle)
 !URxvt.font:     terminus-12,xft:AR PL UMing TW-8:antialias=false
-!URxvt.boldFont: terminus-bold-12,xft:AR PL UMing TW-8:Bold:antialias=false
+!URxvt.boldFont: terminus-bold-12,xft:AR PL UMing TW-8:bold:antialias=false
 ! Terminus-14 + ArphicUming-12
 URxvt.font:     terminus-14,xft:AR PL UMing TW-12:antialias=false
-URxvt.boldFont: terminus-bold-14,xft:AR PL UMing TW-12:Bold:antialias=false
+URxvt.boldFont: terminus-bold-14,xft:AR PL UMing TW-12:bold:antialias=false
 ! Terminus-16 + ArphicUming-13
 !URxvt.font:     terminus-16,xft:AR PL UMing TW-13:antialias=false
-!URxvt.boldFont: terminus-bold-16,xft:AR PL UMing TW-13:Bold:antialias=false
-! Terminus-12 + WenQuanYi-10 (no Bold fontstyle & not enough heigh for Chinese)
+!URxvt.boldFont: terminus-bold-16,xft:AR PL UMing TW-13:bold:antialias=false
+! Terminus-12 + WenQuanYi-10 (no bold fontstyle & not enough heigh for Chinese)
 !URxvt.font:     terminus-12,xft:WenQuanYi Bitmap Song-10:antialias=false
-!URxvt.boldFont: terminus-bold-12,xft:WenQuanYi Bitmap Song-10:Bold:antialias=false
+!URxvt.boldFont: terminus-bold-12,xft:WenQuanYi Bitmap Song-10:bold:antialias=false
 ! Terminus-14 + WenQuanYi-10
 !URxvt.font:     terminus-14,xft:WenQuanYi Bitmap Song-10:antialias=false
-!URxvt.boldFont: terminus-bold-14,xft:WenQuanYi Bitmap Song-10:Bold:antialias=false
+!URxvt.boldFont: terminus-bold-14,xft:WenQuanYi Bitmap Song-10:bold:antialias=false
 ! Terminus-16 + WenQuanYi-12
 !URxvt.font:     terminus-16,xft:WenQuanYi Bitmap Song-12:antialias=false
-!URxvt.boldFont: terminus-bold-16,xft:WenQuanYi Bitmap Song-12:Bold:antialias=false
+!URxvt.boldFont: terminus-bold-16,xft:WenQuanYi Bitmap Song-12:bold:antialias=false
 
 ! Color defines:
 ! Black
