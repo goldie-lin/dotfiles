@@ -21,16 +21,17 @@ alias minicom='LC_ALL=C minicom' # English-language
 alias udevmonitor_usb='udevadm monitor --subsystem-match=usb --udev --property'
 
 ### Source Bash-compatible tab auto-completion
-## git
-. "${HOME}/opt/git/contrib/completion/git-completion.bash"
-## hub
-. "${HOME}/opt/hub/etc/hub.bash_completion.sh"
-## repo
-. "${HOME}/opt/repo.bash_completion/repo.bash_completion"
-## Android tools (adb, fastboot, android, emulator)
-. "${HOME}/opt/android-completion/android"
-## crosstool-NG
-. "${HOME}/opt/crosstool-ng/src/ct-ng.comp"
+source_list=( \
+  "${HOME}/opt/git/contrib/completion/git-completion.bash"
+  "${HOME}/opt/hub/etc/hub.bash_completion.sh"
+  "${HOME}/opt/repo.bash_completion/repo.bash_completion"
+  "${HOME}/opt/android-completion/android"
+  "${HOME}/opt/crosstool-ng/src/ct-ng.comp"
+)
+for i in "${source_list[@]}"; do
+  [ -f "$i" ] && . "$i"
+done
+unset i source_list
 
 ### Colorful man page
 export PAGER="$(which less) -s -R"
