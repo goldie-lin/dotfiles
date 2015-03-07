@@ -2,8 +2,8 @@
 
 ### Aliases
 alias ..='up'
-alias cp="${HOME}/bin/cp_g -ig"
-alias mv="${HOME}/bin/mv_g -ig"
+alias cp="cp -i"
+alias mv="mv -i"
 alias rm='rm -i'
 alias du='du -h'
 alias df='df -hT'
