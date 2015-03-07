@@ -14,6 +14,7 @@ alias l='ls -CF'
 alias cgitroot='git rev-parse --is-inside-work-tree >/dev/null && cd "$(git rev-parse --show-toplevel)"'
 alias cleanrepo='repo status; repo branch; read -p "Really? It will git reset hard!"; rm -vf .ccienv_default makeMtk.ini {checkenv,auto_sync_android}.log; rm -rf out; repo forall -c "git reset --hard; git clean -dfx"'
 #alias man='man -S 2:3:1'  # add C function manual
+alias vi="vim"
 alias vimenc="vim -u '${HOME}/.vimrc_encrypt' -x"
 alias vless='/usr/share/vim/vimcurrent/macros/less.sh'
 alias grep='grep --color=auto --exclude-dir=.repo --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.bzr --exclude-dir=.hg --exclude=cscope.files --exclude=cscope.out --exclude=cscope.in.out --exclude=cscope.po.out --exclude=tags'
