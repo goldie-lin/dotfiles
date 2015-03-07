@@ -75,7 +75,7 @@ whichpkg() {
 ## cd up
 up() {
   if [ -z "${1//[0-9]/}" ]; then
-    local P='./'
+    local i='' P='./'
     for (( i=0; i<${1:-1}; i++ )); do
       P="${P}../"
     done
