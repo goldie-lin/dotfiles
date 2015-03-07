@@ -1,4 +1,3 @@
-#!/bin/bash
 # My custom Bash environment
 
 ### Aliases

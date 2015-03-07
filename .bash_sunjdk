@@ -1,4 +1,3 @@
-#!/bin/bash
 # Description:
 #   Manually sourcing for exporting Oracle (Sun) JDK to PATH
 # Usage: (use it only when you need)
