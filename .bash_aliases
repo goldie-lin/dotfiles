@@ -17,7 +17,7 @@ alias cleanrepo='repo status; repo branch; read -p "Really? It will git reset ha
 alias vimenc="vim -u '${HOME}/.vimrc_encrypt' -x"
 alias vless='/usr/share/vim/vimcurrent/macros/less.sh'
 alias grep='grep --color=auto --exclude-dir=.repo --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.bzr --exclude-dir=.hg --exclude=cscope.files --exclude=cscope.out --exclude=cscope.in.out --exclude=cscope.po.out --exclude=tags'
-alias minicom='LC_ALL=C minicom' # English-language
+alias minicom='LC_ALL=C minicom -w -c on' # English-language, linewrap, colorful
 alias udevmonitor_usb='udevadm monitor --subsystem-match=usb --udev --property'
 
 ### Source Bash-compatible tab auto-completion
@@ -64,8 +64,6 @@ export EDITOR="vim"
 ## Ccache
 export CCACHE_MAX_SIZE="30G"
 export CCACHE_DIR="${HOME}/.ccache"
-## Minicom: linewrap, colorful
-export MINICOM="-w -c on"
 ## XZ (also affect "tar -J")
 export XZ_OPT="--x86 --lzma2=preset=9e,dict=128MiB"
 
