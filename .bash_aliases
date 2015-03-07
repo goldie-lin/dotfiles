@@ -22,15 +22,15 @@ alias udevmonitor_usb='udevadm monitor --subsystem-match=usb --udev --property'
 
 ### Source Bash-compatible tab auto-completion
 ## git
-source "${HOME}/opt/git/contrib/completion/git-completion.bash"
+. "${HOME}/opt/git/contrib/completion/git-completion.bash"
 ## hub
-source "${HOME}/opt/hub/etc/hub.bash_completion.sh"
+. "${HOME}/opt/hub/etc/hub.bash_completion.sh"
 ## repo
-source "${HOME}/opt/repo.bash_completion/repo.bash_completion"
+. "${HOME}/opt/repo.bash_completion/repo.bash_completion"
 ## Android tools (adb, fastboot, android, emulator)
-source "${HOME}/opt/android-completion/android"
+. "${HOME}/opt/android-completion/android"
 ## crosstool-NG
-source "${HOME}/opt/crosstool-ng/src/ct-ng.comp"
+. "${HOME}/opt/crosstool-ng/src/ct-ng.comp"
 
 ### Colorful man page
 export PAGER="$(which less) -s -R"
