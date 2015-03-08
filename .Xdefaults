@@ -18,7 +18,7 @@ URxvt.scrollstyle:        next
 !URxvt.scrollBar_right:    true
 !URxvt.scrollBar_floating: false
 !URxvt.scrollBar_align:    centre
-URxvt.scrollTtyOutput:   true
+URxvt.scrollTtyOutput:   false
 URxvt.scrollWithBuffer:  true
 URxvt.scrollTtyKeypress: false
 URxvt.saveLines:         1000
