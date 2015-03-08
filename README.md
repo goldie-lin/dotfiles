@@ -18,6 +18,14 @@ Requirement:
     * [Android tools](https://github.com/mbrubeck/android-completion) (adb, fastboot, etc.)
     * [crosstool-NG](http://crosstool-ng.org/git/crosstool-ng/)
 
+2.  Need a symlink for alias `vless`.
+
+```bash
+cd /usr/share/vim/
+sudo ln -s vim74 vimcurrent
+```
+
+
 .bash_sunjdk
 ------------
 Manually sourcing for exporting Oracle (Sun) JDK to `$PATH`.
