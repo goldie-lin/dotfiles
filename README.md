@@ -18,6 +18,36 @@ Requirement:
     * [Android tools](https://github.com/mbrubeck/android-completion) (adb, fastboot, etc.)
     * [crosstool-NG](http://crosstool-ng.org/git/crosstool-ng/)
 
+.bash_sunjdk
+------------
+Manually sourcing for exporting Oracle (Sun) JDK to `$PATH`.
+
+Usage: (use it only when you need)
+
+```bash
+. ~/.bash_sunjdk
+```
+
+Requirements:
+
+* Create several symlinks linked to full version number, e.g.,
+
+```bash
+$ cd ~/opt/java/
+$ ll
+[...]
+jdk-5 -> jdk-5u22-x64/
+jdk-5u22-x64/
+jdk-6 -> jdk-6u45-x64/
+jdk-6u45-x64/
+jdk-7 -> jdk-7u72-x64/
+jdk-7u72-x64/
+jdk-8 -> jdk-8u25-x64/
+jdk-8u25-x64/
+[...]
+```
+
+
 .curlrc
 -------
 Proxy setting for curl tool.
