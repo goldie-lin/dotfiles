@@ -77,9 +77,41 @@ export CCACHE_DIR="${HOME}/.ccache"
 export XZ_OPT="--x86 --lzma2=preset=9e,dict=128MiB"
 
 ### Functions
+## Get Linux distro name. (Beta, potentially unstable!)
+_get_linux_distro_name() {
+  local -r _os="$(uname -s)"
+
+  if [ "${_os}" = "Linux" ]; then
+    if [ -f /etc/lsb-release ]; then
+      # TODO: Should we trust the lsb_release command?
+      lsb_release -s -i
+    elif [ -f /etc/arch-release ]; then
+      echo "Arch"
+    elif [ -f /etc/debian_version ]; then
+      echo "Debian"
+    elif [ -f /etc/redhat-release ]; then
+      echo "RedHat"
+    elif [ -f /etc/SuSE-release ]; then
+      echo "SuSE"
+    else
+      echo "Unknown"
+    fi
+  else
+    echo "NonLinux"
+  fi
+}
 ## Find the package name of a specific command
 whichpkg() {
-  readlink -f "$(which "$1")" | xargs --no-run-if-empty dpkg -S
+  local -r _distro="$(_get_linux_distro_name)"
+
+  case "${_distro}" in
+  "Arch")
+    readlink -f "$(which "$1")" | xargs --no-run-if-empty pacman -Qo ;;
+  "Ubuntu")
+    readlink -f "$(which "$1")" | xargs --no-run-if-empty dpkg -S ;;
+  *)
+    echo >&2 "Error: Unsupported distro: '${_distro}'!" ;;
+  esac
 }
 ## cd up
 up() {
