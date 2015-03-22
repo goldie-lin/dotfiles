@@ -55,11 +55,17 @@ export LESS_TERMCAP_us=$'\e[0;33m'
 #export all_proxy="${http_proxy}"
 #export rsync_proxy="${http_proxy}"
 
-### Export PATH
-## crosstool-NG
-export PATH="${HOME}/opt/crosstool-ng/bin/bin:${PATH}"
-## My private bin
-export PATH="${HOME}/bin:${PATH}"
+### Add more PATHs
+prepend_path_list=( \
+  "${HOME}/bin"
+  "${HOME}/opt/crosstool-ng/bin/bin"
+)
+for i in "${prepend_path_list[@]}"; do
+  if [[ "${UID}" -ge 1000 && -d "$i" ]] && ! grep -q "$i" <<< "${PATH}"; then
+    export PATH="$i:$PATH"
+  fi
+done
+unset i prepend_path_list
 
 ### Program settings
 ## Default text editor for: crontab, git
