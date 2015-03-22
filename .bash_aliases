@@ -20,6 +20,7 @@ alias vless='/usr/share/vim/vimcurrent/macros/less.sh'
 alias grep='grep --color=auto --exclude-dir=.repo --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.bzr --exclude-dir=.hg --exclude=cscope.files --exclude=cscope.out --exclude=cscope.in.out --exclude=cscope.po.out --exclude=tags'
 alias minicom='LC_ALL=C minicom -w -c on' # English-language, linewrap, colorful
 alias udev_monitor_usb='udevadm monitor --subsystem-match=usb --udev --property'
+alias udev_reload_rules='sudo udevadm control --reload'  # Trigger systemd-udevd to reload rules files and databases
 
 ### Source Bash-compatible tab auto-completion
 source_list=( \
