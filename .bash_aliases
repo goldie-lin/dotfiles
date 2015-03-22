@@ -30,11 +30,41 @@ source_list=( \
   "${HOME}/opt/repo.bash_completion/repo.bash_completion"
   "${HOME}/opt/android-completion/android"
   "${HOME}/opt/crosstool-ng/src/ct-ng.comp"
+  "${HOME}/opt/git/contrib/completion/git-prompt.sh"
 )
 for i in "${source_list[@]}"; do
   [ -f "$i" ] && . "$i"
 done
 unset i source_list
+
+__set_prompt() {
+  local -r last_cmd_rc="$?"  # Must come first!
+  local -r fancyX='×'     # or: '\342\234\227'
+  local -r checkmark='v'  # or: '\342\234\223'
+  local prompt_pre=""
+  local prompt_post=""
+
+  if [[ "${last_cmd_rc}" -eq 0 ]]; then
+    prompt_pre='\[\e[0m\][\[\e[1;34m\]'"$(date +%m-%d,%H:%M:%S)"'\[\e[0m\]][\[\e[1;32m\]'"${checkmark}"'\[\e[0m\]] \[\e[1;32m\]\u\[\e[1;33m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]'
+    prompt_post='\$ '
+  else
+    prompt_pre='\[\e[0m\][\[\e[1;34m\]'"$(date +%m-%d,%H:%M:%S)"'\[\e[0m\]][\[\e[1;31m\]'"${fancyX}"'\[\e[0m\]] \[\e[1;32m\]\u\[\e[1;33m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]'
+    prompt_post=' (\[\e[1;33;41m\]'"${last_cmd_rc}"'\[\e[0m\])\$ '
+  fi
+
+  if hash __git_ps1 2>/dev/null; then
+    export GIT_PS1_SHOWDIRTYSTATE=1        # *#
+    export GIT_PS1_SHOWUNTRACKEDFILES=1    # %
+    export GIT_PS1_SHOWSTASHSTATE=1        # $
+    export GIT_PS1_SHOWCOLORHINTS=1
+    export GIT_PS1_DESCRIBE_STYLE="branch"
+    export GIT_PS1_SHOWUPSTREAM="auto git"
+    __git_ps1 "${prompt_pre}" "${prompt_post}"
+  else
+    PS1="${prompt_pre}${prompt_post}"
+  fi
+}
+PROMPT_COMMAND='__set_prompt'
 
 ### Colorful man page
 export PAGER="$(which less) -s -R"
