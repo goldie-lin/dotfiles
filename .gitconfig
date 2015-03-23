@@ -31,15 +31,5 @@
 	who = shortlog -n -s --no-merges
 	last = log -1 HEAD
 	hist = log --graph --pretty=format:'%Cred%h%Creset <%Cgreen%ai%Creset> %C(bold blue)[%an]%Creset %s%C(yellow)%d%Creset'
-[sendemail]
-	smtpencryption = tls
-	smtpserver = 
-	smtpserverport = 587
-	smtpuser = goldie_lin@compal.com
-[user]
-	name = Goldie Lin
-	email = goldie.lin@gmail.com
-[github]
-	user = goldie-lin
-[http]
-	#proxy = http://127.0.0.1:3128/
+[include]
+	path = ~/.gitconfig2

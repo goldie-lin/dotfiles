@@ -1,0 +1,16 @@
+[http]
+	#proxy = http://127.0.0.1:3128/
+[sendemail]
+	smtpencryption = tls
+	smtpserver = 
+	smtpserverport = 587
+	smtpuser = goldie.lin@gmail.com
+[github]
+	user = goldie-lin
+[user]
+	name = Goldie Lin
+	email = goldie.lin@gmail.com
+[commit]
+	#template = ~/.gittemplate
+[review "URL"]
+	#autoreviewer = reviewer@company.com
