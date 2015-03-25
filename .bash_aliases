@@ -13,7 +13,7 @@ alias ll='ls -alF --time-style="+%Y-%m-%d_%H-%M-%S"'
 alias la='ls -AF'
 alias l='ls -CF'
 alias cgitroot='git rev-parse --is-inside-work-tree >/dev/null && cd "$(git rev-parse --show-toplevel)"'
-alias cleanrepo='repo status -o; repo branch; read -p "Really? It will git reset hard!"; rm -vf .ccienv_default makeMtk.ini {checkenv,auto_sync_android}.log; rm -rf out; repo forall -c "git clean -dfx; git reset --hard"'
+alias repo_clean='repo status -o; repo branch; read -p "Really? It will git reset hard!"; rm -vf .ccienv_default makeMtk.ini {checkenv,auto_sync_android}.log; rm -rf out; repo forall -c "git clean -dfx; git reset --hard"'
 #alias man='man -S 2:3:1'  # add C function manual
 alias vi="vim"
 alias vimenc="vim -u ~/.vimrc_encrypt -x"
