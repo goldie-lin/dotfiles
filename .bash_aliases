@@ -69,7 +69,8 @@ __set_prompt() {
 PROMPT_COMMAND='__set_prompt'
 
 ### Colorful man page
-export PAGER="$(which less) -s -R"
+PAGER="$(which less) -s -R"
+export PAGER
 export BROWSER="${PAGER}"
 export LESS_TERMCAP_mb=$'\e[0;34m'
 export LESS_TERMCAP_md=$'\e[0;34m'
