@@ -32,6 +32,7 @@ select_no_input_f(){
 }
 
 ## Dynamically choose the version of Oracle (Sun) JDK
+jdk_version=""
 jdk_version_list=( 5 6 7 8 )  # TODO: Need to update this list if there is a new version of JDK
 echo "Which version of Oracle (Sun) JDK would you like to use? [1..${#jdk_version_list[@]}]"
 select_no_input_f "jdk_version" "${jdk_version_list[@]}"
