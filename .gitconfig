@@ -17,6 +17,8 @@
 	default = matching
 [pack]
 	threads = 0
+[branch]
+	autosetuprebase = remote
 [alias]
 	st = status
 	br = branch
