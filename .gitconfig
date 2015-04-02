@@ -21,6 +21,7 @@
 	autosetuprebase = remote
 [alias]
 	st = status
+	sti = status --ignored
 	br = branch
 	co = checkout
 	ci = commit
