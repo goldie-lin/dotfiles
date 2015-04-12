@@ -9,7 +9,7 @@ dotfiles in my home directory on Ubuntu.
 My bash aliases, functions, environment variables,
 and tab auto-completions sourcing.
 
-Requirement:
+Requirements:
 
 1.  Bash-compatible tab auto-completion source files.
     * [git](https://github.com/git/git)
