@@ -1,0 +1,20 @@
+# (Exuberant) Ctags files
+tags
+TAGS
+
+# Cscope files
+cscope.*
+ncscope.*
+
+# GNU GLOBAL files
+GPATH
+GRTAGS
+GSYMS
+GTAGS
+
+# backup files
+*.orig
+*~
+
+# tmp files
+*.swp
