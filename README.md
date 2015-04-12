@@ -76,6 +76,21 @@ Required packages:
     `sudo apt-get install vim`
 
 
+.git_ignore
+-----------
+
+My personal global `.gitignore` file.
+
+Requirements:
+
+* Create a symlinks `~/.config/git/ignore`.
+
+```bash
+mkdir ~/.config/git
+ln -s /PATH/TO/dotfiles/.git_ignore ~/.config/git/ignore
+```
+
+
 .Xdefaults
 ----------
 My preferred URxvt (rxvt-unicode) settings, included font, font-size, color
