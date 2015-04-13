@@ -108,6 +108,9 @@ export CCACHE_MAX_SIZE="30G"
 export CCACHE_DIR="${HOME}/.ccache"
 ## XZ (also affect "tar -J")
 export XZ_OPT="--x86 --lzma2=preset=9e,dict=128MiB"
+## Android build environment
+ANDROID_BUILD_SHELL="$(which bash)"
+export ANDROID_BUILD_SHELL
 
 ### Functions
 ## Get Linux distro name. (Beta, potentially unstable!)
