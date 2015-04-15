@@ -5,7 +5,9 @@
 
 # (Exuberant) Ctags files
 tags
+!tags/
 TAGS
+!TAGS/
 
 # Cscope files
 cscope.*
