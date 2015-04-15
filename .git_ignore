@@ -23,5 +23,10 @@ GTAGS
 *.orig
 *~
 
-# tmp files
-*.swp
+# vim tmp files
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
