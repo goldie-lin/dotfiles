@@ -1,3 +1,8 @@
+#
+# References:
+# * https://github.com/github/gitignore
+#
+
 # (Exuberant) Ctags files
 tags
 TAGS
