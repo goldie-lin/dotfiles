@@ -103,6 +103,8 @@ unset i prepend_path_list
 ### Program settings
 ## Default text editor for: crontab, git
 export EDITOR="vim"
+## Default web browser for: gozilla (gnu global)
+export BROWSER="firefox"
 ## Ccache
 export CCACHE_MAX_SIZE="30G"
 export CCACHE_DIR="${HOME}/.ccache"
