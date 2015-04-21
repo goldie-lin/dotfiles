@@ -126,27 +126,19 @@ To apply the change:
 xrdb -merge ~/.Xdefaults
 ```
 
-Add external URxvt perl libs (extensions):  
-e.g., [Bert Münnich's Perl extensions for URxvt](https://github.com/muennich/urxvt-perls).
+Create a directory for URxvt perl libs look-up path:
 
 ```bash
+mkdir -p ~/.urxvt/ext
+```
+
+Add the [Bert Münnich's URxvt perl libs](https://github.com/muennich/urxvt-perls). (optional)
+
+```bash
+mkdir ~/opt && cd $_
 git clone https://github.com/muennich/urxvt-perls.git
-
-# Make a directory for placing custom urxvt perl libs:
-mkdir ~/.urxvt
-cd ~/.urxvt
-ln -s /PATH/TO/urxvt-perls/{clipboard,keyboard-select,url-select} .
-
-# Modify the .Xdefaults of urxvt:
-vi ~/.Xdefaults
-#--------------------8<--------------------#
-URxvt.perl-lib:        /home/goldie/.urxvt
-URxvt.perl-ext-common: default,matcher,tabbed,clipboard,selection-autotransform
-! Clipboard: (M=Alt, C=Ctrl, S=Shift)
-URxvt.keysym.M-c:   perl:clipboard:copy
-URxvt.keysym.M-v:   perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-#--------------------8<--------------------#
+cd ~/.urxvt/ext
+ln -s ../../opt/urxvt-perls/{clipboard,keyboard-select,url-select} .
 ```
 
 p.s. `confirm-paste` URxvt perl lib only existed on Ubuntu 12.04 and 14.04+,
