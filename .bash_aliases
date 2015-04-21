@@ -33,6 +33,7 @@ source_list=( \
   "${HOME}/opt/android-completion/android"
   "${HOME}/opt/crosstool-ng/src/ct-ng.comp"
   "${HOME}/opt/git/contrib/completion/git-prompt.sh"
+  "/usr/share/doc/tmux/examples/bash_completion_tmux.sh"
 )
 for i in "${source_list[@]}"; do
   [ -f "$i" ] && . "$i"
