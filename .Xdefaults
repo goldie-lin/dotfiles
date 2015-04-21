@@ -102,7 +102,7 @@ URxvt.selection.pattern-0: ([^:$#[:space:]]+)
 URxvt.selection.pattern-1: (^[^:[:space:]]+:\\d+:)
 !URxvt.selection.pattern-2: ([^&()*,;<=>?@[\\\\]^`{|})]+)
 ! Set URL open by urlLauncher via left mouse button (1), or middle mouse button (2):
-URxvt.urlLauncher:    x-www-browser
+URxvt.urlLauncher:    firefox
 URxvt.matcher.button: 2
 ! tabbed:
 URxvt.tabbed.tabbar-fg: 8
