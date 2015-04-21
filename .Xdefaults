@@ -96,18 +96,16 @@ URxvt.cursorColor2: Gray25
 !   Shift + Left/Right : Switch between tabs.
 !   Ctrl  + Left/Right : Move tab to left/right.
 !   Ctrl  + D          : Close tab.
-! clipboard:
-!   Auto copy selection to or paste from clipboard.
 URxvt.perl-lib:        /home/goldie/.urxvt
 URxvt.perl-ext-common: default,matcher,tabbed,clipboard,selection-autotransform,confirm-paste
-! Selection patterns:
+! selection:
 URxvt.selection.pattern-0: ([^:$#[:space:]]+)
 URxvt.selection.pattern-1: (^[^:[:space:]]+:\\d+:)
 !URxvt.selection.pattern-2: ([^&()*,;<=>?@[\\\\]^`{|})]+)
-! Set URL open by urlLauncher via left mouse button (1), middle mouse button (2):
+! Set URL open by urlLauncher via left mouse button (1), or middle mouse button (2):
 URxvt.urlLauncher:    x-www-browser
 URxvt.matcher.button: 2
-! Tab color settings:
+! tabbed:
 URxvt.tabbed.tabbar-fg: 8
 URxvt.tabbed.tabbar-bg: 7
 URxvt.tabbed.tab-fg:    15
@@ -116,6 +114,6 @@ URxvt.tabbed.tab-bg:    12
 URxvt.keysym.M-c:   perl:clipboard:copy
 URxvt.keysym.M-v:   perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-! Selection autotransforms:
+! selection-autotransform:
 URxvt.selection-autotransform.0: s/^([^:[:space:]]+):(\\d+):?$/vi +$2 \\Q$1\\E\\x0d/
 URxvt.selection-autotransform.1: s/^([^:[:space:]]+):(\\d+):?$/:e \\Q$1\\E\\x0d:$2\\x0d/
