@@ -85,28 +85,10 @@ URxvt.cursorColor2: Gray25
 ! Avoid using shading if you have tintColor set.
 !URxvt.tintColor:   Blue3
 
-! Enable default/matcher/tabbed/clipboard urxvt perl extensions.
-! default:
-!   selection:
-!     Double click and further clicks.
-!   option-popup (Options menu):
-!     Ctrl + Middle mouse button.
-!   selection-popup (Convert Selection menu):
-!     Ctrl + Right mouse button.
-!   searchable-scrollback:
-!     Alt + S: Regex search the scrollback buffer.
-!     in search mode, normal terminal I/O is suspended
-!     and a regex is displayed at the bottom of the screen.
-!       Backspace : Remove a character from the regex.
-!       Up/Down   : Search upwards/downwards in the scrollback buffer.
-!       End       : Jump to the bottom.
-!       Escape    : Leave search mode and return to the
-!                   point where the search was started.
-!       Enter     : stay at the current position.
-!       and additionally store the first match in current line into
-!       the primary selection if the 'Shift' modifier is active.
-!   readline:
-!     React to clicking shift-left mouse button.
+! List what urxvt perl extensions enabled by default:
+!   `man urxvt-extensions | grep 'enabled by default'`
+
+! Enable and config urxvt perl extensions.
 ! matcher:
 !   Clickable URLs.
 ! tabbed:
