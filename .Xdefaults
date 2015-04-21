@@ -96,7 +96,7 @@ URxvt.cursorColor2: Gray25
 !   Shift + Left/Right : Switch between tabs.
 !   Ctrl  + Left/Right : Move tab to left/right.
 !   Ctrl  + D          : Close tab.
-URxvt.perl-ext-common: default,matcher,tabbed,selection-autotransform,keyboard-select
+URxvt.perl-ext-common: default,matcher,tabbed,selection-autotransform,keyboard-select,url-select
 ! selection:
 URxvt.selection.pattern-0: ([^:$#[:space:]]+)
 URxvt.selection.pattern-1: (^[^:[:space:]]+:\\d+:)
@@ -115,3 +115,8 @@ URxvt.selection-autotransform.1: s/^([^:[:space:]]+):(\\d+):?$/:e \\Q$1\\E\\x0d:
 ! keyboard-select:
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-s:      perl:keyboard-select:search
+! url-select:
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.autocopy:  true
+URvxt.url-select.button:    2
+URxvt.url-select.launcher:  firefox
