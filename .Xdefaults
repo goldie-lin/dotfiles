@@ -96,7 +96,7 @@ URxvt.cursorColor2: Gray25
 !   Shift + Left/Right : Switch between tabs.
 !   Ctrl  + Left/Right : Move tab to left/right.
 !   Ctrl  + D          : Close tab.
-URxvt.perl-ext-common: default,matcher,tabbed,clipboard,selection-autotransform,confirm-paste
+URxvt.perl-ext-common: default,matcher,tabbed,clipboard,selection-autotransform
 ! selection:
 URxvt.selection.pattern-0: ([^:$#[:space:]]+)
 URxvt.selection.pattern-1: (^[^:[:space:]]+:\\d+:)
