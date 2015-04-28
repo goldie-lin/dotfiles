@@ -5,6 +5,7 @@
 [diff]
 	tool = vimdiff3
 	renamelimit = 0
+	algorithm = histogram
 [merge]
 	tool = vimdiff
 [pager]
