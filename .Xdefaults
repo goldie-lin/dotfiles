@@ -33,15 +33,15 @@ URxvt.cursorBlink: true
 ! List X11 core fonts:
 !   `xlsfonts`
 !   `cat /usr/share/fonts/X11/misc/fonts.alias`
-! Terminus-12 + ArphicUming-8 (no bold fontstyle)
-!URxvt.font:     -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*, xft:AR PL UMing TW:size=8:antialias=false:hinting=false:autohint=false
-!URxvt.boldFont: -*-terminus-bold-r-*-*-12-*-*-*-*-*-*-*,   xft:AR PL UMing TW:size=8:antialias=false:hinting=false:autohint=false:bold
-! Terminus-14 + ArphicUming-12
-URxvt.font:     -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*, xft:AR PL UMing TW:size=12:antialias=false:hinting=false:autohint=false
-URxvt.boldFont: -*-terminus-bold-r-*-*-14-*-*-*-*-*-*-*,   xft:AR PL UMing TW:size=12:antialias=false:hinting=false:autohint=false:bold
-! Terminus-16 + ArphicUming-13
-!URxvt.font:     -*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*, xft:AR PL UMing TW:size=13:antialias=false:hinting=false:autohint=false
-!URxvt.boldFont: -*-terminus-bold-r-*-*-16-*-*-*-*-*-*-*,   xft:AR PL UMing TW:size=13:antialias=false:hinting=false:autohint=false:bold
+! Terminus + ArphicUMing (12px) (no bold fontstyle)
+!URxvt.font:     -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*, xft:AR PL UMing TW:pixelsize=12:antialias=false:hinting=false:autohint=false
+!URxvt.boldFont: -*-terminus-bold-r-*-*-12-*-*-*-*-*-*-*,   xft:AR PL UMing TW:pixelsize=12:antialias=false:hinting=false:autohint=false:bold
+! Terminus + ArphicUMing (14px)
+URxvt.font:     -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*, xft:AR PL UMing TW:pixelsize=14:antialias=false:hinting=false:autohint=false
+URxvt.boldFont: -*-terminus-bold-r-*-*-14-*-*-*-*-*-*-*,   xft:AR PL UMing TW:pixelsize=14:antialias=false:hinting=false:autohint=false:bold
+! Terminus + ArphicUMing (16px)
+!URxvt.font:     -*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*, xft:AR PL UMing TW:pixelsize=16:antialias=false:hinting=false:autohint=false
+!URxvt.boldFont: -*-terminus-bold-r-*-*-16-*-*-*-*-*-*-*,   xft:AR PL UMing TW:pixelsize=16:antialias=false:hinting=false:autohint=false:bold
 
 ! Color defines:
 ! Black
