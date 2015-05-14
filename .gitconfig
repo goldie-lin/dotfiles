@@ -9,10 +9,10 @@
 [merge]
 	tool = vimdiff
 [pager]
-	log = diff-highlight | less
-	show = diff-highlight | less
-	diff = diff-highlight | less
-	status = diff-highlight | less
+	log = diff-highlight | less -i
+	show = diff-highlight | less -i
+	diff = diff-highlight | less -i
+	status = diff-highlight | less -i
 [grep]
 	lineNumber = true
 [push]
