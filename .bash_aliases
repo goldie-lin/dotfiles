@@ -179,12 +179,12 @@ ccache_disable() {
 ccache_enable() {
   export USE_CCACHE="1"
   if [[ -d ".repo" ]]; then
-    if [ -f ./prebuilt/linux-x86/ccache/ccache ]; then
+    if [[ -f ./prebuilt/linux-x86/ccache/ccache ]]; then
       ./prebuilt/linux-x86/ccache/ccache -M "${CCACHE_MAX_SIZE}"
-    elif [ -f ./prebuilts/misc/linux-x86/ccache/ccache ]; then
+    elif [[ -f ./prebuilts/misc/linux-x86/ccache/ccache ]]; then
       ./prebuilts/misc/linux-x86/ccache/ccache -M "${CCACHE_MAX_SIZE}"
     else
-      echo "Prebuilt ccache binary not found!" >&2
+      echo >&2 "Android prebuilt ccache binary not found!"
     fi
   else
     echo >&2 "Error: Please cd to Android root and run again."
@@ -193,12 +193,12 @@ ccache_enable() {
 # Clear ccache cache directory
 ccache_clearcache() {
   if [[ -d ".repo" ]]; then
-    if [ -f ./prebuilt/linux-x86/ccache/ccache ]; then
+    if [[ -f ./prebuilt/linux-x86/ccache/ccache ]]; then
       ./prebuilt/linux-x86/ccache/ccache -C
-    elif [ -f ./prebuilts/misc/linux-x86/ccache/ccache ]; then
+    elif [[ -f ./prebuilts/misc/linux-x86/ccache/ccache ]]; then
       ./prebuilts/misc/linux-x86/ccache/ccache -C
     else
-      echo "Prebuilt ccache binary not found!" >&2
+      echo >&2 "Android prebuilt ccache binary not found!"
     fi
   else
     echo >&2 "Error: Please cd to Android root and run again."
