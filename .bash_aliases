@@ -178,7 +178,7 @@ ccache_disable() {
 # Enable ccache
 ccache_enable() {
   export USE_CCACHE="1"
-  if [ -f Makefile ]; then
+  if [[ -d ".repo" ]]; then
     if [ -f ./prebuilt/linux-x86/ccache/ccache ]; then
       ./prebuilt/linux-x86/ccache/ccache -M "${CCACHE_MAX_SIZE}"
     elif [ -f ./prebuilts/misc/linux-x86/ccache/ccache ]; then
@@ -187,12 +187,12 @@ ccache_enable() {
       echo "Prebuilt ccache binary not found!" >&2
     fi
   else
-    echo "Makefile not found! (Please execute in Android root directory)" >&2
+    echo >&2 "Error: Please cd to Android root and run again."
   fi
 }
 # Clear ccache cache directory
 ccache_clearcache() {
-  if [ -f Makefile ]; then
+  if [[ -d ".repo" ]]; then
     if [ -f ./prebuilt/linux-x86/ccache/ccache ]; then
       ./prebuilt/linux-x86/ccache/ccache -C
     elif [ -f ./prebuilts/misc/linux-x86/ccache/ccache ]; then
@@ -201,7 +201,7 @@ ccache_clearcache() {
       echo "Prebuilt ccache binary not found!" >&2
     fi
   else
-    echo "Makefile not found! (Please execute in Android root directory)" >&2
+    echo >&2 "Error: Please cd to Android root and run again."
   fi
 }
 ## GCC downgrade
