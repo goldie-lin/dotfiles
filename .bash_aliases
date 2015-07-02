@@ -33,6 +33,7 @@ source_list=( \
   "${HOME}/opt/android-completion/android"
   "${HOME}/opt/crosstool-ng/src/ct-ng.comp"
   "${HOME}/opt/git/contrib/completion/git-prompt.sh"
+  "${HOME}/opt/tmuxinator/completion/tmuxinator.bash"
   "/usr/share/doc/tmux/examples/bash_completion_tmux.sh"
 )
 for i in "${source_list[@]}"; do
@@ -90,6 +91,7 @@ export LESS_TERMCAP_us=$'\e[0;33m'
 prepend_path_list=( \
   "${HOME}/bin"
   "${HOME}/opt/crosstool-ng/bin/bin"
+  "${HOME}/opt/tmuxinator/bin"
 )
 for i in "${prepend_path_list[@]}"; do
   if [[ "${UID}" -ge 1000 && -d "$i" ]] && ! grep -q "$i" <<< "${PATH}"; then
