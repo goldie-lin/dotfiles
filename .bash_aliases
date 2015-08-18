@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
-# My custom Bash environment
+#
+# ~/.bash_aliases
+#
 
-### Aliases
+# aliases
 alias ..='up'
 alias cp="cp -i"
 alias mv="mv -i"
@@ -25,7 +27,7 @@ alias udev_monitor_usb='udevadm monitor --subsystem-match=usb --udev --property'
 alias udev_reload_rules='sudo udevadm control --reload'  # Trigger systemd-udevd to reload rules files and databases
 alias sudo='sudo '  # Last blank character will make bash to check for alias expansion in the next command following this alias
 
-### Source Bash-compatible tab auto-completion
+# bash-completion
 source_list=( \
   "${HOME}/opt/git/contrib/completion/git-completion.bash"
   "${HOME}/opt/hub/etc/hub.bash_completion.sh"
@@ -41,6 +43,7 @@ for i in "${source_list[@]}"; do
 done
 unset i source_list
 
+# prompt
 __set_prompt() {
   local -r last_cmd_rc="$?"  # Must come first!
   local prompt_pre=""
@@ -67,7 +70,7 @@ __set_prompt() {
 }
 PROMPT_COMMAND='__set_prompt'
 
-### Colorful man page
+# colorful man page
 PAGER="$(which less) -s -R -i"
 export PAGER
 export BROWSER="${PAGER}"
@@ -87,7 +90,7 @@ export LESS_TERMCAP_us=$'\e[0;33m'
 #export all_proxy="${http_proxy}"
 #export rsync_proxy="${http_proxy}"
 
-### Add more PATHs
+# add PATH
 prepend_path_list=( \
   "${HOME}/bin"
   "${HOME}/opt/crosstool-ng/bin/bin"
@@ -100,22 +103,26 @@ for i in "${prepend_path_list[@]}"; do
 done
 unset i prepend_path_list
 
-### Program settings
-## Default text editor for: crontab, git
+# env vars
+# --------
+
+# default text editor for: crontab, git.
 export EDITOR="vim"
-## Default web browser for: gozilla (gnu global)
+# default web browser for: gozilla (gnu global).
 export BROWSER="firefox"
-## Ccache
+# ccache
 export CCACHE_MAX_SIZE="30G"
 export CCACHE_DIR="${HOME}/.ccache"
-## XZ (also affect "tar -J")
+# xz, also affect "tar -J"
 export XZ_OPT="--x86 --lzma2=preset=9e,dict=128MiB"
-## Android build environment
+# Android build env
 ANDROID_BUILD_SHELL="$(which bash)"
 export ANDROID_BUILD_SHELL
 
-### Functions
-## Get Linux distro name. (Beta, potentially unstable!)
+# functions
+# ---------
+
+# get Linux distro name. (beta, potentially unstable!)
 _get_linux_distro_name() {
   local -r _os="$(uname -s)"
 
@@ -138,7 +145,7 @@ _get_linux_distro_name() {
     echo "NonLinux"
   fi
 }
-## Find the package name of a specific command
+# find the package name of a specific command
 whichpkg() {
   local -r _distro="$(_get_linux_distro_name)"
 
@@ -151,7 +158,7 @@ whichpkg() {
     echo >&2 "Error: Unsupported distro: '${_distro}'!" ;;
   esac
 }
-## cd up
+# cd up
 up() {
   if [ -z "${1//[0-9]/}" ]; then
     local i='' P='./'
@@ -163,7 +170,7 @@ up() {
     echo "usage: up N"
   fi
 }
-## Clear memory cache
+# clear memory cache
 # https://www.kernel.org/doc/Documentation/sysctl/vm.txt
 clear_cache() {
   # Mark more objects as clean objects to minimize the number of dirty objects
@@ -171,13 +178,13 @@ clear_cache() {
   # Free pagecache and reclaimable slab objects (includes dentries and inodes)
   sudo sysctl -w vm.drop_caches=3
 }
-## Ccache toggle for Android codebase
-# Disable ccache
+# ccache toggle for Android codebase
+# disable ccache
 ccache_disable() {
   unset USE_CCACHE
   #unset CCACHE_DIR
 }
-# Enable ccache
+# enable ccache
 ccache_enable() {
   export USE_CCACHE="1"
   if [[ -d ".repo" ]]; then
@@ -192,7 +199,7 @@ ccache_enable() {
     echo >&2 "Error: Please cd to Android root and run again."
   fi
 }
-# Clear ccache cache directory
+# clear ccache cache directory
 ccache_clearcache() {
   if [[ -d ".repo" ]]; then
     if [[ -f ./prebuilt/linux-x86/ccache/ccache ]]; then
@@ -206,8 +213,8 @@ ccache_clearcache() {
     echo >&2 "Error: Please cd to Android root and run again."
   fi
 }
-## GCC downgrade
-# Set GCC downgrade
+# GCC downgrade
+# set GCC downgrade
 gcc_downgrade_set() {
   sudo ln -sf  gcc-4.5 /usr/bin/gcc
   sudo ln -sf  g++-4.5 /usr/bin/g++
@@ -215,7 +222,7 @@ gcc_downgrade_set() {
   sudo ln -sf gcov-4.5 /usr/bin/gcov
   ls -l /usr/bin/{gcc,g++,cpp,gcov}
 }
-# Unset GCC downgrade
+# unset GCC downgrade
 gcc_downgrade_unset() {
   sudo ln -sf  gcc-4.6 /usr/bin/gcc
   sudo ln -sf  g++-4.6 /usr/bin/g++
