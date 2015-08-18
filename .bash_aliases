@@ -171,7 +171,7 @@ up() {
     for (( i=0; i<${1:-1}; i++ )); do
       P="${P}../"
     done
-    cd $P
+    cd $P || exit 1
   else
     echo "usage: up N"
   fi
