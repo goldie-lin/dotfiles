@@ -1,4 +1,5 @@
 set tabnumbers
+colorscheme indigo
 
 " Hide status bar when fullscreen mode is detected,
 " re-enable bottom bar during certain commands.
