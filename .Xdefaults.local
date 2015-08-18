@@ -38,3 +38,5 @@ URxvt.boldFont: -*-terminus-bold-r-*-*-22-*-*-*-*-*-*-*, \
 !                xft:AR PL UMing TW:pixelsize=32:antialias=false:hinting=false:autohint=false
 !URxvt.boldFont: -*-terminus-bold-r-*-*-32-*-*-*-*-*-*-*, \
 !                xft:AR PL UMing TW:pixelsize=32:antialias=false:hinting=false:autohint=false:bold
+
+! vim: set ft=xdefaults:

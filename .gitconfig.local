@@ -12,3 +12,5 @@
 	email = 
 [commit]
 	#template = ~/.gittemplate
+
+# vim: set ft=gitconfig:

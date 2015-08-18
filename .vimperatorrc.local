@@ -35,3 +35,5 @@ cnoremap <Esc> <Esc>:js updateBottomBar()<CR>
 
   updateBottomBar()
 EOF
+
+" vim: set ft=vimperator:
