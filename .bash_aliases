@@ -108,13 +108,17 @@ unset i prepend_path_list
 
 # default text editor for: crontab, git.
 export EDITOR="vim"
+
 # default web browser for: gozilla (gnu global).
 export BROWSER="firefox"
+
 # ccache
 export CCACHE_MAX_SIZE="30G"
 export CCACHE_DIR="${HOME}/.ccache"
+
 # xz, also affect "tar -J"
 export XZ_OPT="--x86 --lzma2=preset=9e,dict=128MiB"
+
 # Android build env
 ANDROID_BUILD_SHELL="$(which bash)"
 export ANDROID_BUILD_SHELL
@@ -145,6 +149,7 @@ _get_linux_distro_name() {
     echo "NonLinux"
   fi
 }
+
 # find the package name of a specific command
 whichpkg() {
   local -r _distro="$(_get_linux_distro_name)"
@@ -158,6 +163,7 @@ whichpkg() {
     echo >&2 "Error: Unsupported distro: '${_distro}'!" ;;
   esac
 }
+
 # cd up
 up() {
   if [ -z "${1//[0-9]/}" ]; then
@@ -170,6 +176,7 @@ up() {
     echo "usage: up N"
   fi
 }
+
 # clear memory cache
 # https://www.kernel.org/doc/Documentation/sysctl/vm.txt
 clear_cache() {
@@ -178,12 +185,14 @@ clear_cache() {
   # Free pagecache and reclaimable slab objects (includes dentries and inodes)
   sudo sysctl -w vm.drop_caches=3
 }
+
 # ccache toggle for Android codebase
 # disable ccache
 ccache_disable() {
   unset USE_CCACHE
   #unset CCACHE_DIR
 }
+
 # enable ccache
 ccache_enable() {
   export USE_CCACHE="1"
@@ -199,6 +208,7 @@ ccache_enable() {
     echo >&2 "Error: Please cd to Android root and run again."
   fi
 }
+
 # clear ccache cache directory
 ccache_clearcache() {
   if [[ -d ".repo" ]]; then
@@ -213,6 +223,7 @@ ccache_clearcache() {
     echo >&2 "Error: Please cd to Android root and run again."
   fi
 }
+
 # GCC downgrade
 # set GCC downgrade
 gcc_downgrade_set() {
@@ -222,6 +233,7 @@ gcc_downgrade_set() {
   sudo ln -sf gcov-4.5 /usr/bin/gcov
   ls -l /usr/bin/{gcc,g++,cpp,gcov}
 }
+
 # unset GCC downgrade
 gcc_downgrade_unset() {
   sudo ln -sf  gcc-4.6 /usr/bin/gcc
