@@ -82,14 +82,6 @@ export LESS_TERMCAP_so=$'\e[0;33;44m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[0;33m'
 
-### Setup proxy
-#export no_proxy="localhost,127.0.0.1,.compalcomm.com,.compal.com"
-#export http_proxy="http://127.0.0.1:3128/"
-#export https_proxy="${http_proxy}"
-#export ftp_proxy="${http_proxy}"
-#export all_proxy="${http_proxy}"
-#export rsync_proxy="${http_proxy}"
-
 # add PATH
 prepend_path_list=( \
   "${HOME}/bin"
