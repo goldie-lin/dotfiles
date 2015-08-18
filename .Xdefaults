@@ -29,29 +29,6 @@ URxvt.cursorBlink: true
 ! Multichar encoding:
 !URxvt.multichar_encoding:big5
 
-! URXVT font settings:
-! List X11 core fonts:
-!   `xlsfonts`
-!   `cat /usr/share/fonts/X11/misc/fonts.alias`
-
-! Terminus + ArphicUMing (12px) (no bold fontstyle)
-!URxvt.font:     -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*, \
-!                xft:AR PL UMing TW:pixelsize=12:antialias=false:hinting=false:autohint=false
-!URxvt.boldFont: -*-terminus-bold-r-*-*-12-*-*-*-*-*-*-*, \
-!                xft:AR PL UMing TW:pixelsize=12:antialias=false:hinting=false:autohint=false:bold
-
-! Terminus + ArphicUMing (14px)
-URxvt.font:     -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*, \
-                xft:AR PL UMing TW:pixelsize=14:antialias=false:hinting=false:autohint=false
-URxvt.boldFont: -*-terminus-bold-r-*-*-14-*-*-*-*-*-*-*, \
-                xft:AR PL UMing TW:pixelsize=14:antialias=false:hinting=false:autohint=false:bold
-
-! Terminus + ArphicUMing (16px)
-!URxvt.font:     -*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*, \
-!                xft:AR PL UMing TW:pixelsize=16:antialias=false:hinting=false:autohint=false
-!URxvt.boldFont: -*-terminus-bold-r-*-*-16-*-*-*-*-*-*-*, \
-!                xft:AR PL UMing TW:pixelsize=16:antialias=false:hinting=false:autohint=false:bold
-
 ! Color defines:
 ! Black
 URxvt.color0:  #000000
@@ -129,3 +106,6 @@ URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.autocopy:  true
 URvxt.url-select.button:    2
 URxvt.url-select.launcher:  firefox
+
+! Append local .Xresources
+#include ".Xdefaults.local"
