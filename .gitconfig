@@ -8,6 +8,8 @@
 	algorithm = histogram
 [merge]
 	tool = vimdiff
+[rebase]
+	autoSquash = true
 [pager]
 	log = diff-highlight | less -i
 	show = diff-highlight | less -i
