@@ -4,7 +4,7 @@
 	editor = vim
 [diff]
 	tool = vimdiff3
-	renamelimit = 0
+	renameLimit = 0
 	algorithm = histogram
 [merge]
 	tool = vimdiff
@@ -20,7 +20,7 @@
 [pack]
 	threads = 0
 [branch]
-	autosetuprebase = remote
+	autoSetupRebase = remote
 [alias]
 	st = status
 	sti = status --ignored
