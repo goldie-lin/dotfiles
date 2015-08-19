@@ -6,6 +6,7 @@ dotfiles in my home directory on Ubuntu.
 
 .bash_aliases
 -------------
+
 My bash aliases, functions, environment variables,
 and tab auto-completions sourcing.
 
@@ -28,6 +29,7 @@ sudo ln -s vim74 vimcurrent
 
 .bash_sunjdk
 ------------
+
 Manually sourcing for exporting Oracle (Sun) JDK to `$PATH`.
 
 Usage: (use it only when you need)
@@ -58,11 +60,13 @@ jdk-8u25-x64/
 
 .curlrc
 -------
+
 Proxy setting for curl tool.
 
 
 .gitconfig
 ----------
+
 My personal git configuration.
 
 Required packages:
@@ -93,6 +97,7 @@ ln -s /PATH/TO/dotfiles/.git_ignore ~/.config/git/ignore
 
 .Xdefaults
 ----------
+
 My preferred URxvt (rxvt-unicode) settings, included font, font-size, color
 definitions, url launcher, selection autotransforms.  With regard to the
 font, I preferred the bitmap fonts, like the Terminus.  Additionally, I had
