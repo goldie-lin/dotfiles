@@ -13,6 +13,7 @@
 
 ! URXVT options:
 URxvt.geometry: 86x28
+URxvt.skipScroll:         true
 URxvt.scrollstyle:        next
 !URxvt.scrollBar:          true
 !URxvt.scrollBar_right:    true
