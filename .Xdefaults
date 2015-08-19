@@ -22,6 +22,8 @@ URxvt.scrollTtyOutput:   false
 URxvt.scrollWithBuffer:  true
 URxvt.scrollTtyKeypress: false
 URxvt.saveLines:         10000
+URxvt.secondaryScreen:   true
+URxvt.secondaryScroll:   false
 !URxvt.visualBell:  true
 URxvt.cursorBlink: true
 !URxvt.termName:   rxvt-unicode
