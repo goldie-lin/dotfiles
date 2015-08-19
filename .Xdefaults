@@ -15,14 +15,14 @@
 URxvt.geometry: 86x28
 URxvt.skipScroll:         true
 URxvt.scrollstyle:        next
-!URxvt.scrollBar:          true
+URxvt.scrollBar:          false
 !URxvt.scrollBar_right:    true
 !URxvt.scrollBar_floating: false
 !URxvt.scrollBar_align:    centre
 URxvt.scrollTtyOutput:   false
 URxvt.scrollWithBuffer:  true
 URxvt.scrollTtyKeypress: true
-URxvt.saveLines:         10000
+URxvt.saveLines:         0
 URxvt.secondaryScreen:   true
 URxvt.secondaryScroll:   false
 !URxvt.visualBell:  true
