@@ -26,6 +26,9 @@ URxvt.saveLines:         10000
 URxvt.cursorBlink: true
 !URxvt.termName:   rxvt-unicode
 
+! start as a login shell
+!URxvt.loginShell: true
+
 ! Multichar encoding:
 !URxvt.multichar_encoding:big5
 
