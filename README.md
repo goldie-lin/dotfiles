@@ -87,10 +87,10 @@ My personal global `.gitignore` file.
 
 Requirements:
 
-* Create a symlinks `~/.config/git/ignore`.
+* Create a symlink `~/.config/git/ignore`.
 
 ```bash
-mkdir ~/.config/git
+mkdir -p ~/.config/git
 ln -s /PATH/TO/dotfiles/.git_ignore ~/.config/git/ignore
 ```
 
@@ -137,7 +137,8 @@ Create a directory for URxvt perl libs look-up path:
 mkdir -p ~/.urxvt/ext
 ```
 
-Add the [Bert Münnich's URxvt perl libs](https://github.com/muennich/urxvt-perls). (optional)
+Add the [Bert Münnich's URxvt perl libs](https://github.com/muennich/urxvt-perls)
+via symlinks. (optional)
 
 ```bash
 mkdir ~/opt && cd $_
