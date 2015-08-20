@@ -80,6 +80,17 @@ Required packages:
     `sudo apt-get install vim`
 
 
+.gitconfig.local
+----------------
+
+A private .gitconfig sample, please copy to home directory and edit it to add username/email, ..., etc.
+
+```bash
+cp .gitconfig.local ~/
+vi ~/.gitconfig.local
+```
+
+
 .git_ignore
 -----------
 
