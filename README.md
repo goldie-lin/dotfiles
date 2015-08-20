@@ -163,11 +163,8 @@ ln -s ../../opt/urxvt-perls/* .
 .Xdefaults
 ----------
 
-My preferred URxvt (rxvt-unicode) settings, included font, font-size, color
-definitions, url launcher, selection autotransforms.  With regard to the
-font, I preferred the bitmap fonts, like the Terminus.  Additionally, I had
-mixed the CJK and the english fonts, e.g., Terminus + AR PL UMing (文鼎明體).
-See the file content for more details.
+My preferred URxvt (rxvt-unicode) settings, included color definitions, url
+launcher, selection autotransforms.
 
 Install URxvt:
 
@@ -215,3 +212,20 @@ ln -s ../../opt/urxvt-perls/{clipboard,keyboard-select,url-select} .
 p.s. `confirm-paste` URxvt perl lib only existed on Ubuntu 12.04 and 14.04+,
 please remove it from `URxvt.perl-ext-common:` line if you are using other
 Ubuntu version.
+
+
+.Xdefaults.local
+----------------
+
+A sample of font configurations for URxvt, included font, font-size, With regard
+to the font, I preferred the bitmap fonts, like the Terminus.  Additionally, I
+mixed the CJK and the english fonts, e.g., Terminus + AR PL UMing
+(文鼎明體).  See the file content for more details.
+
+Please copy to home directory and edit it to choose font-size suited with your
+display resolution and [ppi](https://en.wikipedia.org/wiki/Pixel_density).
+
+```bash
+cp .Xdefaults.local ~/
+vi ~/.Xdefaults.local
+```
