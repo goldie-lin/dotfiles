@@ -130,6 +130,36 @@ Tmux is a terminal multiplexer, useful in localhost and remote server,
 especially when ssh to remote server via a shaky and unstable connection.
 
 
+.vimperatorrc.local
+-------------------
+
+My preferred settings for Firefox extension
+[Vimperator](https://addons.mozilla.org/zh-TW/firefox/addon/vimperator/).
+
+Please make sure following lines have included in your `~/.vimperatorrc`,
+and replace `<username>` with your real username.
+
+```
+source! /home/<username>/.vimperatorrc.local
+```
+
+Create a specific directory for vimperator colorschemes look-up path:
+
+```bash
+mkdir -p ~/.vimperator/colors
+```
+
+Add [vimperator-colors](https://github.com/vimpr/vimperator-colors) via
+symlinks.
+
+```bash
+mkdir ~/opt && cd $_
+git clone https://github.com/vimpr/vimperator-colors.git
+cd ~/.vimperator/colors
+ln -s ../../opt/urxvt-perls/* .
+```
+
+
 .Xdefaults
 ----------
 
