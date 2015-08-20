@@ -106,6 +106,20 @@ ln -s /PATH/TO/dotfiles/.git_ignore ~/.config/git/ignore
 ```
 
 
+.minirc.*
+---------
+
+My regularly used configurations of
+[minicom](https://en.wikipedia.org/wiki/Minicom),
+using with UART console.
+
+* Create several symlinks pointed to them in home directory:
+
+```bash
+ln -s /PATH/TO/dotfiles/.minirc.* ~
+```
+
+
 .Xdefaults
 ----------
 
