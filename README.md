@@ -120,6 +120,16 @@ ln -s /PATH/TO/dotfiles/.minirc.* ~
 ```
 
 
+.tmux.conf
+----------
+
+My preferred [tmux](https://tmux.github.io/) settings, included some vi-like
+key-bindings.
+
+Tmux is a terminal multiplexer, useful in localhost and remote server,
+especially when ssh to remote server via a shaky and unstable connection.
+
+
 .Xdefaults
 ----------
 
