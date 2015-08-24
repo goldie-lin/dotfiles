@@ -31,7 +31,7 @@ alias sudo='sudo '  # Last blank character will make bash to check for alias exp
 source_list=( \
   "${HOME}/opt/git/contrib/completion/git-completion.bash"
   "${HOME}/opt/hub/etc/hub.bash_completion.sh"
-  "${HOME}/opt/repo.bash_completion/repo.bash_completion"
+  "${HOME}/opt/android-completion/repo"
   "${HOME}/opt/android-completion/android"
   "${HOME}/opt/crosstool-ng/src/ct-ng.comp"
   "${HOME}/opt/git/contrib/completion/git-prompt.sh"
