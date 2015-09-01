@@ -187,32 +187,45 @@ ccache_disable() {
 
 # enable ccache
 ccache_enable() {
+  local -r top_file="build/core/envsetup.mk"
+  local -r ccache1="./prebuilt/linux-x86/ccache/ccache"  # Android 4.0 (ICS) or older
+  local -r ccache2="./prebuilts/misc/linux-x86/ccache/ccache"  # Android 4.1 (JB) or newer
+
   export USE_CCACHE="1"
-  if [[ -d ".repo" ]]; then
-    if [[ -f ./prebuilt/linux-x86/ccache/ccache ]]; then
-      ./prebuilt/linux-x86/ccache/ccache -M "${CCACHE_MAX_SIZE}"
-    elif [[ -f ./prebuilts/misc/linux-x86/ccache/ccache ]]; then
-      ./prebuilts/misc/linux-x86/ccache/ccache -M "${CCACHE_MAX_SIZE}"
-    else
-      echo >&2 "Android prebuilt ccache binary not found!"
-    fi
-  else
+
+  if [[ ! -f "${top_file}" ]]; then
     echo >&2 "Error: Please cd to Android root and run again."
+    return 1
+  fi
+
+  if [[ -f "${ccache1}" && -x "${ccache1}" ]]; then
+    "${ccache1}" -M "${CCACHE_MAX_SIZE}"
+  elif [[ -f "${ccache2}" && -x "${ccache2}" ]]; then
+    "${ccache2}" -M "${CCACHE_MAX_SIZE}"
+  else
+    echo >&2 "Error: Android prebuilt executable 'ccache' not found!"
+    return 2
   fi
 }
 
 # clear ccache cache directory
 ccache_clearcache() {
-  if [[ -d ".repo" ]]; then
-    if [[ -f ./prebuilt/linux-x86/ccache/ccache ]]; then
-      ./prebuilt/linux-x86/ccache/ccache -C
-    elif [[ -f ./prebuilts/misc/linux-x86/ccache/ccache ]]; then
-      ./prebuilts/misc/linux-x86/ccache/ccache -C
-    else
-      echo >&2 "Android prebuilt ccache binary not found!"
-    fi
-  else
+  local -r top_file="build/core/envsetup.mk"
+  local -r ccache1="./prebuilt/linux-x86/ccache/ccache"  # Android 4.0 (ICS) or older
+  local -r ccache2="./prebuilts/misc/linux-x86/ccache/ccache"  # Android 4.1 (JB) or newer
+
+  if [[ ! -f "${top_file}" ]]; then
     echo >&2 "Error: Please cd to Android root and run again."
+    return 1
+  fi
+
+  if [[ -f "${ccache1}" && -x "${ccache1}" ]]; then
+    "${ccache1}" -C
+  elif [[ -f "${ccache2}" && -x "${ccache2}" ]]; then
+    "${ccache2}" -C
+  else
+    echo >&2 "Error: Android prebuilt executable 'ccache' not found!"
+    return 2
   fi
 }
 
