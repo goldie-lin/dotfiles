@@ -30,3 +30,6 @@ GTAGS
 Session.vim
 .netrwhist
 *~
+
+# vim Syntastic files
+.syntastic_*_config
