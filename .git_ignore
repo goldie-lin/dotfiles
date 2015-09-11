@@ -33,3 +33,6 @@ Session.vim
 
 # vim Syntastic files
 .syntastic_*_config
+
+# vim color_coded files
+.color_coded
