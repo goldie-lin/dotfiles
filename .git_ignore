@@ -36,3 +36,6 @@ Session.vim
 
 # vim color_coded files
 .color_coded
+
+# vim YouCompleteMe files
+.ycm_extra_conf.py
