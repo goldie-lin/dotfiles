@@ -17,6 +17,8 @@
 	status = diff-highlight | less -i
 [grep]
 	lineNumber = true
+[blame]
+	showEmail = true
 [push]
 	default = simple
 [pack]
