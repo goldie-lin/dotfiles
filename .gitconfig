@@ -15,6 +15,8 @@
 	show = diff-highlight | less -i
 	diff = diff-highlight | less -i
 	status = diff-highlight | less -i
+[log]
+	follow = true
 [grep]
 	lineNumber = true
 [blame]
