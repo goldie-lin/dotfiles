@@ -43,6 +43,6 @@
 	ggrep = grep -n --color=auto
 	who = shortlog -n -s --no-merges
 	last = log -1 HEAD
-	hist = log --graph --pretty=format:'%Cred%h%Creset <%Cgreen%ai%Creset> %C(bold blue)[%an]%Creset %s%C(yellow)%d%Creset'
+	hist = log --graph --pretty=format:'%Cred%h%Creset <%Cgreen%ad%Creset> %C(bold blue)[%an]%Creset %s%C(yellow)%d%Creset'
 [include]
 	path = ~/.gitconfig.local
