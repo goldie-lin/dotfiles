@@ -17,6 +17,7 @@
 	status = diff-highlight | less -i
 [log]
 	follow = true
+	date = iso
 [grep]
 	lineNumber = true
 [blame]
