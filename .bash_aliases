@@ -105,7 +105,7 @@ export EDITOR="vim"
 export BROWSER="firefox"
 
 # ccache
-export CCACHE_MAX_SIZE="36G"
+export CCACHE_MAX_SIZE="30G"
 export CCACHE_DIR="${HOME}/.ccache"
 
 # xz, also affect "tar -J"
