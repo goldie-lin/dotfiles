@@ -17,6 +17,7 @@ alias l='ls -CF'
 alias cgitroot='git rev-parse --is-inside-work-tree >/dev/null && cd "$(git rev-parse --show-toplevel)"'
 alias repo_clean='repo status -o; repo branch; read -p "Really? It will git reset hard!"; rm -vf .ccienv_default makeMtk.ini {checkenv,auto_sync_android}.log; rm -rf out; repo forall -c "git clean -dfx; git reset --hard"'
 alias repo_list_stashed_git="repo forall -c 'if git rev-parse --verify --quiet refs/stash >/dev/null; then echo has_stashed_changes: \$REPO_PATH; fi'"
+alias repo_list_ignored_git="repo forall -c 'if git status --porcelain --ignored | grep \"^!! \" >/dev/null 2>&1; then echo has_ignored_files: \$REPO_PATH; fi'"
 #alias man='man -S 2:3:1'  # add C function manual
 alias vi="vim"
 alias vimenc="vim -u ~/.vimrc_encrypt -x"
