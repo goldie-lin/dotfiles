@@ -35,6 +35,14 @@
 	header = bold
 	help = red bold
 	error = red reverse
+[color "status"]
+	header = normal
+	branch = green
+	nobranch = red
+	added = green
+	changed = red
+	untracked = magenta
+	unmerged = red reverse
 [core]
 	editor = vim
 [diff]
