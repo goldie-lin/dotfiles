@@ -1,5 +1,10 @@
 [color]
 	ui = auto
+[color "branch"]
+	current = green
+	local = normal
+	remote = red
+	upstream = blue
 [core]
 	editor = vim
 [diff]
