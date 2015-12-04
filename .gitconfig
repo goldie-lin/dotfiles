@@ -20,6 +20,16 @@
 	tag = yellow bold
 	stash = magenta bold
 	HEAD = cyan bold
+[color "grep"]
+	context = normal
+	filename = magenta
+	function = cyan bold
+	linenumber = green
+	match = red bold
+	matchContext = red bold
+	matchSelected = red bold
+	selected = normal
+	separator = cyan
 [core]
 	editor = vim
 [diff]
