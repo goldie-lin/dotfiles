@@ -39,9 +39,9 @@
 	ca = commit -a
 	unstage = reset HEAD --
 	uncommit = reset --soft HEAD^ --
-	egrep = grep -n -E
-	fgrep = grep -n -F
-	ggrep = grep -n
+	egrep = grep -E
+	fgrep = grep -F
+	ggrep = grep
 	who = shortlog -n -s --no-merges
 	last = log -1 HEAD
 	hist = log --graph --pretty=format:'%Cred%h%Creset <%Cgreen%ad%Creset> %C(bold blue)[%an]%Creset %s%C(yellow)%d%Creset'
