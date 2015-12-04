@@ -14,6 +14,12 @@
 	new = green
 	commit = yellow
 	whitespace = red reverse
+[color "decorate"]
+	branch = green bold
+	remoteBranch = red bold
+	tag = yellow bold
+	stash = magenta bold
+	HEAD = cyan bold
 [core]
 	editor = vim
 [diff]
