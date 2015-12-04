@@ -5,6 +5,15 @@
 	local = normal
 	remote = red
 	upstream = blue
+[color "diff"]
+	context = normal
+	meta = bold
+	frag = cyan
+	func = cyan bold
+	old = red
+	new = green
+	commit = yellow
+	whitespace = red reverse
 [core]
 	editor = vim
 [diff]
