@@ -30,6 +30,11 @@
 	matchSelected = red bold
 	selected = normal
 	separator = cyan
+[color "interactive"]
+	prompt = blue bold
+	header = bold
+	help = red bold
+	error = red reverse
 [core]
 	editor = vim
 [diff]
