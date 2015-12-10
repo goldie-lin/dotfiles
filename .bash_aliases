@@ -5,8 +5,8 @@
 
 # aliases
 alias ..='up'
-alias cp="cp -i"
-alias mv="mv -i"
+alias cp='cp -i'
+alias mv='mv -i'
 alias rm='rm -i'
 alias du='du -h'
 alias df='df -hT'
@@ -20,8 +20,8 @@ alias repo_list_stashed_git="repo forall -c 'if git rev-parse --verify --quiet r
 alias repo_list_ignored_git="repo forall -c 'if git status --porcelain --ignored | grep \"^!! \" >/dev/null 2>&1; then echo has_ignored_files: \$REPO_PATH; fi'"
 #alias man='man -S 2:3:1'  # add C function manual
 alias vim='vim -p'
-alias vi="vim"
-alias vimenc="vim -u ~/.vimrc_encrypt -x"
+alias vi='vim'
+alias vimenc='vim -u ~/.vimrc_encrypt -x'
 alias vless='/usr/share/vim/vimcurrent/macros/less.sh'
 alias grep='grep --color=auto --exclude-dir=.repo --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.bzr --exclude-dir=.hg --exclude=cscope.* --exclude=tags --exclude=GTAGS --exclude=GRTAGS --exclude=GPATH'
 alias minicom='LC_ALL=C minicom -w -c on' # English-language, linewrap, colorful
