@@ -14,6 +14,7 @@ alias ls='ls --color=auto --quoting-style=shell'
 alias ll='ls -alF --time-style="+%Y-%m-%d_%H-%M-%S"'
 alias la='ls -ACF'
 alias l='ls -CF'
+alias free='free -hltw'
 alias cgitroot='git rev-parse --is-inside-work-tree >/dev/null && cd "$(git rev-parse --show-toplevel)"'
 alias repo_clean='repo status -o; repo branch; read -p "Really? It will git reset hard!"; rm -vf .ccienv_default makeMtk.ini {checkenv,auto_sync_android}.log; rm -rf out; repo forall -c "git clean -dfx; git reset --hard"'
 alias repo_list_stashed_git="repo forall -c 'if git rev-parse --verify --quiet refs/stash >/dev/null; then echo has_stashed_changes: \$REPO_PATH; fi'"
