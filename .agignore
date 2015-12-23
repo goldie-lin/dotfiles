@@ -1,0 +1,29 @@
+# ctags files
+tags
+TAGS
+
+# Cscope files
+cscope.*
+ncscope.*
+
+# GNU GLOBAL files
+GPATH
+GRTAGS
+GSYMS
+GTAGS
+
+# vim tmp files
+Session.vim
+.swp
+.swo
+.netrwhist
+
+# vim Syntastic files
+.syntastic_*_config
+
+# vim color_coded files
+.color_coded
+
+# vim YouCompleteMe files
+.ycm_extra_conf.py
+.ycm_extra_conf.pyc
