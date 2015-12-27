@@ -21,11 +21,29 @@
 !URxvt.boldFont: -*-terminus-bold-r-*-*-16-*-*-*-*-*-*-*, \
 !                xft:AR PL UMing TW:pixelsize=16:antialias=false:hinting=false:autohint=false:bold
 
+! Terminus + ArphicUMing (18px)
+!URxvt.font:     -*-terminus-medium-r-*-*-18-*-*-*-*-*-*-*, \
+!                xft:AR PL UMing TW:pixelsize=18:antialias=false:hinting=false:autohint=false
+!URxvt.boldFont: -*-terminus-bold-r-*-*-18-*-*-*-*-*-*-*, \
+!                xft:AR PL UMing TW:pixelsize=18:antialias=false:hinting=false:autohint=false:bold
+
+! Terminus + ArphicUMing (20px)
+!URxvt.font:     -*-terminus-medium-r-*-*-20-*-*-*-*-*-*-*, \
+!                xft:AR PL UMing TW:pixelsize=20:antialias=false:hinting=false:autohint=false
+!URxvt.boldFont: -*-terminus-bold-r-*-*-20-*-*-*-*-*-*-*, \
+!                xft:AR PL UMing TW:pixelsize=20:antialias=false:hinting=false:autohint=false:bold
+
 ! Terminus + ArphicUMing (22px)
 URxvt.font:     -*-terminus-medium-r-*-*-22-*-*-*-*-*-*-*, \
                 xft:AR PL UMing TW:pixelsize=22:antialias=false:hinting=false:autohint=false
 URxvt.boldFont: -*-terminus-bold-r-*-*-22-*-*-*-*-*-*-*, \
                 xft:AR PL UMing TW:pixelsize=22:antialias=false:hinting=false:autohint=false:bold
+
+! Terminus + ArphicUMing (24px)
+!URxvt.font:     -*-terminus-medium-r-*-*-24-*-*-*-*-*-*-*, \
+!                xft:AR PL UMing TW:pixelsize=24:antialias=false:hinting=false:autohint=false
+!URxvt.boldFont: -*-terminus-bold-r-*-*-24-*-*-*-*-*-*-*, \
+!                xft:AR PL UMing TW:pixelsize=24:antialias=false:hinting=false:autohint=false:bold
 
 ! Terminus + ArphicUMing (28px)
 !URxvt.font:     -*-terminus-medium-r-*-*-28-*-*-*-*-*-*-*, \
