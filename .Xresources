@@ -1,5 +1,5 @@
-! Goldie Lin`s ~/.Xdefaults for urxvt (rxvt-unicode)
-!   After modified, use `xrdb -merge ~/.Xdefaults`
+! Goldie Lin`s ~/.Xresources for urxvt (rxvt-unicode)
+!   After modified, use `xrdb -I$HOME -merge ~/.Xresources`
 !   to reload setting, and then restart urxvt.
 ! Required packages: (via `sudo apt-get install ...`)
 !   Fonts:
@@ -114,4 +114,4 @@ URvxt.url-select.button:    2
 URxvt.url-select.launcher:  firefox
 
 ! Append local .Xresources
-#include ".Xdefaults.local"
+#include ".Xresources.local"
