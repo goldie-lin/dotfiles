@@ -16,7 +16,7 @@ source_list=( \
   "/usr/share/doc/tmux/examples/bash_completion_tmux.sh"
 )
 for i in "${source_list[@]}"; do
-  [ -f "$i" ] && . "$i"
+  [ -f "$i" ] && eval source "$i"
 done
 unset i source_list
 
