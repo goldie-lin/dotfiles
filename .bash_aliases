@@ -235,22 +235,3 @@ ccache_clearcache() {
     return 2
   fi
 }
-
-# GCC downgrade
-# set GCC downgrade
-gcc_downgrade_set() {
-  sudo ln -sf  gcc-4.5 /usr/bin/gcc
-  sudo ln -sf  g++-4.5 /usr/bin/g++
-  sudo ln -sf  cpp-4.5 /usr/bin/cpp
-  sudo ln -sf gcov-4.5 /usr/bin/gcov
-  ls -l /usr/bin/{gcc,g++,cpp,gcov}
-}
-
-# unset GCC downgrade
-gcc_downgrade_unset() {
-  sudo ln -sf  gcc-4.6 /usr/bin/gcc
-  sudo ln -sf  g++-4.6 /usr/bin/g++
-  sudo ln -sf  cpp-4.6 /usr/bin/cpp
-  sudo ln -sf gcov-4.6 /usr/bin/gcov
-  ls -l /usr/bin/{gcc,g++,cpp,gcov}
-}
