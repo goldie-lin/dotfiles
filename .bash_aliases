@@ -3,36 +3,6 @@
 # ~/.bash_aliases
 #
 
-# aliases
-alias ..='up'
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-alias du='du -h'
-alias df='df -hT'
-alias ls='ls --color=auto --quoting-style=shell'
-alias ll='ls -alF --time-style="+%Y-%m-%d_%H-%M-%S"'
-alias la='ls -ACF'
-alias l='ls -CF'
-alias free='free -hltw'
-alias cgitroot='git rev-parse --is-inside-work-tree >/dev/null && cd "$(git rev-parse --show-toplevel)"'
-alias repo_clean='repo status -o; repo branch; read -p "Really? It will git reset hard!"; rm -vf .ccienv_default makeMtk.ini {checkenv,auto_sync_android}.log; rm -rf out; repo forall -c "git clean -dfx; git reset --hard"'
-alias repo_list_stashed_git="repo forall -c 'if git rev-parse --verify --quiet refs/stash >/dev/null; then echo has_stashed_changes: \$REPO_PATH; fi'"
-alias repo_list_ignored_git="repo forall -c 'if git status --porcelain --ignored | grep \"^!! \" >/dev/null 2>&1; then echo has_ignored_files: \$REPO_PATH; fi'"
-alias repo_list_changed_git="repo forall -c 'if ! git diff --no-ext-diff --quiet ; then echo has_changed_files: \$REPO_PATH; fi'"
-alias repo_list_staged_git="repo forall -c 'if ! git diff --no-ext-diff --cached --quiet ; then echo has_staged_files: \$REPO_PATH; fi'"
-#alias man='man -S 2:3:1'  # add C function manual
-alias vim='vim -p'
-alias vi='vim'
-alias vimenc='vim -u ~/.vimrc_encrypt -x'
-alias vless='/usr/share/vim/vimcurrent/macros/less.sh'
-alias grep='grep --color=auto --exclude-dir=.repo --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.bzr --exclude-dir=.hg --exclude=cscope.* --exclude=tags --exclude=GTAGS --exclude=GRTAGS --exclude=GPATH'
-alias ag='ag --smart-case --color --color-line-number="0;32" --color-path="0;35" --color-match="1;31"'
-alias minicom='LC_ALL=C minicom -w -c on' # English-language, linewrap, colorful
-alias udev_monitor_usb='udevadm monitor --subsystem-match=usb --udev --property'
-alias udev_reload_rules='sudo udevadm control --reload'  # Trigger systemd-udevd to reload rules files and databases
-alias sudo='sudo '  # Last blank character will make bash to check for alias expansion in the next command following this alias
-
 # bash-completion
 source_list=( \
   "${HOME}/opt/git/contrib/completion/git-completion.bash"
@@ -235,3 +205,35 @@ ccache_clearcache() {
     return 2
   fi
 }
+
+# aliases
+# -------
+
+alias ..='up'
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+alias du='du -h'
+alias df='df -hT'
+alias ls='ls --color=auto --quoting-style=shell'
+alias ll='ls -alF --time-style="+%Y-%m-%d_%H-%M-%S"'
+alias la='ls -ACF'
+alias l='ls -CF'
+alias free='free -hltw'
+alias cgitroot='git rev-parse --is-inside-work-tree >/dev/null && cd "$(git rev-parse --show-toplevel)"'
+alias repo_clean='repo status -o; repo branch; read -p "Really? It will git reset hard!"; rm -vf .ccienv_default makeMtk.ini {checkenv,auto_sync_android}.log; rm -rf out; repo forall -c "git clean -dfx; git reset --hard"'
+alias repo_list_stashed_git="repo forall -c 'if git rev-parse --verify --quiet refs/stash >/dev/null; then echo has_stashed_changes: \$REPO_PATH; fi'"
+alias repo_list_ignored_git="repo forall -c 'if git status --porcelain --ignored | grep \"^!! \" >/dev/null 2>&1; then echo has_ignored_files: \$REPO_PATH; fi'"
+alias repo_list_changed_git="repo forall -c 'if ! git diff --no-ext-diff --quiet ; then echo has_changed_files: \$REPO_PATH; fi'"
+alias repo_list_staged_git="repo forall -c 'if ! git diff --no-ext-diff --cached --quiet ; then echo has_staged_files: \$REPO_PATH; fi'"
+#alias man='man -S 2:3:1'  # add C function manual
+alias vim='vim -p'
+alias vi='vim'
+alias vimenc='vim -u ~/.vimrc_encrypt -x'
+alias vless='/usr/share/vim/vimcurrent/macros/less.sh'
+alias grep='grep --color=auto --exclude-dir=.repo --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.bzr --exclude-dir=.hg --exclude=cscope.* --exclude=tags --exclude=GTAGS --exclude=GRTAGS --exclude=GPATH'
+alias ag='ag --smart-case --color --color-line-number="0;32" --color-path="0;35" --color-match="1;31"'
+alias minicom='LC_ALL=C minicom -w -c on' # English-language, linewrap, colorful
+alias udev_monitor_usb='udevadm monitor --subsystem-match=usb --udev --property'
+alias udev_reload_rules='sudo udevadm control --reload'  # Trigger systemd-udevd to reload rules files and databases
+alias sudo='sudo '  # Last blank character will make bash to check for alias expansion in the next command following this alias
