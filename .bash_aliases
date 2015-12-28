@@ -77,6 +77,7 @@ unset i prepend_path_list
 
 # default text editor for: crontab, git.
 export EDITOR="vim"
+export VISUAL="vim"
 
 # default web browser for: gozilla (gnu global).
 export BROWSER="firefox"
