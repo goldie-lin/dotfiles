@@ -185,6 +185,7 @@ Required packages:
 sudo apt-get install xsel xclip
 sudo apt-get install xfonts-terminus
 sudo apt-get install fonts-arphic-uming
+sudo apt-get install fonts-hanazono
 ```
 
 To apply the change:
@@ -219,8 +220,8 @@ Ubuntu version.
 
 A sample of font configurations for URxvt, included font, font-size, With regard
 to the font, I preferred the bitmap fonts, like the Terminus.  Additionally, I
-mixed the CJK and the english fonts, e.g., Terminus + AR PL UMing
-(文鼎明體).  See the file content for more details.
+mixed the CJK and the english fonts, e.g., Terminus + AR PL UMing (文鼎明體) +
+Hanazono MinCho (花園明朝體).  See the file content for more details.
 
 Please copy to home directory and edit it to choose font-size suited with your
 display resolution and [ppi](https://en.wikipedia.org/wiki/Pixel_density).
