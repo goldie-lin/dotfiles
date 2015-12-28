@@ -190,7 +190,7 @@ sudo apt-get install fonts-arphic-uming
 To apply the change:
 
 ```bash
-xrdb -merge ~/.Xresources
+xrdb -I$HOME -merge ~/.Xresources
 ```
 
 Create a directory for URxvt perl libs look-up path:
