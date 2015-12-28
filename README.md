@@ -160,7 +160,7 @@ ln -s ../../opt/urxvt-perls/* .
 ```
 
 
-.Xdefaults
+.Xresources
 ----------
 
 My preferred URxvt (rxvt-unicode) settings, included color definitions, url
@@ -190,7 +190,7 @@ sudo apt-get install fonts-arphic-uming
 To apply the change:
 
 ```bash
-xrdb -merge ~/.Xdefaults
+xrdb -merge ~/.Xresources
 ```
 
 Create a directory for URxvt perl libs look-up path:
@@ -214,7 +214,7 @@ please remove it from `URxvt.perl-ext-common:` line if you are using other
 Ubuntu version.
 
 
-.Xdefaults.local
+.Xresources.local
 ----------------
 
 A sample of font configurations for URxvt, included font, font-size, With regard
@@ -226,6 +226,6 @@ Please copy to home directory and edit it to choose font-size suited with your
 display resolution and [ppi](https://en.wikipedia.org/wiki/Pixel_density).
 
 ```bash
-cp .Xdefaults.local ~/
-vi ~/.Xdefaults.local
+cp .Xresources.local ~/
+vi ~/.Xresources.local
 ```
