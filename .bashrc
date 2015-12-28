@@ -1,9 +1,78 @@
 #!/usr/bin/env bash
 #
-# ~/.bash_aliases
+# ~/.bashrc
 #
 
-# bash-completion
+# if not running interactively, don't do anything.
+[[ $- != *i* ]] && return
+
+# don't put duplicate lines or lines starting with space in the history.
+HISTCONTROL=ignoreboth
+
+# set history length.
+HISTSIZE=2000
+HISTFILESIZE=5000
+
+# append to the history file, don't overwrite it.
+shopt -s histappend
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files.
+[[ -x /usr/bin/lesspipe ]] && eval "$(lesspipe)"        # for Ubuntu
+[[ -x /usr/bin/lesspipe.sh ]] && eval "$(lesspipe.sh)"  # for Arch Linux
+
+# language fallback if in linux virtual termianl.
+[[ "$TERM" == linux ]] && export LANG=C LC_ALL=C
+
+# set variable identifying the chroot you work in for Ubuntu. (used in the prompt below)
+[[ -z "${debian_chroot:-}" && -r /etc/debian_chroot ]] && debian_chroot=$(cat /etc/debian_chroot)
+
+# color prompt.
+if [[ -x /usr/bin/tput ]] && tput setaf 1 >&/dev/null; then
+  PS1='${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u\[\e[00m\]\[\e[01;33m\]@\[\e[00m\]\[\e[01;32m\]\h\[\e[00m\]:\[\e[01;34m\]\w\[\e[00m\]\$ '
+else
+  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+
+# set terminal title.
+case "$TERM" in
+xterm*|rxvt*)
+  PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+  ;;
+*)
+  ;;
+esac
+
+# enable color support of ls/tree commands.
+if [[ -x /usr/bin/dircolors ]]; then
+  if [[ -r ~/.dir_colors ]]; then
+    eval "$(dircolors -b ~/.dir_colors)"
+  else
+    eval "$(dircolors -b)"
+  fi
+fi
+
+# enable system-wide bash-completion.
+if ! shopt -oq posix; then
+  if [[ -f /usr/share/bash-completion/bash_completion ]]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [[ -f /etc/bash_completion ]]; then
+    . /etc/bash_completion
+  fi
+fi
+
+# add for 'fcitx.vim' vim plugin.
+FCITX_SOCKET="/tmp/fcitx-socket-${DISPLAY}"
+if [[ -S "${FCITX_SOCKET}" ]]; then
+  export FCITX_SOCKET
+else
+  unset FCITX_SOCKET
+fi
+
+# bash-completion.
 source_list=( \
   "${HOME}/opt/git/contrib/completion/git-completion.bash"
   "${HOME}/opt/hub/etc/hub.bash_completion.sh"
@@ -20,7 +89,20 @@ for i in "${source_list[@]}"; do
 done
 unset i source_list
 
-# prompt
+# add $PATH.
+prepend_path_list=( \
+  "${HOME}/bin"
+  "${HOME}/opt/crosstool-ng/bin/bin"
+  "${HOME}/opt/tmuxinator/bin"
+)
+for i in "${prepend_path_list[@]}"; do
+  if [[ "${UID}" -ge 1000 && -d "$i" ]] && ! grep -q "$i" <<< "${PATH}"; then
+    export PATH="$i:$PATH"
+  fi
+done
+unset i prepend_path_list
+
+# git-prompt.
 __set_prompt() {
   local -r last_cmd_rc="$?"  # Must come first!
   local prompt_pre=""
@@ -47,7 +129,7 @@ __set_prompt() {
 }
 PROMPT_COMMAND='__set_prompt'
 
-# colorful man page
+# colorful man page.
 PAGER="$(which less) -s -R -i"
 export PAGER
 #export BROWSER="${PAGER}"
@@ -58,19 +140,6 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[0;33;44m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[0;33m'
-
-# add PATH
-prepend_path_list=( \
-  "${HOME}/bin"
-  "${HOME}/opt/crosstool-ng/bin/bin"
-  "${HOME}/opt/tmuxinator/bin"
-)
-for i in "${prepend_path_list[@]}"; do
-  if [[ "${UID}" -ge 1000 && -d "$i" ]] && ! grep -q "$i" <<< "${PATH}"; then
-    export PATH="$i:$PATH"
-  fi
-done
-unset i prepend_path_list
 
 # env vars
 # --------
@@ -238,3 +307,6 @@ alias minicom='LC_ALL=C minicom -w -c on' # English-language, linewrap, colorful
 alias udev_monitor_usb='udevadm monitor --subsystem-match=usb --udev --property'
 alias udev_reload_rules='sudo udevadm control --reload'  # Trigger systemd-udevd to reload rules files and databases
 alias sudo='sudo '  # Last blank character will make bash to check for alias expansion in the next command following this alias
+
+# load ~/.bashrc.local
+[[ -f ~/.bashrc.local ]] && eval source ~/.bashrc.local
