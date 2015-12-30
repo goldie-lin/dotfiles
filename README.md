@@ -4,8 +4,8 @@ dotfiles
 dotfiles in my home directory on Ubuntu.
 
 
-.bash_aliases
--------------
+.bashrc
+-------
 
 My bash aliases, functions, environment variables,
 and tab auto-completions sourcing.
