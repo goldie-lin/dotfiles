@@ -26,6 +26,16 @@ cd /usr/share/vim/
 sudo ln -s vim74 vimcurrent
 ```
 
+.bashrc.local
+-------------
+
+A private .bashrc sample, please copy to home directory and edit it for yours.
+
+```bash
+cp .bashrc.local ~/
+vi ~/.bashrc.local
+```
+
 
 .bash_sunjdk
 ------------
