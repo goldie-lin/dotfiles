@@ -54,6 +54,8 @@
 [rebase]
 	autoSquash = true
 	autoStash = true
+[stash]
+	showStat = true
 [pager]
 	log = diff-highlight | less -i
 	show = diff-highlight | less -i
