@@ -56,6 +56,7 @@
 	autoStash = true
 [stash]
 	showStat = true
+	showPatch = true
 [pager]
 	log = diff-highlight | less -i
 	show = diff-highlight | less -i
