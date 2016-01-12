@@ -14,9 +14,9 @@ GTAGS
 
 # vim tmp files
 Session.vim
-.swp
-.swo
 .netrwhist
+.*.swp
+.*.swo
 
 # vim Syntastic files
 .syntastic_*_config
