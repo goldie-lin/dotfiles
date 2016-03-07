@@ -145,6 +145,7 @@ export LESS_TERMCAP_us=$'\e[0;33m'
 # --------
 
 # default text editor for: crontab, git.
+export SUDO_EDITOR="vim -p"
 export EDITOR="vim"
 export VISUAL="vim"
 
