@@ -163,6 +163,19 @@ export XZ_OPT="--x86 --lzma2=preset=9e,dict=128MiB"
 ANDROID_BUILD_SHELL="$(which bash)"
 export ANDROID_BUILD_SHELL
 
+# fzf default command/options
+export FZF_DEFAULT_OPTS="--reverse --inline-info"
+export FZF_CTRL_T_COMMAND="
+  (git ls-tree -r --name-only HEAD ||
+    ag --hidden -f -g '' ||
+    find -L . \\( -fstype 'dev' -o -fstype 'proc' \\) -prune -o -type f -print -o -type d -print -o -type l -print | sed 1d | cut -b3-
+  ) 2>/dev/null"
+export FZF_DEFAULT_COMMAND="
+  (git ls-tree -r --name-only HEAD ||
+    ag --hidden -f -g '' ||
+    find -L . \\( -fstype 'dev' -o -fstype 'proc' \\) -prune -o -type f -print -o -type d -print -o -type l -print | sed 1d | cut -b3-
+  ) 2>/dev/null"
+
 # functions
 # ---------
 
