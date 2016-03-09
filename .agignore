@@ -1,3 +1,17 @@
+# version control system directories
+.repo/
+.git/
+.hg/
+.bzr/
+.svn/
+{arch}/
+_darcs/
+_MTN/
+MCVS/
+CVS/
+RCS/
+SCCS/
+
 # ctags files
 tags
 TAGS
