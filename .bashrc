@@ -72,6 +72,19 @@ else
   unset FCITX_SOCKET
 fi
 
+# add $PATH.
+prepend_path_list=( \
+  "${HOME}/bin"
+  "${HOME}/opt/crosstool-ng/bin/bin"
+  "${HOME}/opt/tmuxinator/bin"
+)
+for i in "${prepend_path_list[@]}"; do
+  if [[ "${UID}" -ge 1000 && -d "$i" ]] && ! grep -q "$i" <<< "${PATH}"; then
+    export PATH="$i:$PATH"
+  fi
+done
+unset i prepend_path_list
+
 # bash-completion.
 source_list=( \
   "${HOME}/opt/git/contrib/completion/git-completion.bash"
@@ -88,19 +101,6 @@ for i in "${source_list[@]}"; do
   [ -f "$i" ] && eval source "$i"
 done
 unset i source_list
-
-# add $PATH.
-prepend_path_list=( \
-  "${HOME}/bin"
-  "${HOME}/opt/crosstool-ng/bin/bin"
-  "${HOME}/opt/tmuxinator/bin"
-)
-for i in "${prepend_path_list[@]}"; do
-  if [[ "${UID}" -ge 1000 && -d "$i" ]] && ! grep -q "$i" <<< "${PATH}"; then
-    export PATH="$i:$PATH"
-  fi
-done
-unset i prepend_path_list
 
 # git-prompt.
 __set_prompt() {
