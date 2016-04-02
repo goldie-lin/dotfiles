@@ -322,6 +322,7 @@ alias repo_list_stashed_git="repo forall -c 'if git rev-parse --verify --quiet r
 alias repo_list_ignored_git="repo forall -c 'if git status --porcelain --ignored | grep \"^!! \" >/dev/null 2>&1; then echo has_ignored_files: \$REPO_PATH; fi'"
 alias repo_list_changed_git="repo forall -c 'if ! git diff --no-ext-diff --quiet ; then echo has_changed_files: \$REPO_PATH; fi'"
 alias repo_list_staged_git="repo forall -c 'if ! git diff --no-ext-diff --cached --quiet ; then echo has_staged_files: \$REPO_PATH; fi'"
+alias docker_rm_all_stopped_containers="docker ps -q -f 'status=exited' | xargs --no-run-if-empty docker rm"
 #alias man='man -S 2:3:1'  # add C function manual
 alias vim='vim -p'
 alias vi='vim'
