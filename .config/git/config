@@ -45,6 +45,7 @@
 	unmerged = red reverse
 [core]
 	editor = vim
+	untrackedCache = true
 [diff]
 	tool = vimdiff3
 	renameLimit = 0
