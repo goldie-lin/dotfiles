@@ -115,8 +115,8 @@ URxvt.cursorColor2: Gray25
 !   Ctrl  + D          : Close tab.
 URxvt.perl-ext-common: default,matcher,tabbed,selection-autotransform,keyboard-select,url-select
 ! selection:
-URxvt.selection.pattern-0: ([^:$#[:space:]]+)
-URxvt.selection.pattern-1: (^[^:[:space:]]+:\\d+:)
+URxvt.selection.pattern-0: ([^:│$#[:space:]]+)
+URxvt.selection.pattern-1: (^[^:│[:space:]]+:\\d+:)
 !URxvt.selection.pattern-2: ([^&()*,;<=>?@[\\\\]^`{|})]+)
 ! Set URL open by urlLauncher via left mouse button (1), or middle mouse button (2):
 URxvt.urlLauncher:    firefox
