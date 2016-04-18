@@ -66,6 +66,7 @@
 [log]
 	follow = true
 	date = iso
+	decorate = short
 [grep]
 	lineNumber = true
 [blame]
