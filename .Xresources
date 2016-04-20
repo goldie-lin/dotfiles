@@ -120,7 +120,14 @@ URxvt.selection.pattern-1: (^[^:│[:space:]]+:\\d+:)
 !URxvt.selection.pattern-2: ([^&()*,;<=>?@[\\\\]^`{|})]+)
 ! Set URL open by urlLauncher via left mouse button (1), or middle mouse button (2):
 URxvt.urlLauncher:    firefox
+! ref: `man urxvt-matcher`
+URxvt.url-launcher:       firefox
+URxvt.keysym.C-Delete:    matcher:last
+URxvt.keysym.M-Delete:    matcher:list
 URxvt.matcher.button: 2
+!URxvt.matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+!URxvt.matcher.pattern.2:  \\B(/\\S+?):(\\d+)(?=:|$)
+!URxvt.matcher.launcher.2: gvim +$2 $1
 ! tabbed:
 URxvt.tabbed.tabbar-fg: 8
 URxvt.tabbed.tabbar-bg: 7
