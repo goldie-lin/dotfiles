@@ -9,6 +9,9 @@
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 
+# don't put lines matched following pattern in the history.
+HISTIGNORE=$'@(l|l[sal]|[bf]g|jobs|exit|clear|reset|pwd|?(u)mount)*([ \t])'
+
 # set history length.
 HISTSIZE=2000
 HISTFILESIZE=5000
