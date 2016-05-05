@@ -51,7 +51,7 @@
 	renameLimit = 0
 	algorithm = histogram
 [merge]
-	tool = vimdiff
+	tool = vimdiff3
 [rebase]
 	autoSquash = true
 	autoStash = true
