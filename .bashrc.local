@@ -6,6 +6,13 @@
 # env vars
 # --------
 
+# export Ruby to PATH.
+#export PATH="${HOME}/.gem/ruby/2.3.0/bin:${PATH}"
+
+# export Android NDK to PATH.
+#export PATH="${PATH}:${HOME}/opt/android-ndk/android-ndk"
+#export ANDROID_NDK="${HOME}/opt/android-ndk/android-ndk"
+
 # export Android SDK to PATH.
 #export ANDROID_HOME="/opt/android-sdk"
 
