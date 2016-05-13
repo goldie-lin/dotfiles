@@ -6,7 +6,10 @@
 # env vars
 # --------
 
+# export Android SDK to PATH.
 #export ANDROID_HOME="/opt/android-sdk"
+
+# export for cp-img-android-* shell script.
 export ANDROID_IMG_CP_DIR="${HOME}/prj/img"
 
 # add this to work with systemd user ssh-agent service for Arch Linux.
