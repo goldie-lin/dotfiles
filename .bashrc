@@ -90,6 +90,7 @@ unset i prepend_path_list
 
 # bash-completion.
 source_list=( \
+  "${HOME}/.fzf.bash"
   "${HOME}/opt/git/contrib/completion/git-completion.bash"
   "${HOME}/opt/git/contrib/completion/git-prompt.sh"
   "${HOME}/opt/hub/etc/hub.bash_completion.sh"
@@ -338,9 +339,6 @@ alias minicom='LC_ALL=C minicom -w -c on' # English-language, linewrap, colorful
 alias udev_monitor_usb='udevadm monitor --subsystem-match=usb --udev --property'
 alias udev_reload_rules='sudo udevadm control --reload'  # Trigger systemd-udevd to reload rules files and databases
 alias sudo='sudo '  # Last blank character will make bash to check for alias expansion in the next command following this alias
-
-# load ~/.fzf.bash
-[[ -f ~/.fzf.bash ]] && eval source ~/.fzf.bash
 
 # load ~/.bashrc.local
 [[ -f ~/.bashrc.local ]] && eval source ~/.bashrc.local
