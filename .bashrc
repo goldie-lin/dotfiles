@@ -91,11 +91,11 @@ unset i prepend_path_list
 # bash-completion.
 source_list=( \
   "${HOME}/opt/git/contrib/completion/git-completion.bash"
+  "${HOME}/opt/git/contrib/completion/git-prompt.sh"
   "${HOME}/opt/hub/etc/hub.bash_completion.sh"
   "${HOME}/opt/android-completion/repo"
   "${HOME}/opt/android-completion/android"
   "${HOME}/opt/crosstool-ng/src/ct-ng.comp"
-  "${HOME}/opt/git/contrib/completion/git-prompt.sh"
   "${HOME}/opt/the_silver_searcher/ag.bashcomp.sh"
   "${HOME}/opt/tmuxinator/completion/tmuxinator.bash"
   "/usr/share/doc/tmux/examples/bash_completion_tmux.sh"
