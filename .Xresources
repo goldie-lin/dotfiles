@@ -27,7 +27,8 @@ URxvt.secondaryScreen:   true
 URxvt.secondaryScroll:   false
 !URxvt.visualBell:  true
 URxvt.cursorBlink: true
-URxvt.termName:    screen-256color
+!URxvt.termName:    screen-256color
+URxvt.termName:    rxvt-unicode-256color
 
 ! start as a login shell
 !URxvt.loginShell: true
