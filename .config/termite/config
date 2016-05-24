@@ -1,0 +1,79 @@
+[options]
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = true
+mouse_autohide = true
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+font = Inconsolata 9
+scrollback_lines = 10000
+search_wrap = true
+#icon_name = terminal
+geometry = 640x360
+fullscreen = true
+
+# "system", "on" or "off"
+cursor_blink = system
+
+# "block", "underline" or "ibeam"
+cursor_shape = block
+
+# $BROWSER is used by default if set, with xdg-open as a fallback
+browser = xdg-open
+
+# set size hints for the window
+#size_hints = true
+
+# Hide links that are no longer valid in url select overlay mode
+filter_unmatched_urls = true
+
+# emit escape sequences for extra modified keys
+#modify_other_keys = false
+
+[colors]
+# Tomorrow Night Eighties
+cursor = #aeafad
+cursor_foreground = #3465a4
+foreground = #cccccc
+foreground_bold = #ffffff
+background = #2d2d2d
+
+# 20% background transparency (requires a compositor)
+#background = rgba(63, 63, 63, 0.8)
+
+# if unset, will reverse foreground and background
+#highlight = #2f2f2f
+
+# colors from color0 to color254 can be set
+# Tomorrow Night Eighties
+color0 = #000000
+color1 = #f2777a
+color2 = #99cc99
+color3 = #f99157
+color4 = #6699cc
+color5 = #cc99cc
+color6 = #66cccc
+color7 = #515151
+color8 = #666666
+color9 = #FF3334
+color10 = #9ec400
+color11 = #ffcc66
+color12 = #6699cc
+color13 = #b777e0
+color14 = #54ced6
+color15 = #393939
+
+[hints]
+font = Inconsolata 11
+foreground = #2d2d2d
+background = #8cacec
+active_foreground = #2d2d2d
+active_background = #e68080
+padding = 2
+border = #4d4d4d
+border_width = 2.5
+roundness = 2.0
+
+# vim: ft=dosini cms=#%s
