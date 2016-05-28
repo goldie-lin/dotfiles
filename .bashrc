@@ -103,7 +103,7 @@ source_list=( \
   "/usr/share/doc/tmux/examples/bash_completion_tmux.sh"
 )
 for i in "${source_list[@]}"; do
-  [[ -f "$i" ]] && eval source "$i"
+  [[ -f "$i" && -r "$i" ]] && eval source "$i"
 done
 unset i source_list
 
@@ -342,4 +342,4 @@ alias udev_reload_rules='sudo udevadm control --reload'  # Trigger systemd-udevd
 alias sudo='sudo '  # Last blank character will make bash to check for alias expansion in the next command following this alias
 
 # load ~/.bashrc.local
-[[ -f ~/.bashrc.local ]] && eval source ~/.bashrc.local
+[[ -f ~/.bashrc.local && -r ~/.bashrc.local ]] && eval source ~/.bashrc.local
