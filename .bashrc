@@ -103,7 +103,7 @@ source_list=( \
   "/usr/share/doc/tmux/examples/bash_completion_tmux.sh"
 )
 for i in "${source_list[@]}"; do
-  [ -f "$i" ] && eval source "$i"
+  [[ -f "$i" ]] && eval source "$i"
 done
 unset i source_list
 
@@ -188,26 +188,26 @@ export FZF_DEFAULT_COMMAND="
 _get_linux_distro_name() {
   local -r _os="$(uname -s)"
 
-  if [ "${_os}" = "Linux" ]; then
+  if [[ "${_os}" = "Linux" ]]; then
     if hash "lsb_release " 2>/dev/null; then
       lsb_release -s -i
-    elif [ -r /etc/lsb-release ]; then
+    elif [[ -r /etc/lsb-release ]]; then
       ( source /etc/lsb-release && echo "$DISTRIB_ID")
-    elif [ -f /etc/arch-release ]; then
+    elif [[ -f /etc/arch-release ]]; then
       echo "Arch"
-    elif [ -f /etc/debian_version ]; then
+    elif [[ -f /etc/debian_version ]]; then
       echo "Debian"
-    elif [ -f /etc/fedora-release ]; then
+    elif [[ -f /etc/fedora-release ]]; then
       echo "Fedora"
-    elif [ -f /etc/redhat-release ]; then
+    elif [[ -f /etc/redhat-release ]]; then
       echo "RedHat"
-    elif [ -f /etc/centos-release ]; then
+    elif [[ -f /etc/centos-release ]]; then
       echo "CentOS"
-    elif [ -f /etc/oracle-release ]; then
+    elif [[ -f /etc/oracle-release ]]; then
       echo "Oracle"
-    elif [ -f /etc/SuSE-release ]; then
+    elif [[ -f /etc/SuSE-release ]]; then
       echo "SuSE"
-    elif [ -r /etc/os-release ]; then
+    elif [[ -r /etc/os-release ]]; then
       ( source /etc/os-release && echo "$ID")
     else
       echo "Unknown"
@@ -233,7 +233,7 @@ whichpkg() {
 
 # cd up
 up() {
-  if [ -z "${1//[0-9]/}" ]; then
+  if [[ -z "${1//[0-9]/}" ]]; then
     local i='' P='./'
     for (( i=0; i<${1:-1}; i++ )); do
       P="${P}../"
