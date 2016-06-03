@@ -90,7 +90,7 @@ unset i prepend_path_list
 
 # bash-completion.
 source_list=( \
-  "${HOME}/.fzf.bash"
+  ~/.fzf.bash
   "${HOME}/opt/git/contrib/completion/git-completion.bash"
   "${HOME}/opt/git/contrib/completion/git-prompt.sh"
   "${HOME}/opt/hub/etc/hub.bash_completion.sh"
