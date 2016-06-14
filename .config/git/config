@@ -50,6 +50,7 @@
 	tool = vimdiff3
 	renameLimit = 0
 	algorithm = histogram
+	renames = copies
 [merge]
 	tool = vimdiff3
 [rebase]
