@@ -60,6 +60,7 @@
 	showStat = true
 	showPatch = true
 [pager]
+	#add = diff-highlight | less -i
 	log = diff-highlight | less -i
 	show = diff-highlight | less -i
 	diff = diff-highlight | less -i
