@@ -59,6 +59,8 @@
 [stash]
 	showStat = true
 	showPatch = true
+[interactive]
+	diffFilter = diff-highlight
 [pager]
 	#add = diff-highlight | less -i
 	log = diff-highlight | less -i
