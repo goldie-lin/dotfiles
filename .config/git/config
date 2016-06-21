@@ -52,6 +52,8 @@
 	algorithm = histogram
 	renames = copies
 	compactionHeuristic = true
+[commit]
+	verbose = true
 [merge]
 	tool = vimdiff3
 [rebase]
