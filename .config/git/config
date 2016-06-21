@@ -51,6 +51,7 @@
 	renameLimit = 0
 	algorithm = histogram
 	renames = copies
+	compactionHeuristic = true
 [merge]
 	tool = vimdiff3
 [rebase]
