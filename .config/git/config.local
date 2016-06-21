@@ -1,5 +1,7 @@
 [grep]
 	threads = 4
+[submodule]
+	fetchJobs = 4
 [http]
 	#proxy = http://127.0.0.1:3128/
 [sendemail]
