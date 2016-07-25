@@ -331,6 +331,7 @@ alias docker_rm_all_stopped_containers="docker ps -q -f 'status=exited' | xargs 
 alias docker_rmi_all_dangling_images="docker images -q -f 'dangling=true' | xargs --no-run-if-empty docker rmi"
 #alias man='man -S 2:3:1'  # add C function manual
 alias nvim='nvim -p'
+alias nvimdiff='nvim -d'
 alias vim='vim -p'
 alias vi='vim'
 alias vimenc='vim -u ~/.vimrc_encrypt -x'
