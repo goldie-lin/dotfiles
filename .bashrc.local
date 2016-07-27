@@ -24,9 +24,6 @@ export ANDROID_IMG_CP_DIR="${HOME}/prj/img"
 # Ref: https://wiki.archlinux.org/index.php/SSH_keys#Start_ssh-agent_with_systemd_user
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
-# enable 24bit true color support in neovim.
-#export NVIM_TUI_ENABLE_TRUE_COLOR=1
-
 # proxy settings.
 #export no_proxy="localhost,127.0.0.1"
 #export http_proxy="http://127.0.0.1:3128/"
