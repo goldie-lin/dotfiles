@@ -35,9 +35,10 @@ select_no_input_f(){
 jdk_version=""
 jdk_version_list=( 5 6 7 8 )  # TODO: Need to update this list if there is a new version of JDK
 echo "Hint:"
-echo "  * Android 1.5 - 2.2 used SunJDK 5 (Cupcake - Froyo)"
-echo "  * Android 2.3 - 4.4 used SunJDK 6 (GB - KK)"
-echo "  * Android 5.0 - now used OpenJDK 7 (L+)"
+echo "  * Android 1.5 - 2.2 used Oracle (Sun) JDK 5 (Cupcake - Froyo)"
+echo "  * Android 2.3 - 4.4 used Oracle (Sun) JDK 6 (Gingerbread - KitKat)"
+echo "  * Android 5.0 - 6.0 used OpenJDK 7 (Lollipop - Marshmallow)"
+echo "  * Android 7.0 - now used OpenJDK 8 (Nougat - <now>)"
 echo ""
 echo "Which version of Oracle (Sun) JDK would you like to use? [1..${#jdk_version_list[@]}]"
 select_no_input_f "jdk_version" "${jdk_version_list[@]}"
