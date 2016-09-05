@@ -75,6 +75,7 @@
 	follow = true
 	date = iso
 	decorate = short
+	showSignature = true
 [grep]
 	lineNumber = true
 [blame]
