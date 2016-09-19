@@ -6,7 +6,7 @@
 # env vars
 # --------
 
-# export Ruby to PATH.
+# export ruby to PATH.
 #export PATH="${HOME}/.gem/ruby/2.3.0/bin:${PATH}"
 
 # export Android NDK to PATH.
@@ -21,7 +21,7 @@ export ANDROID_IMG_CP_DIR="${HOME}/prj/img"
 
 # add this to work with systemd user ssh-agent service for Arch Linux.
 # (used with ~/.config/systemd/user/ssh-agent.service)
-# Ref: https://wiki.archlinux.org/index.php/SSH_keys#Start_ssh-agent_with_systemd_user
+# ref: https://wiki.archlinux.org/index.php/SSH_keys#Start_ssh-agent_with_systemd_user
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 # proxy settings.

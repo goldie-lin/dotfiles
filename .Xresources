@@ -45,7 +45,7 @@ URxvt.colorUL:      #3465A4
 !URxvt.cursorColor:  #EE8888
 URxvt.cursorColor2: Gray25
 
-! Ref: https://github.com/chriskempson/tomorrow-theme/blob/master/Xdefaults/XresourceTomorrowNightEighties
+! ref: https://github.com/chriskempson/tomorrow-theme/blob/master/Xdefaults/XresourceTomorrowNightEighties
 !TomorrowNightEighties
 #define t_background   #2d2d2d
 #define t_current_line #393939
