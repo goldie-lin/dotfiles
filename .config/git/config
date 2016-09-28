@@ -94,6 +94,7 @@
 	co = checkout
 	ci = commit
 	ca = commit -a
+	wt = worktree
 	unstage = reset HEAD --
 	uncommit = reset --soft HEAD^ --
 	egrep = grep -E
