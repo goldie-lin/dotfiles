@@ -330,6 +330,7 @@ alias repo_list_staged_git="repo forall -c 'if ! git diff --no-ext-diff --cached
 alias docker_rm_all_stopped_containers="docker ps -q -f 'status=exited' | xargs --no-run-if-empty docker rm"
 alias docker_rmi_all_dangling_images="docker images -q -f 'dangling=true' | xargs --no-run-if-empty docker rmi"
 #alias man='man -S 2:3:1'  # add C function manual
+alias gpg='gpg2'
 alias nvim='nvim -p'
 alias nvimdiff='nvim -d'
 alias vim='vim -p'
