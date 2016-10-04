@@ -332,7 +332,7 @@ alias docker_rmi_all_dangling_images="docker images -q -f 'dangling=true' | xarg
 #alias man='man -S 2:3:1'  # add C function manual
 alias gpg='gpg2'
 alias gpgv='gpgv2'
-alias nvim='nvim -p'
+#alias nvim='nvim -p'
 alias nvimdiff='nvim -d'
 #alias vim='vim -p'
 alias vi='vim'
