@@ -341,6 +341,7 @@ alias vless='/usr/share/vim/vimcurrent/macros/less.sh'
 alias grep='grep --color=auto --exclude-dir=.repo --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.bzr --exclude-dir=.hg --exclude=cscope.* --exclude=tags --exclude=GTAGS --exclude=GRTAGS --exclude=GPATH'
 alias ag='ag --smart-case --color-line-number="0;32" --color-path="0;35" --color-match="1;31"'
 alias rg='rg --smart-case'
+alias mux='tmuxinator'
 alias minicom='LC_ALL=C minicom -w -c on' # English-language, linewrap, colorful
 alias udev_monitor_usb='udevadm monitor --subsystem-match=usb --udev --property'
 alias udev_reload_rules='sudo udevadm control --reload'  # Trigger systemd-udevd to reload rules files and databases
