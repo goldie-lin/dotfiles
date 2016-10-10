@@ -342,6 +342,7 @@ alias grep='grep --color=auto --exclude-dir=.repo --exclude-dir=.git --exclude-d
 alias ag='ag --smart-case --color-line-number="0;32" --color-path="0;35" --color-match="1;31"'
 alias rg='rg --smart-case'
 alias mux='tmuxinator'
+alias youtube-dl-best='youtube-dl --format bestvideo+bestaudio/best --all-subs --write-sub --embed-subs --embed-thumbnail --merge-output-format mkv --prefer-ffmpeg'
 alias minicom='LC_ALL=C minicom -w -c on' # English-language, linewrap, colorful
 alias udev_monitor_usb='udevadm monitor --subsystem-match=usb --udev --property'
 alias udev_reload_rules='sudo udevadm control --reload'  # Trigger systemd-udevd to reload rules files and databases
