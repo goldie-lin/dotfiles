@@ -79,7 +79,6 @@ fi
 prepend_path_list=( \
   "${HOME}/bin"
   "${HOME}/opt/crosstool-ng/bin/bin"
-  "${HOME}/opt/tmuxinator/bin"
 )
 for i in "${prepend_path_list[@]}"; do
   if [[ "${UID}" -ge 1000 && -d "$i" ]] && ! grep -q "$i" <<< "${PATH}"; then
