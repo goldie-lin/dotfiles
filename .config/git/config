@@ -66,11 +66,11 @@
 [interactive]
 	diffFilter = diff-highlight
 [pager]
-	#add = diff-highlight | less -i
-	log = diff-highlight | less -i
-	show = diff-highlight | less -i
-	diff = diff-highlight | less -i
-	status = diff-highlight | less -i
+	#add = diff-highlight | less -FRi
+	log = diff-highlight | less -FRi
+	show = diff-highlight | less -FRi
+	diff = diff-highlight | less -FRi
+	status = diff-highlight | less -FRi
 [log]
 	follow = true
 	date = iso
