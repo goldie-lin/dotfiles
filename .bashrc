@@ -149,9 +149,11 @@ export LESS_TERMCAP_us=$'\e[0;33m'
 # --------
 
 # default text editor for: sudoedit, visudo, crontab, git.
-export SUDO_EDITOR="vim -p"
 export EDITOR="vim"
 export VISUAL="vim"
+
+# sudoedit default text editor.
+export SUDO_EDITOR="vim -p"
 
 # default web browser for: gozilla (gnu global).
 export BROWSER="firefox"
