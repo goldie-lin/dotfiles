@@ -148,21 +148,21 @@ export LESS_TERMCAP_us=$'\e[0;33m'
 # env vars
 # --------
 
-# default text editor for: sudoedit, visudo, crontab, git.
+# default text editor. (may affects: crontab, git, visudo.)
 export EDITOR="vim"
 export VISUAL="vim"
 
 # sudoedit default text editor.
 export SUDO_EDITOR="vim -p"
 
-# default web browser for: gozilla (gnu global).
+# gozilla (gnu global) default web browser.
 export BROWSER="firefox"
 
-# ccache
+# ccache configs
 export CCACHE_MAX_SIZE="30G"
 export CCACHE_DIR="${HOME}/.ccache"
 
-# xz, also affect "tar -J"
+# xz options. (also affects: "tar -J".)
 export XZ_OPT="--x86 --lzma2=preset=9e,dict=128MiB"
 
 # Android build env
