@@ -158,18 +158,18 @@ export SUDO_EDITOR="vim -p"
 # gozilla (gnu global) default web browser.
 export BROWSER="firefox"
 
-# ccache configs
+# ccache configs.
 export CCACHE_MAX_SIZE="30G"
 export CCACHE_DIR="${HOME}/.ccache"
 
 # xz options. (also affects: "tar -J".)
 export XZ_OPT="--x86 --lzma2=preset=9e,dict=128MiB"
 
-# Android build env
+# Android build env.
 ANDROID_BUILD_SHELL="$(which bash)"
 export ANDROID_BUILD_SHELL
 
-# fzf default command/options
+# fzf default command/options.
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 export FZF_CTRL_T_COMMAND="
   (git ls-tree -r --name-only HEAD ||
@@ -218,7 +218,7 @@ _get_linux_distro_name() {
   fi
 }
 
-# find the package name of a specific command
+# find the package name of a specific command.
 whichpkg() {
   local -r _distro="$(_get_linux_distro_name)"
 
@@ -232,7 +232,7 @@ whichpkg() {
   esac
 }
 
-# cd up
+# cd up.
 up() {
   if [[ -z "${1//[0-9]/}" ]]; then
     local i='' P='./'
@@ -245,27 +245,27 @@ up() {
   fi
 }
 
-# clear memory cache
+# clear memory cache.
 # https://www.kernel.org/doc/Documentation/sysctl/vm.txt
 clear_cache() {
-  # Mark more objects as clean objects to minimize the number of dirty objects
+  # Mark more objects as clean objects to minimize the number of dirty objects.
   sync
-  # Free pagecache and reclaimable slab objects (includes dentries and inodes)
+  # Free pagecache and reclaimable slab objects. (includes dentries and inodes.)
   sudo sysctl -w vm.drop_caches=3
 }
 
-# ccache toggle for Android codebase
-# disable ccache
+# ccache toggle for Android codebase.
+# disable ccache.
 ccache_disable() {
   unset USE_CCACHE
   #unset CCACHE_DIR
 }
 
-# enable ccache
+# enable ccache.
 ccache_enable() {
   local -r top_file="build/core/envsetup.mk"
-  local -r ccache1="./prebuilt/linux-x86/ccache/ccache"  # Android 4.0 (ICS) or older
-  local -r ccache2="./prebuilts/misc/linux-x86/ccache/ccache"  # Android 4.1 (JB) or newer
+  local -r ccache1="./prebuilt/linux-x86/ccache/ccache"  # Android 4.0 (ICS) or older.
+  local -r ccache2="./prebuilts/misc/linux-x86/ccache/ccache"  # Android 4.1 (JB) or newer.
 
   export USE_CCACHE="1"
 
@@ -284,11 +284,11 @@ ccache_enable() {
   fi
 }
 
-# clear ccache cache directory
+# clear ccache cache directory.
 ccache_clearcache() {
   local -r top_file="build/core/envsetup.mk"
-  local -r ccache1="./prebuilt/linux-x86/ccache/ccache"  # Android 4.0 (ICS) or older
-  local -r ccache2="./prebuilts/misc/linux-x86/ccache/ccache"  # Android 4.1 (JB) or newer
+  local -r ccache1="./prebuilt/linux-x86/ccache/ccache"  # Android 4.0 (ICS) or older.
+  local -r ccache2="./prebuilts/misc/linux-x86/ccache/ccache"  # Android 4.1 (JB) or newer.
 
   if [[ ! -f "${top_file}" ]]; then
     echo >&2 "Error: Please cd to Android root and run again."
@@ -330,7 +330,7 @@ alias repo_list_changed_git="repo forall -c 'if ! git diff --no-ext-diff --quiet
 alias repo_list_staged_git="repo forall -c 'if ! git diff --no-ext-diff --cached --quiet ; then echo has_staged_files: \$REPO_PATH; fi'"
 alias docker_rm_all_stopped_containers="docker ps -q -f 'status=exited' | xargs --no-run-if-empty docker rm"
 alias docker_rmi_all_dangling_images="docker images -q -f 'dangling=true' | xargs --no-run-if-empty docker rmi"
-#alias man='man -S 2:3:1'  # add C function manual
+#alias man='man -S 2:3:1'  # add C function manual.
 alias gpg='gpg2'
 alias gpgv='gpgv2'
 #alias nvim='nvim -p'
@@ -345,10 +345,10 @@ alias rg='rg --smart-case'
 alias mux='tmuxinator'
 alias youtube-dl-best='youtube-dl --format bestvideo+bestaudio/best --all-subs --write-sub --embed-subs --embed-thumbnail --merge-output-format mkv --prefer-ffmpeg'
 alias youtube-dl-mp3='youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --prefer-ffmpeg'
-alias minicom='LC_ALL=C minicom -w -c on' # English-language, linewrap, colorful
+alias minicom='LC_ALL=C minicom -w -c on' # English-language, linewrap, colorful.
 alias udev_monitor_usb='udevadm monitor --subsystem-match=usb --udev --property'
-alias udev_reload_rules='sudo udevadm control --reload'  # Trigger systemd-udevd to reload rules files and databases
-alias sudo='sudo '  # Last blank character will make bash to check for alias expansion in the next command following this alias
+alias udev_reload_rules='sudo udevadm control --reload'  # Trigger systemd-udevd to reload rules files and databases.
+alias sudo='sudo '  # Last blank character will make bash to check for alias expansion in the next command following this alias.
 
 # load ~/.bashrc.local
 [[ -f ~/.bashrc.local && -r ~/.bashrc.local ]] && eval source ~/.bashrc.local
