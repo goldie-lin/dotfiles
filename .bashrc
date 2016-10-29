@@ -162,6 +162,10 @@ export BROWSER="firefox"
 export CCACHE_MAX_SIZE="30G"
 export CCACHE_DIR="${HOME}/.ccache"
 
+# fpp default editor and other configs.
+export FPP_EDITOR="vim -p"
+export FPP_DISABLE_SPLIT=1
+
 # xz options. (also affects: "tar -J".)
 export XZ_OPT="--x86 --lzma2=preset=9e,dict=128MiB"
 
