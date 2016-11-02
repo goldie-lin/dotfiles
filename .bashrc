@@ -324,6 +324,7 @@ alias la='ls -ACF'
 alias l='ls -CF'
 alias free='free -hltw'
 alias cgitroot='git rev-parse --is-inside-work-tree >/dev/null && cd "$(git rev-parse --show-toplevel)"'
+alias git_prompt_disable='unset __git_ps1'
 alias git_unstage_added="cgitroot ; git status --porcelain -z | grep -zZ '^A[ MD] ' | sed -z 's/^...//' | xargs -0 --no-run-if-empty git reset HEAD -- ; cd -"
 alias git_unstage_updated="cgitroot ; git status --porcelain -z | grep -zZ '^M[ MD] ' | sed -z 's/^...//' | xargs -0 --no-run-if-empty git reset HEAD -- ; cd -"
 alias git_undo_renamed="cgitroot ; git status --porcelain | grep '^R[ MD] ' | sed -r 's/^...//;s/(.*) -> (.*)/git mv -v \"\\2\" \"\\1\"/' | sh ; cd -"
