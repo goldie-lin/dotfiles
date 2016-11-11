@@ -45,7 +45,7 @@
 	untracked = magenta
 	unmerged = red reverse
 [core]
-	editor = vim
+	editor = nvim
 	untrackedCache = true
 [diff]
 	tool = vimdiff3
