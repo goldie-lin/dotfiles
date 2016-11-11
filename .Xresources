@@ -119,6 +119,7 @@ URxvt.perl-ext-common: default,matcher,selection-to-clipboard,selection-autotran
 URxvt.selection.pattern-0: ([^:│$#[:space:]]+)
 URxvt.selection.pattern-1: (^[^:│[:space:]]+:\\d+:)
 !URxvt.selection.pattern-2: ([^&()*,;<=>?@[\\\\]^`{|})]+)
+!URxvt.selection.pattern-2: ( at .*? line \\d+[,.])
 ! Set URL open by urlLauncher via left mouse button (1), or middle mouse button (2):
 URxvt.urlLauncher:    firefox
 ! ref: `man urxvt-matcher`
@@ -137,6 +138,7 @@ URxvt.matcher.button: 2
 ! selection-autotransform:
 URxvt.selection-autotransform.0: s/^([^:[:space:]]+):(\\d+):?$/vi +$2 \\Q$1\\E\\x0d/
 URxvt.selection-autotransform.1: s/^([^:[:space:]]+):(\\d+):?$/:e \\Q$1\\E\\x0d:$2\\x0d/
+!URxvt.selection-autotransform.2: s/^ at (.*?) line (\\d+)[,.]$/:e \\Q$1\E\\x0d:$2\\x0d/
 ! clipboard
 URxvt.keysym.M-c:         perl:clipboard:copy
 URxvt.keysym.M-v:         perl:clipboard:paste
