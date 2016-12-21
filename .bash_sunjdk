@@ -20,18 +20,26 @@
 
 ## Select function
 select_no_input_f(){
-  # $1  arg
-  # $2~ item list
-  local arg="$1"
+  # $1  title
+  # $2  arg
+  # $3~ item list
+  local title="$1"
+  local arg="$2"
   local input=
-  shift
-  select var in "$@"; do
-    test -n "${var}" && echo "$@" | grep -q "${var}" && input="${var}" && break
+  shift 2
+
+  PS3="${title} [1..$#]: "
+  select var; do
+    test -n "${var}" && input="${var}" && break
+    echo >&2 "Invalid option, plz select [1..$#]"
   done
-  eval "${arg}=${input}"
+  unset PS3
+
+  eval "${arg}='${input}'"
 }
 
 ## Dynamically choose the version of Oracle (Sun) JDK
+jdk_menu_title="Which version of Oracle (Sun) JDK would you like to use?"
 jdk_version=""
 jdk_version_list=( 5 6 7 8 )  # TODO: Need to update this list if there is a new version of JDK
 echo "Hint:"
@@ -40,8 +48,7 @@ echo "  * Android 2.3 - 4.4 used Oracle (Sun) JDK 6 (Gingerbread - KitKat)"
 echo "  * Android 5.0 - 6.0 used OpenJDK 7 (Lollipop - Marshmallow)"
 echo "  * Android 7.0 - now used OpenJDK 8 (Nougat - <now>)"
 echo ""
-echo "Which version of Oracle (Sun) JDK would you like to use? [1..${#jdk_version_list[@]}]"
-select_no_input_f "jdk_version" "${jdk_version_list[@]}"
+select_no_input_f "${jdk_menu_title}" "jdk_version" "${jdk_version_list[@]}"
 echo "You chose version 'JDK ${jdk_version}'"
 
 ## Export a specific version of Oracle (Sun) JDK to PATH
