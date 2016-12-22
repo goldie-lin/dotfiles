@@ -53,6 +53,7 @@
 	renames = copies
 	algorithm = histogram
 	compactionHeuristic = true
+	indentHeuristic = true
 [commit]
 	verbose = true
 [merge]
