@@ -51,6 +51,7 @@
 	tool = vimdiff3
 	renameLimit = 0
 	renames = copies
+	submodule = diff
 	algorithm = histogram
 	compactionHeuristic = false
 	indentHeuristic = true
