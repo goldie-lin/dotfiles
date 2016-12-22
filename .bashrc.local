@@ -38,7 +38,6 @@ export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 #alias repo='python2 "$(which repo)"'
 alias watch_temperatures='watch "sudo hddtemp -q /dev/sda; sensors"'
-alias bash_disable_git_prompt='unset __git_ps1'
 
 # exa - a modern replacement for ls
 #alias ls='exa --color=automatic'
