@@ -50,8 +50,8 @@
 [diff]
 	tool = vimdiff3
 	renameLimit = 0
-	algorithm = histogram
 	renames = copies
+	algorithm = histogram
 	compactionHeuristic = true
 [commit]
 	verbose = true
