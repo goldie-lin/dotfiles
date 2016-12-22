@@ -47,6 +47,7 @@
 [core]
 	editor = nvim
 	untrackedCache = true
+	deltaBaseCacheLimit = 1g
 [diff]
 	tool = vimdiff3
 	renameLimit = 0
