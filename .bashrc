@@ -334,6 +334,7 @@ alias repo_list_ignored_git="repo forall -c 'if git status --porcelain=v1 --igno
 alias repo_list_changed_git="repo forall -c 'if ! git diff --no-ext-diff --quiet ; then echo has_changed_files: \$REPO_PATH; fi'"
 alias repo_list_staged_git="repo forall -c 'if ! git diff --no-ext-diff --cached --quiet ; then echo has_staged_files: \$REPO_PATH; fi'"
 alias repo_list_unpushed_git="repo forall -c 'if git status --porcelain=v1 -b | grep \"^##.*\\.\\.\\.\" | grep -Eq \"\\[(ahead|behind)\" ; then echo has_unpushed_commits: \$REPO_PATH; fi'"
+alias repo_list_unbalanced_git="repo forall -c 'branch_ab=\"\$(git status --porcelain=v2 -b | grep -Po \"(?<=^# branch\\.ab )(\\+[0-9]+ -[0-9]+)$\")\" ; if [[ \"\${branch_ab}\"  != \"+0 -0\" ]] ; then echo \"has_unbalanced_branch: \$REPO_PATH (\${branch_ab})\" ; fi'"
 alias docker_stop_all_running_containers="docker ps -q -f 'status=running' -f 'status=restarting' -f 'status=paused' | xargs --no-run-if-empty docker stop"
 alias docker_rm_all_stopped_containers="docker ps -q -f 'status=exited' | xargs --no-run-if-empty docker rm"
 alias docker_rmi_all_dangling_images="docker images -q -f 'dangling=true' | xargs --no-run-if-empty docker rmi"
