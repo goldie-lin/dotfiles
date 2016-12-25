@@ -325,15 +325,15 @@ alias l='ls -CF'
 alias free='free -hltw'
 alias cgitroot='git rev-parse --is-inside-work-tree >/dev/null && cd "$(git rev-parse --show-toplevel)"'
 alias bash_disable_git_prompt='unset __git_ps1'
-alias git_unstage_added="cgitroot ; git status --porcelain -z | grep -zZ '^A[ MD] ' | sed -z 's/^...//' | xargs -0 --no-run-if-empty git reset HEAD -- ; cd -"
-alias git_unstage_updated="cgitroot ; git status --porcelain -z | grep -zZ '^M[ MD] ' | sed -z 's/^...//' | xargs -0 --no-run-if-empty git reset HEAD -- ; cd -"
-alias git_undo_renamed="cgitroot ; git status --porcelain | grep '^R[ MD] ' | sed -r 's/^...//;s/(.*) -> (.*)/git mv -v \"\\2\" \"\\1\"/' | sh ; cd -"
+alias git_unstage_added="cgitroot ; git status --porcelain=v1 -z | grep -zZ '^A[ MD] ' | sed -z 's/^...//' | xargs -0 --no-run-if-empty git reset HEAD -- ; cd -"
+alias git_unstage_updated="cgitroot ; git status --porcelain=v1 -z | grep -zZ '^M[ MD] ' | sed -z 's/^...//' | xargs -0 --no-run-if-empty git reset HEAD -- ; cd -"
+alias git_undo_renamed="cgitroot ; git status --porcelain=v1 | grep '^R[ MD] ' | sed -r 's/^...//;s/(.*) -> (.*)/git mv -v \"\\2\" \"\\1\"/' | sh ; cd -"
 alias repo_clean='repo status -o; repo branch; read -p "Really? It will git reset hard!"; rm -vf .ccienv_default makeMtk.ini {checkenv,auto_sync_android}.log; rm -rf out; repo forall -c "git clean -dfx; git reset --hard"'
 alias repo_list_stashed_git="repo forall -c 'if git rev-parse --verify --quiet refs/stash >/dev/null; then echo has_stashed_changes: \$REPO_PATH; fi'"
-alias repo_list_ignored_git="repo forall -c 'if git status --porcelain --ignored | grep \"^!! \" >/dev/null 2>&1; then echo has_ignored_files: \$REPO_PATH; fi'"
+alias repo_list_ignored_git="repo forall -c 'if git status --porcelain=v1 --ignored | grep \"^!! \" >/dev/null 2>&1; then echo has_ignored_files: \$REPO_PATH; fi'"
 alias repo_list_changed_git="repo forall -c 'if ! git diff --no-ext-diff --quiet ; then echo has_changed_files: \$REPO_PATH; fi'"
 alias repo_list_staged_git="repo forall -c 'if ! git diff --no-ext-diff --cached --quiet ; then echo has_staged_files: \$REPO_PATH; fi'"
-alias repo_list_unpushed_git="repo forall -c 'if git status --porcelain -b | grep \"^##.*\\.\\.\\.\" | grep -Eq \"\\[(ahead|behind)\" ; then echo has_unpushed_commits: \$REPO_PATH; fi'"
+alias repo_list_unpushed_git="repo forall -c 'if git status --porcelain=v1 -b | grep \"^##.*\\.\\.\\.\" | grep -Eq \"\\[(ahead|behind)\" ; then echo has_unpushed_commits: \$REPO_PATH; fi'"
 alias docker_stop_all_running_containers="docker ps -q -f 'status=running' -f 'status=restarting' -f 'status=paused' | xargs --no-run-if-empty docker stop"
 alias docker_rm_all_stopped_containers="docker ps -q -f 'status=exited' | xargs --no-run-if-empty docker rm"
 alias docker_rmi_all_dangling_images="docker images -q -f 'dangling=true' | xargs --no-run-if-empty docker rmi"
