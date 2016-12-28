@@ -106,6 +106,62 @@ for i in "${source_list[@]}"; do
 done
 unset i source_list
 
+# my git ps1 prompt.
+# ref: https://github.com/josuah/config/blob/master/.local/bin/git-prompt
+__my_git_ps1() {
+  # shellcheck disable=SC2015
+  git rev-parse 2>/dev/null && \
+    ( [[ "$(git rev-parse --is-bare-repository)" == true ]] && (echo '&' ; echo "# branch.head $(git rev-parse --abbrev-ref HEAD)") || \
+      [[ "$(git rev-parse --is-inside-git-dir)"  == true ]] && echo '@' || \
+      (git rev-parse --verify -q refs/stash >/dev/null && echo '$' ; git status --porcelain=v2 -b --ignored) \
+    ) | gawk '
+  m = 0;
+  m == 0 && /^&$/              { bare++;      m = 1; }
+  m == 0 && /^@$/              { insidegit++; m = 1; }
+  m == 0 && /^# branch\.head / { head = $0; sub(/# branch\.head /, "", head); m = 1; }
+  m == 0 && /^# branch\.ab /   { match($0, /^# branch\.ab \+([0-9]+) -([0-9]+)$/, ab); ahead = ab[1]; behind = ab[2]; m = 1; }
+  m == 0 && /^\$$/             { stashed++;   m = 1; }
+  m == 0 && /^! /              { ignored++;   m = 1; }
+  m == 0 && /^\? /             { untracked++; m = 1; }
+  m == 0 && /^[12] U. /        { conflicts++; m = 1; }
+  m == 0 && /^[12] .U /        { conflicts++; m = 1; }
+  m == 0 && /^[12] DD /        { conflicts++; m = 1; }
+  m == 0 && /^[12] AA /        { conflicts++; m = 1; }
+  m == 0 && /^[12] .M /        { changed++;          }
+  m == 0 && /^[12] .D /        { changed++;          }
+  m == 0 && /^[12] [^.]. /     { staged++;           }
+  m == 1                       { m = 0;              }
+
+  END {
+    printf(" (");
+
+    if (bare != 0) {
+      printf("\033[1;32m%s\033[0m:\033[0;32m%s\033[0m", "BARE", head);
+    } else if (insidegit != 0) {
+      printf("\033[1;32m%s\033[0m", "GIT_DIR");
+    } else {
+      printf("\033[0;32m%s\033[0m", head);
+      if (stashed + ignored + untracked + conflicts + changed + staged != 0) {
+        printf(" ");
+        if (stashed  ) printf("\033[1;34m$\033[0m",      stashed  );
+        if (staged   ) printf("\033[0;32m+%d\033[0m",    staged   );
+        if (changed  ) printf("\033[0;31m*%d\033[0m",    changed  );
+        if (untracked) printf("\033[0;35m%%%d\033[0m",   untracked);
+        if (ignored)   printf("\033[1;30mi%d\033[0m",    ignored  );
+        if (conflicts) printf("\033[1;41;30m!%d\033[0m", conflicts);
+      }
+      if (behind + ahead != 0) {
+        if (behind   ) printf("\033[1;40;31m↓%d\033[0m", behind   );
+        if (ahead    ) printf("\033[1;40;36m↑%d\033[0m", ahead    );
+      } else {
+        printf("\033[0m=");
+      }
+    }
+
+    printf("\033[0m)");
+  }'
+}
+
 # git-prompt.
 __set_prompt() {
   local -r last_cmd_rc="$?"  # Must come first!
@@ -119,7 +175,9 @@ __set_prompt() {
     prompt_post=' (\[\e[1;33;41m\]'"${last_cmd_rc}"'\[\e[0m\])\$ '
   fi
 
-  if hash __git_ps1 2>/dev/null; then
+  if hash __my_git_ps1 2>/dev/null; then
+    PS1="${prompt_pre}$(__my_git_ps1)${prompt_post}"
+  elif hash __git_ps1 2>/dev/null; then
     export GIT_PS1_SHOWDIRTYSTATE=1        # *#
     export GIT_PS1_SHOWUNTRACKEDFILES=1    # %
     export GIT_PS1_SHOWSTASHSTATE=1        # $
@@ -324,7 +382,7 @@ alias la='ls -ACF'
 alias l='ls -CF'
 alias free='free -hltw'
 alias cgitroot='git rev-parse --is-inside-work-tree >/dev/null && cd "$(git rev-parse --show-toplevel)"'
-alias bash_disable_git_prompt='unset __git_ps1'
+alias bash_disable_git_prompt='unset __git_ps1 __my_git_ps1'
 alias git_unstage_added="cgitroot ; git status --porcelain=v1 -z | grep -zZ '^A[ MD] ' | sed -z 's/^...//' | xargs -0 --no-run-if-empty git reset HEAD -- ; cd -"
 alias git_unstage_updated="cgitroot ; git status --porcelain=v1 -z | grep -zZ '^M[ MD] ' | sed -z 's/^...//' | xargs -0 --no-run-if-empty git reset HEAD -- ; cd -"
 alias git_undo_renamed="cgitroot ; git status --porcelain=v1 | grep '^R[ MD] ' | sed -r 's/^...//;s/(.*) -> (.*)/git mv -v \"\\2\" \"\\1\"/' | sh ; cd -"
