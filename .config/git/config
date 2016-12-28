@@ -89,6 +89,8 @@
 	threads = 0
 [branch]
 	autoSetupRebase = remote
+[tag]
+	sort = version:refname
 [alias]
 	st = status
 	sti = status --ignored
