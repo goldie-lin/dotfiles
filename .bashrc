@@ -115,22 +115,21 @@ __my_git_ps1() {
       [[ "$(git rev-parse --is-inside-git-dir)"  == true ]] && echo '@' || \
       (git rev-parse --verify -q refs/stash >/dev/null && echo '$' ; git status --porcelain=v2 -b --ignored) \
     ) | gawk '
-  m = 0;
-  m == 0 && /^&$/              { bare++;      m = 1; }
-  m == 0 && /^@$/              { insidegit++; m = 1; }
-  m == 0 && /^# branch\.head / { head = $0; sub(/# branch\.head /, "", head); m = 1; }
-  m == 0 && /^# branch\.ab /   { match($0, /^# branch\.ab \+([0-9]+) -([0-9]+)$/, ab); ahead = ab[1]; behind = ab[2]; m = 1; }
-  m == 0 && /^\$$/             { stashed++;   m = 1; }
-  m == 0 && /^! /              { ignored++;   m = 1; }
-  m == 0 && /^\? /             { untracked++; m = 1; }
-  m == 0 && /^[12] U. /        { conflicts++; m = 1; }
-  m == 0 && /^[12] .U /        { conflicts++; m = 1; }
-  m == 0 && /^[12] DD /        { conflicts++; m = 1; }
-  m == 0 && /^[12] AA /        { conflicts++; m = 1; }
-  m == 0 && /^[12] .M /        { changed++;          }
-  m == 0 && /^[12] .D /        { changed++;          }
-  m == 0 && /^[12] [^.]. /     { staged++;           }
-  m == 1                       { m = 0;              }
+
+  /^&$/              { bare++;      next; }
+  /^@$/              { insidegit++; next; }
+  /^\$$/             { stashed++;   next; }
+  /^# branch\.head / { head = $0; sub(/# branch\.head /, "", head); next; }
+  /^# branch\.ab /   { match($0, /^# branch\.ab \+([0-9]+) -([0-9]+)$/, ab); ahead = ab[1]; behind = ab[2]; next; }
+  /^! /              { ignored++;   next; }
+  /^\? /             { untracked++; next; }
+  /^[12] U. /        { conflicts++; next; }
+  /^[12] .U /        { conflicts++; next; }
+  /^[12] DD /        { conflicts++; next; }
+  /^[12] AA /        { conflicts++; next; }
+  /^[12] .M /        { changed++;         }
+  /^[12] .D /        { changed++;         }
+  /^[12] [^.]. /     { staged++;          }
 
   END {
     printf(" (");
@@ -147,7 +146,7 @@ __my_git_ps1() {
         if (staged   ) printf("\033[0;32m+%d\033[0m",    staged   );
         if (changed  ) printf("\033[0;31m*%d\033[0m",    changed  );
         if (untracked) printf("\033[0;35m%%%d\033[0m",   untracked);
-        if (ignored)   printf("\033[1;30mi%d\033[0m",    ignored  );
+        if (ignored  ) printf("\033[1;30mi%d\033[0m",    ignored  );
         if (conflicts) printf("\033[1;41;30m!%d\033[0m", conflicts);
       }
       if (behind + ahead != 0) {
