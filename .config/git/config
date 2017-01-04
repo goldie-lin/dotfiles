@@ -159,6 +159,7 @@
 	last = log -1 HEAD
 	lastpull = log HEAD@{1}..HEAD
 	hist  = log --pretty=format:'%C(yellow)%h%C(reset) %C(green)[%ad]%C(reset) %C(bold blue)<%an>%C(reset) %s%C(auto)%d%C(reset)'
+	hist2 = log --pretty=format:'%C(yellow)%h%C(reset) %C(green)[%ad]%C(reset) %C(bold blue)<%an>%C(reset) %s%C(auto)%d%C(reset)' --graph
 [bash]
 	hideIfPwdIgnored = true
 [include]
