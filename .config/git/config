@@ -158,7 +158,7 @@
 	who = shortlog -n -s --no-merges
 	last = log -1 HEAD
 	lastpull = log HEAD@{1}..HEAD
-	hist = log --graph --pretty=format:'%Cred%h%Creset <%Cgreen%ad%Creset> %C(bold blue)[%an]%Creset %s%C(yellow)%d%Creset'
+	hist  = log --pretty=format:'%C(yellow)%h%C(reset) %C(green)[%ad]%C(reset) %C(bold blue)<%an>%C(reset) %s%C(auto)%d%C(reset)'
 [bash]
 	hideIfPwdIgnored = true
 [include]
