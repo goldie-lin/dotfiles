@@ -33,13 +33,6 @@ shopt -s checkwinsize
 # set variable identifying the chroot you work in for Ubuntu. (used in the prompt below)
 [[ -z "${debian_chroot:-}" && -r /etc/debian_chroot ]] && debian_chroot=$(cat /etc/debian_chroot)
 
-# color prompt.
-if [[ -x /usr/bin/tput ]] && tput setaf 1 >&/dev/null; then
-  PS1='${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u\[\e[00m\]\[\e[01;33m\]@\[\e[00m\]\[\e[01;32m\]\h\[\e[00m\]:\[\e[01;34m\]\w\[\e[00m\]\$ '
-else
-  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-
 # enable color support of ls/tree commands.
 if [[ -x /usr/bin/dircolors ]]; then
   if [[ -r ~/.dir_colors ]]; then
