@@ -132,7 +132,7 @@ __my_git_ps1() {
   /^[12] [^.]. /     { staged++;          }
 
   END {
-    printf("(");
+    printf(" (");
 
     if (bare != 0) {
       printf("\033[1;32m%s\033[0m:\033[0;32m%s\033[0m", "BARE", head);
@@ -167,11 +167,11 @@ __set_prompt() {
   local prompt_pre=""
   local prompt_post=""
 
-  prompt_pre='\[\e[1;32m\]\u\[\e[1;33m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]\n'
+  prompt_pre='\[\e[1;32m\]\u\[\e[1;33m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]'
   if [[ "${last_cmd_rc}" -eq 0 ]]; then
     prompt_post='\$ '
   else
-    prompt_post='(\[\e[1;33;41m\]'"${last_cmd_rc}"'\[\e[0m\])\$ '
+    prompt_post=' (\[\e[1;33;41m\]'"${last_cmd_rc}"'\[\e[0m\])\$ '
   fi
 
   if hash __my_git_ps1 2>/dev/null; then
