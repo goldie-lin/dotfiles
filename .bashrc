@@ -150,13 +150,27 @@ __set_prompt() {
   local -r last_cmd_rc="$?"  # Must come first!
   local prompt_pre=""
   local prompt_post=""
+  local -i color_on=0
 
-  prompt_pre='\[\e[1;32m\]\u\[\e[1;33m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]'
-  if [[ "${last_cmd_rc}" -eq 0 ]]; then
-    prompt_post='\$ '
-  else
-    prompt_post=' (\[\e[1;33;41m\]'"${last_cmd_rc}"'\[\e[0m\])\$ '
+  # detect terminal color support
+  if [[ -x /usr/bin/tput ]] && tput setaf 1 >&/dev/null; then
+    color_on=1
   fi
+
+  prompt_pre="${debian_chroot:+($debian_chroot)}"
+  if [[ color_on -eq 1 ]]; then
+    prompt_pre+='\[\e[1;32m\]\u\[\e[1;33m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]'
+  else
+    prompt_pre+='\u@\h:\w'
+  fi
+  if [[ "${last_cmd_rc}" -ne 0 ]]; then
+    if [[ color_on -eq 1 ]]; then
+      prompt_post=' (\[\e[1;33;41m\]'"${last_cmd_rc}"'\[\e[0m\])'
+    else
+      prompt_post=" (${last_cmd_rc})"
+    fi
+  fi
+  prompt_post+='\$ '
 
   if hash __my_git_ps1 2>/dev/null; then
     PS1="${prompt_pre}$(__my_git_ps1)${prompt_post}"
@@ -164,7 +178,11 @@ __set_prompt() {
     export GIT_PS1_SHOWDIRTYSTATE=1        # *#
     export GIT_PS1_SHOWUNTRACKEDFILES=1    # %
     export GIT_PS1_SHOWSTASHSTATE=1        # $
-    export GIT_PS1_SHOWCOLORHINTS=1
+    if [[ color_on -eq 1 ]]; then
+      export GIT_PS1_SHOWCOLORHINTS=1
+    else
+      unset GIT_PS1_SHOWCOLORHINTS
+    fi
     export GIT_PS1_DESCRIBE_STYLE="branch"
     export GIT_PS1_SHOWUPSTREAM="auto git"
     __git_ps1 "${prompt_pre}" "${prompt_post}"
