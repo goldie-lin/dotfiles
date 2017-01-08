@@ -93,12 +93,14 @@ unset i source_list
 # my git ps1 prompt.
 # ref: https://github.com/josuah/config/blob/master/.local/bin/git-prompt
 __my_git_ps1() {
+  local -i _color_on="$1"
+
   # shellcheck disable=SC2015
   git rev-parse 2>/dev/null && \
     ( [[ "$(git rev-parse --is-bare-repository)" == true ]] && (echo '&' ; echo "# branch.head $(git rev-parse --abbrev-ref HEAD)") || \
       [[ "$(git rev-parse --is-inside-git-dir)"  == true ]] && echo '@' || \
       (git rev-parse --verify -q refs/stash >/dev/null && echo '$' ; git status --porcelain=v2 -b --ignored) \
-    ) | gawk '
+    ) | gawk -v "coloron=${_color_on}" '
 
   /^&$/              { bare++;      next; }
   /^@$/              { insidegit++; next; }
@@ -119,29 +121,29 @@ __my_git_ps1() {
     printf(" (");
 
     if (bare != 0) {
-      printf("\\[\033[1;32m\\]%s\\[\033[0m\\]:\\[\033[0;32m\\]%s\\[\033[0m\\]", "BARE", head);
+      printf((coloron != 1) ? "%s:%s" : "\\[\033[1;32m\\]%s\\[\033[0m\\]:\\[\033[0;32m\\]%s\\[\033[0m\\]", "BARE", head);
     } else if (insidegit != 0) {
-      printf("\\[\033[1;32m\\]%s\\[\033[0m\\]", "GIT_DIR");
+      printf((coloron != 1) ? "%s" : "\\[\033[1;32m\\]%s\\[\033[0m\\]", "GIT_DIR");
     } else {
-      printf("\\[\033[0;32m\\]%s\\[\033[0m\\]", head);
+      printf((coloron != 1) ? "%s" : "\\[\033[0;32m\\]%s\\[\033[0m\\]", head);
       if (stashed + ignored + untracked + conflicts + changed + staged != 0) {
         printf(" ");
-        if (stashed  ) printf("\\[\033[1;34m\\]$\\[\033[0m\\]"                );
-        if (staged   ) printf("\\[\033[0;32m\\]+%d\\[\033[0m\\]",    staged   );
-        if (changed  ) printf("\\[\033[0;31m\\]*%d\\[\033[0m\\]",    changed  );
-        if (untracked) printf("\\[\033[0;35m\\]%%%d\\[\033[0m\\]",   untracked);
-        if (ignored  ) printf("\\[\033[1;30m\\]i%d\\[\033[0m\\]",    ignored  );
-        if (conflicts) printf("\\[\033[1;41;30m\\]!%d\\[\033[0m\\]", conflicts);
+        if (stashed  ) printf((coloron != 1) ? "$"    : "\\[\033[1;34m\\]$\\[\033[0m\\]"                );
+        if (staged   ) printf((coloron != 1) ? "+%d"  : "\\[\033[0;32m\\]+%d\\[\033[0m\\]",    staged   );
+        if (changed  ) printf((coloron != 1) ? "*%d"  : "\\[\033[0;31m\\]*%d\\[\033[0m\\]",    changed  );
+        if (untracked) printf((coloron != 1) ? "%%%d" : "\\[\033[0;35m\\]%%%d\\[\033[0m\\]",   untracked);
+        if (ignored  ) printf((coloron != 1) ? "i%d"  : "\\[\033[1;30m\\]i%d\\[\033[0m\\]",    ignored  );
+        if (conflicts) printf((coloron != 1) ? "!%d"  : "\\[\033[1;41;30m\\]!%d\\[\033[0m\\]", conflicts);
       }
       if (behind + ahead != 0) {
-        if (behind   ) printf("\\[\033[1;40;31m\\]↓%d\\[\033[0m\\]", behind   );
-        if (ahead    ) printf("\\[\033[1;40;36m\\]↑%d\\[\033[0m\\]", ahead    );
+        if (behind   ) printf((coloron != 1) ? "↓%d"  : "\\[\033[1;40;31m\\]↓%d\\[\033[0m\\]", behind   );
+        if (ahead    ) printf((coloron != 1) ? "↑%d"  : "\\[\033[1;40;36m\\]↑%d\\[\033[0m\\]", ahead    );
       } else {
-        printf("\\[\033[0m\\]=");
+        printf((coloron != 1) ? "=" : "\\[\033[0m\\]=");
       }
     }
 
-    printf("\\[\033[0m\\])");
+    printf((coloron != 1) ? ")" : "\\[\033[0m\\])");
   }'
 }
 
@@ -173,7 +175,7 @@ __set_prompt() {
   prompt_post+='\$ '
 
   if hash __my_git_ps1 2>/dev/null; then
-    PS1="${prompt_pre}$(__my_git_ps1)${prompt_post}"
+    PS1="${prompt_pre}$(__my_git_ps1 "${color_on}")${prompt_post}"
   elif hash __git_ps1 2>/dev/null; then
     export GIT_PS1_SHOWDIRTYSTATE=1        # *#
     export GIT_PS1_SHOWUNTRACKEDFILES=1    # %
