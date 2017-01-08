@@ -135,29 +135,29 @@ __my_git_ps1() {
     printf(" (");
 
     if (bare != 0) {
-      printf("\033[1;32m%s\033[0m:\033[0;32m%s\033[0m", "BARE", head);
+      printf("\\[\033[1;32m\\]%s\\[\033[0m\\]:\\[\033[0;32m\\]%s\\[\033[0m\\]", "BARE", head);
     } else if (insidegit != 0) {
-      printf("\033[1;32m%s\033[0m", "GIT_DIR");
+      printf("\\[\033[1;32m\\]%s\\[\033[0m\\]", "GIT_DIR");
     } else {
-      printf("\033[0;32m%s\033[0m", head);
+      printf("\\[\033[0;32m\\]%s\\[\033[0m\\]", head);
       if (stashed + ignored + untracked + conflicts + changed + staged != 0) {
         printf(" ");
-        if (stashed  ) printf("\033[1;34m$\033[0m"                );
-        if (staged   ) printf("\033[0;32m+%d\033[0m",    staged   );
-        if (changed  ) printf("\033[0;31m*%d\033[0m",    changed  );
-        if (untracked) printf("\033[0;35m%%%d\033[0m",   untracked);
-        if (ignored  ) printf("\033[1;30mi%d\033[0m",    ignored  );
-        if (conflicts) printf("\033[1;41;30m!%d\033[0m", conflicts);
+        if (stashed  ) printf("\\[\033[1;34m\\]$\\[\033[0m\\]"                );
+        if (staged   ) printf("\\[\033[0;32m\\]+%d\\[\033[0m\\]",    staged   );
+        if (changed  ) printf("\\[\033[0;31m\\]*%d\\[\033[0m\\]",    changed  );
+        if (untracked) printf("\\[\033[0;35m\\]%%%d\\[\033[0m\\]",   untracked);
+        if (ignored  ) printf("\\[\033[1;30m\\]i%d\\[\033[0m\\]",    ignored  );
+        if (conflicts) printf("\\[\033[1;41;30m\\]!%d\\[\033[0m\\]", conflicts);
       }
       if (behind + ahead != 0) {
-        if (behind   ) printf("\033[1;40;31m↓%d\033[0m", behind   );
-        if (ahead    ) printf("\033[1;40;36m↑%d\033[0m", ahead    );
+        if (behind   ) printf("\\[\033[1;40;31m\\]↓%d\\[\033[0m\\]", behind   );
+        if (ahead    ) printf("\\[\033[1;40;36m\\]↑%d\\[\033[0m\\]", ahead    );
       } else {
-        printf("\033[0m=");
+        printf("\\[\033[0m\\]=");
       }
     }
 
-    printf("\033[0m)");
+    printf("\\[\033[0m\\])");
   }'
 }
 
