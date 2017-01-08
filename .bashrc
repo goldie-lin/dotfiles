@@ -142,7 +142,7 @@ __my_git_ps1() {
       printf("\033[0;32m%s\033[0m", head);
       if (stashed + ignored + untracked + conflicts + changed + staged != 0) {
         printf(" ");
-        if (stashed  ) printf("\033[1;34m$\033[0m",      stashed  );
+        if (stashed  ) printf("\033[1;34m$\033[0m"                );
         if (staged   ) printf("\033[0;32m+%d\033[0m",    staged   );
         if (changed  ) printf("\033[0;31m*%d\033[0m",    changed  );
         if (untracked) printf("\033[0;35m%%%d\033[0m",   untracked);
