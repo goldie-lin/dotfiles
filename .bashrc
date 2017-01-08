@@ -40,15 +40,6 @@ else
   PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 
-# set terminal title.
-case "$TERM" in
-xterm*|rxvt*)
-  PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-  ;;
-*)
-  ;;
-esac
-
 # enable color support of ls/tree commands.
 if [[ -x /usr/bin/dircolors ]]; then
   if [[ -r ~/.dir_colors ]]; then
