@@ -130,7 +130,7 @@ URxvt.matcher.button: 2
 !URxvt.matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 !URxvt.matcher.launcher.1: xdg-open
 !URxvt.matcher.pattern.2:  \\B(/\\S+?):(\\d+)(?=:|$)
-!URxvt.matcher.launcher.2: gvim +$2 $1
+!URxvt.matcher.launcher.2: vi +$2 $1
 ! tabbed:
 !URxvt.tabbed.tabbar-fg: 8
 !URxvt.tabbed.tabbar-bg: 7
