@@ -121,13 +121,14 @@ URxvt.selection.pattern-1: (^[^:│[:space:]]+:\\d+:)
 !URxvt.selection.pattern-2: ([^&()*,;<=>?@[\\\\]^`{|})]+)
 !URxvt.selection.pattern-2: ( at .*? line \\d+[,.])
 ! Set URL open by urlLauncher via left mouse button (1), or middle mouse button (2):
-URxvt.urlLauncher:    firefox
+URxvt.urlLauncher:    xdg-open
 ! ref: `man urxvt-matcher`
-URxvt.url-launcher:       firefox
+URxvt.url-launcher:       xdg-open
 URxvt.keysym.C-Delete:    matcher:last
 URxvt.keysym.M-Delete:    matcher:list
 URxvt.matcher.button: 2
 !URxvt.matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+!URxvt.matcher.launcher.1: xdg-open
 !URxvt.matcher.pattern.2:  \\B(/\\S+?):(\\d+)(?=:|$)
 !URxvt.matcher.launcher.2: gvim +$2 $1
 ! tabbed:
@@ -156,7 +157,7 @@ URxvt.keysym.M-s:      perl:keyboard-select:search
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.autocopy:  true
 URvxt.url-select.button:    2
-URxvt.url-select.launcher:  firefox
+URxvt.url-select.launcher:  xdg-open
 
 ! Append local .Xresources
 #include ".Xresources.local"
