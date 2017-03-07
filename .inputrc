@@ -1,0 +1,16 @@
+# GNU readline initialization file
+
+set blink-matching-paren on
+set colored-completion-prefix on
+set colored-stats on
+
+#set keymap vi
+#set editing-mode vi
+#set show-mode-in-prompt on
+
+#set completion-ignore-case on
+#set completion-map-case on
+#set menu-complete-display-prefix on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+#TAB:menu-complete
