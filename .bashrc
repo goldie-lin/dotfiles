@@ -425,7 +425,7 @@ alias grep='grep --color=auto --exclude-dir=.repo --exclude-dir=.git --exclude-d
 alias ag='ag --smart-case --color-line-number="0;32" --color-path="0;35" --color-match="1;31"'
 alias rg='rg --smart-case --colors "path:fg:magenta" --colors "path:style:nobold" --colors "line:fg:green" --colors "line:style:nobold" --colors "match:fg:red" --colors "match:style:bold"'
 alias mux='tmuxinator'
-alias youtube-dl-best='youtube-dl --format bestvideo+bestaudio/best --all-subs --write-sub --embed-subs --merge-output-format mkv --prefer-ffmpeg'
+alias youtube-dl-best='youtube-dl --format bestvideo+bestaudio/best --all-subs --write-sub --embed-subs --convert-subs srt --merge-output-format mkv --prefer-ffmpeg'
 alias youtube-dl-mp3='youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --prefer-ffmpeg'
 alias minicom='LC_ALL=C minicom -w -c on' # English-language, linewrap, colorful.
 alias udev_monitor_usb='udevadm monitor --subsystem-match=usb --udev --property'
