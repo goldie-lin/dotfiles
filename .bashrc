@@ -83,7 +83,7 @@ source_list=( \
   "${HOME}/opt/completion-ruby/completion-ruby-all"
   "${HOME}/opt/the_silver_searcher/ag.bashcomp.sh"
   "${HOME}/opt/tmuxinator/completion/tmuxinator.bash"
-  "/usr/share/doc/tmux/examples/bash_completion_tmux.sh"
+  "${HOME}/opt/tmux-bash-completion/completions/tmux"
 )
 for i in "${source_list[@]}"; do
   [[ -f "$i" && -r "$i" ]] && eval source "$i"
