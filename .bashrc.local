@@ -6,6 +6,9 @@
 # env vars
 # --------
 
+# ccache configs.
+export CCACHE_MAX_SIZE="30G"
+
 # export ruby to PATH.
 #export PATH="${HOME}/.gem/ruby/2.3.0/bin:${PATH}"
 

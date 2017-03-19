@@ -225,7 +225,7 @@ export SUDO_EDITOR="vim -p"
 export BROWSER="firefox"
 
 # ccache configs.
-export CCACHE_MAX_SIZE="30G"
+#export CCACHE_MAX_SIZE="30G"
 export CCACHE_DIR="${HOME}/.ccache"
 
 # fpp default editor and other configs.
