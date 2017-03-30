@@ -91,9 +91,9 @@ done
 unset i source_list
 
 # tmuxp's bash-completion.
-if hash tmuxp 2>/dev/null; then
-  eval "$(_TMUXP_COMPLETE=source tmuxp)"
-fi
+#if hash tmuxp 2>/dev/null; then
+#  eval "$(_TMUXP_COMPLETE=source tmuxp)"
+#fi
 
 # my git ps1 prompt.
 # ref: https://github.com/josuah/config/blob/master/.local/bin/git-prompt
