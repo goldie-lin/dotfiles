@@ -16,6 +16,9 @@ HISTIGNORE=$'@(l|l[sal]|[bf]g|jobs|exit|clear|reset|pwd|?(u)mount)*([ \t])'
 HISTSIZE=2000
 HISTFILESIZE=5000
 
+# add timestamp to each entry displayed by the history builtin.
+HISTTIMEFORMAT='%F,%T '
+
 # append to the history file, don't overwrite it.
 shopt -s histappend
 
