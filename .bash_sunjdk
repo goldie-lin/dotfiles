@@ -58,4 +58,4 @@ export CLASSPATH=".:${CLASSPATH}:${JAVA_HOME}/lib:${JRE_HOME}/lib"
 export PATH="${JAVA_HOME}/bin:${JRE_HOME}/bin:${PATH}"
 
 ## Unset temporary variables
-unset jdk_version jdk_version_list
+unset jdk_menu_title jdk_version jdk_version_list
