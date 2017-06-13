@@ -19,7 +19,7 @@
 #       [...]
 
 ## Select function
-select_no_input_f(){
+select_no_input_f() {
   # $1  title
   # $2  arg
   # $3~ item list
