@@ -26,6 +26,9 @@ shopt -s histappend
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# enable extended pattern matching.
+shopt -s extglob
+
 # make less more friendly for non-text input files.
 [[ -x /usr/bin/lesspipe ]] && eval "$(lesspipe)"        # for Ubuntu
 [[ -x /usr/bin/lesspipe.sh ]] && eval "$(lesspipe.sh)"  # for Arch Linux
