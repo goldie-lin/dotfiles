@@ -58,11 +58,13 @@ if ! shopt -oq posix; then
 fi
 
 # add for 'fcitx.vim' vim plugin.
-FCITX_SOCKET="/tmp/fcitx-socket-${DISPLAY}"
-if [[ -S "${FCITX_SOCKET}" ]]; then
-  export FCITX_SOCKET
-else
-  unset FCITX_SOCKET
+if hash "fcitx" 2>/dev/null; then
+  FCITX_SOCKET="/tmp/fcitx-socket-${DISPLAY}"
+  if [[ -S "${FCITX_SOCKET}" ]]; then
+    export FCITX_SOCKET
+  else
+    unset FCITX_SOCKET
+  fi
 fi
 
 # add $PATH.
