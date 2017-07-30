@@ -92,6 +92,7 @@ source_list=( \
   "${HOME}/opt/the_silver_searcher/ag.bashcomp.sh"
   "${HOME}/opt/tmuxinator/completion/tmuxinator.bash"
   "${HOME}/opt/tmux-bash-completion/completions/tmux"
+  '/usr/share/doc/pkgfile/command-not-found.bash'
 )
 for i in "${source_list[@]}"; do
   [[ -f "$i" && -r "$i" ]] && eval source "$i"
