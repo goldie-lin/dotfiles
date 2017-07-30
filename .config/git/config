@@ -40,6 +40,8 @@
 	header = normal
 	branch = green
 	nobranch = red
+	localBranch = green
+	remoteBranch = blue
 	added = green
 	changed = red
 	untracked = magenta
