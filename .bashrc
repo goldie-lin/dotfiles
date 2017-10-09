@@ -58,7 +58,7 @@ if ! shopt -oq posix; then
 fi
 
 # add for 'fcitx.vim' vim plugin.
-if hash "fcitx" 2>/dev/null; then
+if hash "fcitx" &>/dev/null; then
   FCITX_SOCKET="/tmp/fcitx-socket-${DISPLAY}"
   if [[ -S "${FCITX_SOCKET}" ]]; then
     export FCITX_SOCKET
@@ -100,7 +100,7 @@ done
 unset i source_list
 
 # tmuxp's bash-completion.
-#if hash tmuxp 2>/dev/null; then
+#if hash tmuxp &>/dev/null; then
 #  eval "$(_TMUXP_COMPLETE=source tmuxp)"
 #fi
 
@@ -110,7 +110,7 @@ __my_git_ps1() {
   local -i _color_on="$1"
 
   # shellcheck disable=SC2015
-  git rev-parse 2>/dev/null && \
+  git rev-parse &>/dev/null && \
     ( [[ "$(git rev-parse --is-bare-repository)" == true ]] && (echo '&' ; echo "# branch.head $(git rev-parse --abbrev-ref HEAD)") || \
       [[ "$(git rev-parse --is-inside-git-dir)"  == true ]] && echo '@' || \
       (git rev-parse --verify -q refs/stash >/dev/null && echo '$' ; git status --porcelain=v2 -b --ignored) \
@@ -188,9 +188,9 @@ __set_prompt() {
   fi
   prompt_post+='\$ '
 
-  if hash __my_git_ps1 2>/dev/null; then
+  if hash __my_git_ps1 &>/dev/null; then
     PS1="${prompt_pre}$(__my_git_ps1 "${color_on}")${prompt_post}"
-  elif hash __git_ps1 2>/dev/null; then
+  elif hash __git_ps1 &>/dev/null; then
     export GIT_PS1_SHOWDIRTYSTATE=1        # *#
     export GIT_PS1_SHOWUNTRACKEDFILES=1    # %
     export GIT_PS1_SHOWSTASHSTATE=1        # $
@@ -269,7 +269,7 @@ _get_linux_distro_name() {
   local -r _os="$(uname -s)"
 
   if [[ "${_os}" = "Linux" ]]; then
-    if hash "lsb_release" 2>/dev/null; then
+    if hash "lsb_release" &>/dev/null; then
       lsb_release -s -i
     elif [[ -r /etc/lsb-release ]]; then
       ( source /etc/lsb-release && echo "$DISTRIB_ID")
@@ -412,8 +412,8 @@ alias git_unstage_updated="cgitroot ; git status --porcelain=v1 -z | grep -zZ '^
 alias git_undo_renamed="cgitroot ; git status --porcelain=v1 | grep '^R[ MD] ' | sed -r 's/^...//;s/(.*) -> (.*)/git mv -v \"\\2\" \"\\1\"/' | sh ; cd -"
 alias repo_clean='repo status -o; repo branch; read -p "Really? It will git reset hard!"; rm -vf .ccienv_default makeMtk.ini {checkenv,auto_sync_android}.log; rm -rf out; repo forall -c "git clean -dfx; git reset --hard"'
 alias repo_list_stashed_git="repo forall -c 'if git rev-parse --verify --quiet refs/stash >/dev/null; then echo has_stashed_changes: \$REPO_PATH; fi'"
-alias repo_list_ignored_git="repo forall -c 'if git status --porcelain=v2 --ignored | grep \"^! \" >/dev/null 2>&1; then echo has_ignored_files: \$REPO_PATH; fi'"
-alias repo_list_untracked_git="repo forall -c 'if git status --porcelain=v2 | grep \"^? \" >/dev/null 2>&1; then echo has_untracked_files: \$REPO_PATH; fi'"
+alias repo_list_ignored_git="repo forall -c 'if git status --porcelain=v2 --ignored | grep \"^! \" &>/dev/null; then echo has_ignored_files: \$REPO_PATH; fi'"
+alias repo_list_untracked_git="repo forall -c 'if git status --porcelain=v2 | grep \"^? \" &>/dev/null; then echo has_untracked_files: \$REPO_PATH; fi'"
 alias repo_list_changed_git="repo forall -c 'if ! git diff --no-ext-diff --quiet ; then echo has_changed_files: \$REPO_PATH; fi'"
 alias repo_list_staged_git="repo forall -c 'if ! git diff --no-ext-diff --cached --quiet ; then echo has_staged_files: \$REPO_PATH; fi'"
 #alias repo_list_unpushed_git="repo forall -c 'if git status --porcelain=v1 -b | grep \"^##.*\\.\\.\\.\" | grep -Eq \"\\[(ahead|behind)\" ; then echo has_unpushed_commits: \$REPO_PATH; fi'"
