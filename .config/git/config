@@ -50,6 +50,8 @@
 	editor = nvim
 	untrackedCache = true
 	deltaBaseCacheLimit = 1g
+[pack]
+	threads = 0
 [diff]
 	tool = vimdiff3
 	renameLimit = 0
@@ -87,8 +89,6 @@
 	showEmail = true
 [push]
 	default = simple
-[pack]
-	threads = 0
 [branch]
 	autoSetupRebase = remote
 [tag]
