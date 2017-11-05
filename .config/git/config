@@ -51,6 +51,7 @@
 	untrackedCache = true
 	deltaBaseCacheLimit = 1g
 	compression = 9
+	looseCompression = 1
 [pack]
 	threads = 0
 [diff]
