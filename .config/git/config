@@ -54,6 +54,7 @@
 	looseCompression = 1
 [pack]
 	compression = 9
+	windowMemory = 32m
 	threads = 0
 [diff]
 	tool = vimdiff3
