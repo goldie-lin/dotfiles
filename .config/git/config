@@ -50,6 +50,7 @@
 	editor = nvim
 	untrackedCache = true
 	deltaBaseCacheLimit = 1g
+	compression = 9
 [pack]
 	threads = 0
 [diff]
