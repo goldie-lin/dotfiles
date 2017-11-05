@@ -53,6 +53,7 @@
 	compression = 9
 	looseCompression = 1
 [pack]
+	compression = 9
 	threads = 0
 [diff]
 	tool = vimdiff3
