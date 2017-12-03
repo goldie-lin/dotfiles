@@ -161,12 +161,46 @@ __my_git_ps1() {
   }'
 }
 
+# ref: https://github.com/jichu4n/bash-command-timer
+__prompt_start_time=0
+__is_at_prompt=1
+__is_first_prompt=1
+__pre_prompt() {
+  if [[ -z "${__is_at_prompt}" ]]; then
+    return
+  fi
+  unset __is_at_prompt
+  __prompt_start_time="$(date '+%s')"
+}
+trap '__pre_prompt' DEBUG
+
 # git-prompt.
 __set_prompt() {
   local -r last_cmd_rc="$?"  # Must come first!
   local prompt_pre=""
   local prompt_post=""
   local -i color_on=0
+  local r_str=""
+  local -i start_time_secs=0
+  local -i end_time_secs=0
+  local -i elapsed_secs=0
+  local -i elapsed_d=0
+  local -i elapsed_h=0
+  local -i elapsed_m=0
+  local -i elapsed_s=0
+
+  __is_at_prompt=1
+  start_time_secs="${__prompt_start_time}"
+  end_time_secs=$(date '+%s')
+  elapsed_secs=$((end_time_secs - start_time_secs))
+  elapsed_d=$((elapsed_secs/86400))
+  elapsed_h=$((elapsed_secs%86400/3600))
+  elapsed_m=$((elapsed_secs%3600/60))
+  elapsed_s=$((elapsed_secs%60))
+  printf -v r_str "%ds" "${elapsed_s}"
+  [[ ${elapsed_m} -gt 0 ]] && printf -v r_str "%dm%s" "${elapsed_m}" "${r_str}"
+  [[ ${elapsed_h} -gt 0 ]] && printf -v r_str "%dh%s" "${elapsed_h}" "${r_str}"
+  [[ ${elapsed_d} -gt 0 ]] && printf -v r_str "%dd, %s" "${elapsed_d}" "${r_str}"
 
   # detect terminal color support
   if [[ -x /usr/bin/tput ]] && tput setaf 1 >&/dev/null; then
@@ -204,6 +238,12 @@ __set_prompt() {
     __git_ps1 "${prompt_pre}" "${prompt_post}"
   else
     PS1="${prompt_pre}${prompt_post}"
+  fi
+
+  if [[ -n "${__is_first_prompt}" ]]; then
+    unset __is_first_prompt
+  else
+    echo -e "\e[${COLUMNS}C\e[${#r_str}D${r_str}"
   fi
 }
 PROMPT_COMMAND='__set_prompt'
