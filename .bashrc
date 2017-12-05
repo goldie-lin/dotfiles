@@ -243,7 +243,9 @@ __set_prompt() {
   if [[ -n "${__is_first_prompt}" ]]; then
     unset __is_first_prompt
   else
-    echo -e "\e[${COLUMNS}C\e[${#r_str}D${r_str}"
+    if [[ ${elapsed_secs} -gt 0 ]]; then
+      echo -e "\e[${COLUMNS}C\e[${#r_str}D${r_str}"
+    fi
   fi
 }
 PROMPT_COMMAND='__set_prompt'
