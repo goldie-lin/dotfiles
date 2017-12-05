@@ -213,11 +213,18 @@ __set_prompt() {
   else
     prompt_pre+='\u@\h:\w'
   fi
+  if [[ -n "${__is_first_prompt}" ]]; then
+    unset __is_first_prompt
+  else
+    if [[ ${elapsed_secs} -gt 0 ]]; then
+      prompt_post+=' (\[\e[33m\]'"${r_str}"'\[\e[0m\])'
+    fi
+  fi
   if [[ "${last_cmd_rc}" -ne 0 ]]; then
     if [[ color_on -eq 1 ]]; then
-      prompt_post=' (\[\e[1;33;41m\]'"${last_cmd_rc}"'\[\e[0m\])'
+      prompt_post+=' (\[\e[1;33;41m\]'"${last_cmd_rc}"'\[\e[0m\])'
     else
-      prompt_post=" (${last_cmd_rc})"
+      prompt_post+=" (${last_cmd_rc})"
     fi
   fi
   prompt_post+='\$ '
@@ -240,13 +247,13 @@ __set_prompt() {
     PS1="${prompt_pre}${prompt_post}"
   fi
 
-  if [[ -n "${__is_first_prompt}" ]]; then
-    unset __is_first_prompt
-  else
-    if [[ ${elapsed_secs} -gt 0 ]]; then
-      echo -e "\e[${COLUMNS}C\e[${#r_str}D${r_str}"
-    fi
-  fi
+  #if [[ -n "${__is_first_prompt}" ]]; then
+  #  unset __is_first_prompt
+  #else
+  #  if [[ ${elapsed_secs} -gt 0 ]]; then
+  #    echo -e "\e[${COLUMNS}C\e[${#r_str}D${r_str}"
+  #  fi
+  #fi
 }
 PROMPT_COMMAND='__set_prompt'
 
