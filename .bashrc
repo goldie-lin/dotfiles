@@ -315,7 +315,9 @@ export FZF_DEFAULT_COMMAND="
 
 # get Linux distro name. (beta, potentially unstable!)
 _get_linux_distro_name() {
-  local -r _os="$(uname -s)"
+  local _os=""
+
+  _os="$(uname -s)"
 
   if [[ "${_os}" = "Linux" ]]; then
     if hash "lsb_release" &>/dev/null; then
@@ -348,7 +350,9 @@ _get_linux_distro_name() {
 
 # find the package name of a specific command.
 whichpkg() {
-  local -r _distro="$(_get_linux_distro_name)"
+  local _distro=""
+
+  _distro="$(_get_linux_distro_name)"
 
   case "${_distro}" in
   "Arch")
