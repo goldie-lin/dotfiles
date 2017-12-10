@@ -299,16 +299,13 @@ export ANDROID_BUILD_SHELL
 
 # fzf default command/options.
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
-export FZF_CTRL_T_COMMAND="
+export FZF_DEFAULT_COMMAND='
   (git ls-tree -r --name-only HEAD ||
-    ag --nocolor --hidden -f -g '' ||
-    find -L . \\( -fstype 'dev' -o -fstype 'proc' \\) -prune -o -type f -print -o -type d -print -o -type l -print | sed 1d | cut -b3-
-  ) 2>/dev/null"
-export FZF_DEFAULT_COMMAND="
-  (git ls-tree -r --name-only HEAD ||
-    ag --nocolor --hidden -f -g '' ||
-    find -L . \\( -fstype 'dev' -o -fstype 'proc' \\) -prune -o -type f -print -o -type d -print -o -type l -print | sed 1d | cut -b3-
-  ) 2>/dev/null"
+    fd --color never --type f --follow --hidden --exclude .git --exclude .repo ||
+    ag --nocolor --hidden -f -g "" ||
+    find -L . \( -fstype dev -o -fstype proc \) -prune -o -type f -print -o -type l -print | sed s/^..//
+  ) 2>/dev/null'
+export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 
 # functions
 # ---------
