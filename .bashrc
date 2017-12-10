@@ -445,7 +445,7 @@ alias du='du -h'
 alias df='df -hT'
 # shellcheck disable=SC2010
 __gnu_coreutils_version="$(ls --version | grep -Po '(?<=ls \(GNU coreutils\) )[0-9.]+')"
-if [[ "${__gnu_coreutils_version}" == "$(echo -e "${__gnu_coreutils_version}\n8.25" | sort -rV | head -n1)" ]]; then
+if [[ "${__gnu_coreutils_version}" == "$(echo -e "${__gnu_coreutils_version}\\n8.25" | sort -rV | head -n1)" ]]; then
   alias ls='ls --color=auto --quoting-style=shell-escape'  # required GNU coreutils version >= 8.25
 else
   alias ls='ls --color=auto --quoting-style=shell'
