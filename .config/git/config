@@ -90,6 +90,7 @@
 [grep]
 	lineNumber = true
 [blame]
+	date = format:%Y-%m-%d %H:%M:%S %z
 	showEmail = true
 [push]
 	default = simple
