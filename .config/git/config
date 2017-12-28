@@ -71,6 +71,7 @@
 [rebase]
 	autoSquash = true
 	autoStash = true
+	abbreviateCommands = true
 	missingCommitsCheck = warn
 	instructionFormat = [%ai] <%ae> %s
 [stash]
