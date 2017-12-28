@@ -71,6 +71,7 @@
 [rebase]
 	autoSquash = true
 	autoStash = true
+	instructionFormat = [%ai] <%ae> %s
 [stash]
 	showStat = true
 	showPatch = true
