@@ -84,7 +84,7 @@
 	status = diff-so-fancy | less -FRi
 [log]
 	follow = true
-	date = iso
+	date = format:%Y-%m-%d %H:%M:%S %z
 	decorate = short
 	showSignature = true
 [grep]
