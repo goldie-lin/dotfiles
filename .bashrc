@@ -70,7 +70,7 @@ if hash "fcitx" &>/dev/null; then
 fi
 
 # add $PATH.
-prepend_path_list=( \
+prepend_path_list=(
   "${HOME}/bin"
   "${HOME}/opt/crosstool-ng/bin/bin"
 )
@@ -82,7 +82,7 @@ done
 unset i prepend_path_list
 
 # bash-completion.
-source_list=( \
+source_list=(
   ~/.fzf.bash
   "${HOME}/opt/git/contrib/completion/git-completion.bash"
   "${HOME}/opt/git/contrib/completion/git-prompt.sh"
