@@ -78,7 +78,8 @@
 	showStat = true
 	showPatch = true
 [interactive]
-	diffFilter = diff-so-fancy
+	#diffFilter = diff-so-fancy
+	diffFilter = diff-highlight
 [pager]
 	#add = diff-so-fancy | less -FRi
 	log = diff-so-fancy | less -FRi
