@@ -313,7 +313,7 @@ export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 # ---------
 
 # get Linux distro name. (beta, potentially unstable!)
-_get_linux_distro_name() {
+__get_linux_distro_name() {
   local _os=""
 
   _os="$(uname -s)"
@@ -351,7 +351,7 @@ _get_linux_distro_name() {
 whichpkg() {
   local _distro=""
 
-  _distro="$(_get_linux_distro_name)"
+  _distro="$(__get_linux_distro_name)"
 
   case "${_distro}" in
   "Arch")
