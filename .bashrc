@@ -65,7 +65,7 @@ if hash "fcitx" &>/dev/null; then
   if [[ -S "${FCITX_SOCKET}" ]]; then
     export FCITX_SOCKET
   else
-    unset FCITX_SOCKET
+    unset -v FCITX_SOCKET
   fi
 fi
 
@@ -79,7 +79,7 @@ for i in "${prepend_path_list[@]}"; do
     export PATH="$i:$PATH"
   fi
 done
-unset i prepend_path_list
+unset -v i prepend_path_list
 
 # bash-completion.
 source_list=(
@@ -99,7 +99,7 @@ source_list=(
 for i in "${source_list[@]}"; do
   [[ -f "$i" && -r "$i" ]] && eval source "$i"
 done
-unset i source_list
+unset -v i source_list
 
 # tmuxp's bash-completion.
 #if hash tmuxp &>/dev/null; then
@@ -171,7 +171,7 @@ __pre_prompt() {
   if [[ -z "${__is_at_prompt}" ]]; then
     return
   fi
-  unset __is_at_prompt
+  unset -v __is_at_prompt
   __prompt_start_time="$(date '+%s')"
 }
 trap '__pre_prompt' DEBUG
@@ -216,7 +216,7 @@ __set_prompt() {
     prompt_pre+='\u@\h:\w'
   fi
   if [[ -n "${__is_first_prompt}" ]]; then
-    unset __is_first_prompt
+    unset -v __is_first_prompt
   else
     if [[ ${elapsed_secs} -gt 0 ]]; then
       prompt_post+=' (\[\e[33m\]'"${r_str}"'\[\e[0m\])'
@@ -240,7 +240,7 @@ __set_prompt() {
     if [[ color_on -eq 1 ]]; then
       export GIT_PS1_SHOWCOLORHINTS=1
     else
-      unset GIT_PS1_SHOWCOLORHINTS
+      unset -v GIT_PS1_SHOWCOLORHINTS
     fi
     export GIT_PS1_DESCRIBE_STYLE="branch"
     export GIT_PS1_SHOWUPSTREAM="auto git"
@@ -250,7 +250,7 @@ __set_prompt() {
   fi
 
   #if [[ -n "${__is_first_prompt}" ]]; then
-  #  unset __is_first_prompt
+  #  unset -v __is_first_prompt
   #else
   #  if [[ ${elapsed_secs} -gt 0 ]]; then
   #    echo -e "\e[${COLUMNS}C\e[${#r_str}D${r_str}"
@@ -388,8 +388,8 @@ clear_cache() {
 # ccache toggle for Android codebase.
 # disable ccache.
 ccache_disable() {
-  unset USE_CCACHE
-  #unset CCACHE_DIR
+  unset -v USE_CCACHE
+  #unset -v CCACHE_DIR
 }
 
 # enable ccache.
@@ -452,13 +452,13 @@ if [[ "${__gnu_coreutils_version}" == "$(echo -e "${__gnu_coreutils_version}\\n8
 else
   alias ls='ls --color=auto --quoting-style=shell'
 fi
-unset __gnu_coreutils_version
+unset -v __gnu_coreutils_version
 alias ll='ls -alF --time-style="+%Y-%m-%d_%H-%M-%S"'
 alias la='ls -ACF'
 alias l='ls -CF'
 alias free='free -hltw'
 alias cgitroot='git rev-parse --is-inside-work-tree >/dev/null && cd "$(git rev-parse --show-toplevel)"'
-alias bash_disable_git_prompt='unset __git_ps1 __my_git_ps1'
+alias bash_disable_git_prompt='unset -f __git_ps1 __my_git_ps1'
 alias git_unstage_added="cgitroot ; git status --porcelain=v1 -z | grep -zZ '^A[ MD] ' | sed -z 's/^...//' | xargs -0 --no-run-if-empty git reset HEAD -- ; cd -"
 alias git_unstage_updated="cgitroot ; git status --porcelain=v1 -z | grep -zZ '^M[ MD] ' | sed -z 's/^...//' | xargs -0 --no-run-if-empty git reset HEAD -- ; cd -"
 alias git_undo_renamed="cgitroot ; git status --porcelain=v1 | grep '^R[ MD] ' | sed -r 's/^...//;s/(.*) -> (.*)/git mv -v \"\\2\" \"\\1\"/' | sh ; cd -"
