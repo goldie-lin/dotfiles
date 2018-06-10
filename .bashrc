@@ -481,7 +481,37 @@ alias nvimdiff='nvim -d'
 #alias vim='vim -p'
 alias vi='vim'
 alias vimenc='vim -u ~/.vimrc_encrypt -x'
-alias vless='/usr/share/vim/vimcurrent/macros/less.sh'
+
+__vim_or_nvim_less_sh_path() {
+  local _distro=
+  local _pkgname=
+  local _vim_or_nvim="${1:-vim}"
+  _distro="$(__get_linux_distro_name)"
+  case "${_distro}" in
+    Arch)
+      case "${_vim_or_nvim}" in
+        vim)  _pkgname="vim-runtime";;
+        nvim) _pkgname="neovim";;
+      esac
+      if pacman -Qs "${_pkgname}" &> /dev/null; then
+        pacman -Ql "${_pkgname}" | grep -o '\/usr\/share\/.*\/macros\/less\.sh' | uniq
+      fi
+      ;;
+    Ubuntu)
+      case "${_vim_or_nvim}" in
+        vim)  _pkgname="vim-runtime";;
+        nvim) _pkgname="neovim-runtime";;
+      esac
+      if [[ "$(dpkg-query -W --showformat='${db:Status-Abbrev}' "${_pkgname}")" =~ ii ]]; then
+        dpkg -L "${_pkgname}" | grep -o '\/usr\/share\/.*\/macros\/less\.sh' | uniq
+      fi
+      ;;
+  esac
+}
+alias vless="$(__vim_or_nvim_less_sh_path vim)"
+alias nvless="$(__vim_or_nvim_less_sh_path nvim)"
+unset -f __vim_or_nvim_less_sh_path
+
 alias grep='grep --color=auto --exclude-dir=.repo --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.bzr --exclude-dir=.hg --exclude=cscope.* --exclude=tags --exclude=GTAGS --exclude=GRTAGS --exclude=GPATH'
 alias ag='ag --smart-case --color-line-number="0;32" --color-path="0;35" --color-match="1;31"'
 alias rg='rg --smart-case --colors "path:fg:magenta" --colors "path:style:nobold" --colors "line:fg:green" --colors "line:style:nobold" --colors "match:fg:red" --colors "match:style:bold"'
