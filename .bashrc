@@ -508,7 +508,9 @@ __vim_or_nvim_less_sh_path() {
       ;;
   esac
 }
+# shellcheck disable=SC2139
 alias vless="$(__vim_or_nvim_less_sh_path vim)"
+# shellcheck disable=SC2139
 alias nvless="$(__vim_or_nvim_less_sh_path nvim)"
 unset -f __vim_or_nvim_less_sh_path
 
