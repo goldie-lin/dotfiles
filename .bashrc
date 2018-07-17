@@ -260,7 +260,7 @@ __set_prompt() {
 PROMPT_COMMAND='__set_prompt'
 
 # colorful man page.
-PAGER="$(which less) -s -R -i"
+PAGER="$(command -v less) -s -R -i"
 export PAGER
 #export BROWSER="${PAGER}"
 export LESS_TERMCAP_mb=$'\e[0;34m'
@@ -296,7 +296,7 @@ export FPP_DISABLE_SPLIT=1
 export XZ_OPT="--x86 --lzma2=preset=9e,dict=128MiB"
 
 # Android build env.
-ANDROID_BUILD_SHELL="$(which bash)"
+ANDROID_BUILD_SHELL="$(command -v bash)"
 export ANDROID_BUILD_SHELL
 
 # fzf default command/options.
@@ -355,9 +355,9 @@ whichpkg() {
 
   case "${_distro}" in
   "Arch")
-    readlink -f "$(which "$1")" | xargs --no-run-if-empty pacman -Qo ;;
+    readlink -f "$(command -v "$1")" | xargs --no-run-if-empty pacman -Qo ;;
   "Ubuntu")
-    readlink -f "$(which "$1")" | xargs --no-run-if-empty dpkg -S ;;
+    readlink -f "$(command -v "$1")" | xargs --no-run-if-empty dpkg -S ;;
   *)
     echo >&2 "Error: Unsupported distro: '${_distro}'!" ;;
   esac
