@@ -39,7 +39,7 @@ export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 # aliases
 # -------
 
-#alias repo='python2 "$(command -v repo)"'
+#alias repo='python2 "$(which repo)"'
 alias watch_temperatures='sudo watch "hddtemp -q /dev/sda; sensors"'
 
 # exa - a modern replacement for ls
