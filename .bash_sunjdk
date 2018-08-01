@@ -31,7 +31,7 @@ select_no_input_f() {
   PS3="${title} [1..$#]: "
   select var; do
     test -n "${var}" && input="${var}" && break
-    echo >&2 "Invalid option, plz select [1..$#]"
+    echo "Invalid option, plz select [1..$#]" >&2
   done
   unset PS3
 

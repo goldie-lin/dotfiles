@@ -359,7 +359,7 @@ whichpkg() {
   "Ubuntu")
     readlink -f "$(command -v "$1")" | xargs --no-run-if-empty dpkg -S ;;
   *)
-    echo >&2 "Error: Unsupported distro: '${_distro}'!" ;;
+    echo "Error: Unsupported distro: '${_distro}'!" >&2 ;;
   esac
 }
 
@@ -401,7 +401,7 @@ ccache_enable() {
   export USE_CCACHE="1"
 
   if [[ ! -f "${top_file}" ]]; then
-    echo >&2 "Error: Please cd to Android root and run again."
+    echo "Error: Please cd to Android root and run again." >&2
     return 1
   fi
 
@@ -410,7 +410,7 @@ ccache_enable() {
   elif [[ -f "${ccache2}" && -x "${ccache2}" ]]; then
     "${ccache2}" -M "${CCACHE_MAX_SIZE}"
   else
-    echo >&2 "Error: Android prebuilt executable 'ccache' not found!"
+    echo "Error: Android prebuilt executable 'ccache' not found!" >&2
     return 2
   fi
 }
@@ -422,7 +422,7 @@ ccache_clearcache() {
   local -r ccache2="./prebuilts/misc/linux-x86/ccache/ccache"  # Android 4.1 (JB) or newer.
 
   if [[ ! -f "${top_file}" ]]; then
-    echo >&2 "Error: Please cd to Android root and run again."
+    echo "Error: Please cd to Android root and run again." >&2
     return 1
   fi
 
@@ -431,7 +431,7 @@ ccache_clearcache() {
   elif [[ -f "${ccache2}" && -x "${ccache2}" ]]; then
     "${ccache2}" -C
   else
-    echo >&2 "Error: Android prebuilt executable 'ccache' not found!"
+    echo "Error: Android prebuilt executable 'ccache' not found!" >&2
     return 2
   fi
 }
