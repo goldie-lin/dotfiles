@@ -518,8 +518,9 @@ alias grep='grep --color=auto --exclude-dir=.repo --exclude-dir=.git --exclude-d
 alias ag='ag --smart-case --color-line-number="0;32" --color-path="0;35" --color-match="1;31"'
 alias rg='rg --smart-case --colors "path:fg:magenta" --colors "path:style:nobold" --colors "line:fg:green" --colors "line:style:nobold" --colors "match:fg:red" --colors "match:style:bold"'
 alias mux='tmuxinator'
-alias youtube-dl-best='youtube-dl --format bestvideo+bestaudio/best --all-subs --write-sub --embed-subs --convert-subs srt --merge-output-format mkv --prefer-ffmpeg'
-alias youtube-dl-mp3='youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --prefer-ffmpeg'
+alias youtube-dl-video='youtube-dl --format "bestvideo+bestaudio/best" --sub-lang "zh-Hant,en" --write-sub --write-auto-sub --embed-subs --convert-subs srt --merge-output-format mkv'
+alias youtube-dl-audio='youtube-dl --format "bestaudio/best" --extract-audio --audio-quality 0'
+alias youtube-dl-mp3='youtube-dl --format "bestaudio/best" --extract-audio --audio-quality 0 --audio-format mp3 --embed-thumbnail'
 alias minicom='LC_ALL=C minicom'
 alias udev_monitor_usb='udevadm monitor --subsystem-match=usb --udev --property'
 alias udev_reload_rules='sudo udevadm control --reload'  # Trigger systemd-udevd to reload rules files and databases.
