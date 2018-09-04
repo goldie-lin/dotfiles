@@ -171,6 +171,7 @@
 	lastpull = log HEAD@{1}..
 	hist  = log --no-show-signature --pretty=format:'%C(yellow)%h%C(reset) %C(green)[%ad]%C(reset) {%C(auto)%G?%C(reset)} %C(bold blue)<%an>%C(reset) %s%C(auto)%d%C(reset)'
 	hist2 = log --no-show-signature --pretty=format:'%C(yellow)%h%C(reset) %C(green)[%ad]%C(reset) {%C(auto)%G?%C(reset)} %C(bold blue)<%an>%C(reset) %s%C(auto)%d%C(reset)' --graph
+	stash-list = stash list --pretty=format:'%C(yellow)%h%C(reset) %C(green)[%ad]%C(reset) %C(bold blue)%gd%C(reset): %gs'
 	aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/ / = /' | sort
 [bash]
 	hideIfPwdIgnored = true
