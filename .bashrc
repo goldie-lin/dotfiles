@@ -516,7 +516,7 @@ unset -f __vim_or_nvim_less_sh_path
 
 alias grep='grep --color=auto --exclude-dir=.repo --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.bzr --exclude-dir=.hg --exclude=cscope.* --exclude=tags --exclude=GTAGS --exclude=GRTAGS --exclude=GPATH'
 alias ag='ag --smart-case --color-line-number="0;32" --color-path="0;35" --color-match="1;31"'
-alias rg='rg --smart-case --colors "path:fg:magenta" --colors "path:style:nobold" --colors "line:fg:green" --colors "line:style:nobold" --colors "match:fg:red" --colors "match:style:bold"'
+alias rg='rg --smart-case --colors "path:fg:magenta" --colors "path:style:nobold" --colors "line:fg:green" --colors "line:style:nobold" --colors "column:fg:cyan" --colors "column:style:nobold" --colors "match:fg:red" --colors "match:style:bold"'
 alias mux='tmuxinator'
 alias youtube-dl-video='youtube-dl --format "bestvideo+bestaudio/best" --sub-lang "zh-Hant,en" --write-sub --write-auto-sub --embed-subs --convert-subs srt --merge-output-format mkv'
 alias youtube-dl-audio='youtube-dl --format "bestaudio/best" --extract-audio --audio-quality 0'
