@@ -53,7 +53,7 @@
 	compression = 9
 	looseCompression = 1
 [pack]
-	compression = 9
+	#compression = 9
 	windowMemory = 32m
 	threads = 0
 [diff]
