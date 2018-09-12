@@ -26,6 +26,7 @@
 	filename = magenta
 	function = cyan bold
 	linenumber = green
+	column = cyan
 	match = red bold
 	matchContext = red bold
 	matchSelected = red bold
