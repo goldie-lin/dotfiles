@@ -279,7 +279,7 @@ export EDITOR="vim"
 export VISUAL="vim"
 
 # sudoedit default text editor.
-export SUDO_EDITOR="vim -p"
+export SUDO_EDITOR="vim"
 
 # gozilla (gnu global) default web browser.
 export BROWSER="firefox"
