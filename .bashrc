@@ -289,7 +289,7 @@ export BROWSER="firefox"
 export CCACHE_DIR="${HOME}/.ccache"
 
 # fpp default editor and other configs.
-export FPP_EDITOR="vim -p"
+export FPP_EDITOR="vim"
 export FPP_DISABLE_SPLIT=1
 
 # xz options. (also affects: "tar -J".)
