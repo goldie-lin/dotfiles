@@ -53,6 +53,8 @@
 	deltaBaseCacheLimit = 1g
 	compression = 9
 	looseCompression = 1
+[protocol]
+	version = 2
 [pack]
 	#compression = 9
 	windowMemory = 32m
