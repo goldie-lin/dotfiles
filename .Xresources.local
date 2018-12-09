@@ -1,60 +1,32 @@
-! URXVT font settings:
-! List X11 core fonts:
-!   `xlsfonts`
-!   `cat /usr/share/fonts/X11/misc/fonts.alias`
+! Font options - ~/.fonts.conf seems to override this.
+! References:
+!   * <https://github.com/AnthonyDiGirolamo/configs/blob/master/Xresources>
 
-! Terminus + ArphicUMing + HanazonoMinCho (12px) (no bold fontstyle)
-!URxvt.font:     -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*, \
-!                xft:AR PL UMing TW:pixelsize=12:antialias=false:hinting=false:autohint=false, \
-!                xft:HanaMinA:pixelsize=12:antialias=false:hinting=false:autohint=false, \
-!                xft:HanaMinB:pixelsize=12:antialias=false:hinting=false:autohint=false
+! Resolution for Xft in DPI. (dots per inch) (e.g., 96, 144, 192)
+! On ThinkPad X1 Carbon, the default "Xft.dpi" is: 163.19921875
+Xft.dpi:       144
+! Type of subpixel antialiasing. (none, rgb, bgr, vrgb, or vbgr)
+Xft.rgba:      rgb
+Xft.antialias: true
+Xft.hinting:   true
+! What degree of hinting to use. (hintnone, hintslight, hintmedium, or hintfull)
+Xft.hintstyle: hintslight
+Xft.autohint:  false
+Xft.lcdfilter: lcddefault
 
-! Terminus + ArphicUMing + HanazonoMinCho (14px)
-!URxvt.font:     -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*, \
-!                xft:AR PL UMing TW:pixelsize=14:antialias=false:hinting=false:autohint=false, \
-!                xft:HanaMinA:pixelsize=14:antialias=false:hinting=false:autohint=false, \
-!                xft:HanaMinB:pixelsize=14:antialias=false:hinting=false:autohint=false
+#define FONTSIZE 10
 
-! Terminus + ArphicUMing + HanazonoMinCho (16px)
-!URxvt.font:     -*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*, \
-!                xft:AR PL UMing TW:pixelsize=16:antialias=false:hinting=false:autohint=false, \
-!                xft:HanaMinA:pixelsize=16:antialias=false:hinting=false:autohint=false, \
-!                xft:HanaMinB:pixelsize=16:antialias=false:hinting=false:autohint=false
+! Fira Code, 思源黑體 HW, 花園明朝A, 花園明朝B
+URxvt.font: xft:Fira Code:size=FONTSIZE, \
+            xft:思源黑體 HW:size=FONTSIZE, \
+            xft:Source Han Sans HW TC:size=FONTSIZE, \
+            xft:HanaMinA:size=FONTSIZE, \
+            xft:HanaMinB:size=FONTSIZE
 
-! Terminus + ArphicUMing + HanazonoMinCho (18px)
-!URxvt.font:     -*-terminus-medium-r-*-*-18-*-*-*-*-*-*-*, \
-!                xft:AR PL UMing TW:pixelsize=18:antialias=false:hinting=false:autohint=false, \
-!                xft:HanaMinA:pixelsize=18:antialias=false:hinting=false:autohint=false, \
-!                xft:HanaMinB:pixelsize=18:antialias=false:hinting=false:autohint=false
-
-! Terminus + ArphicUMing + HanazonoMinCho (20px)
-!URxvt.font:     -*-terminus-medium-r-*-*-20-*-*-*-*-*-*-*, \
-!                xft:AR PL UMing TW:pixelsize=20:antialias=false:hinting=false:autohint=false, \
-!                xft:HanaMinA:pixelsize=20:antialias=false:hinting=false:autohint=false, \
-!                xft:HanaMinB:pixelsize=20:antialias=false:hinting=false:autohint=false
-
-! Terminus + ArphicUMing + HanazonoMinCho (22px)
-URxvt.font:     -*-terminus-medium-r-*-*-22-*-*-*-*-*-*-*, \
-                xft:AR PL UMing TW:pixelsize=22:antialias=false:hinting=false:autohint=false, \
-                xft:HanaMinA:pixelsize=22:antialias=false:hinting=false:autohint=false, \
-                xft:HanaMinB:pixelsize=22:antialias=false:hinting=false:autohint=false
-
-! Terminus + ArphicUMing + HanazonoMinCho (24px)
-!URxvt.font:     -*-terminus-medium-r-*-*-24-*-*-*-*-*-*-*, \
-!                xft:AR PL UMing TW:pixelsize=24:antialias=false:hinting=false:autohint=false, \
-!                xft:HanaMinA:pixelsize=24:antialias=false:hinting=false:autohint=false, \
-!                xft:HanaMinB:pixelsize=24:antialias=false:hinting=false:autohint=false
-
-! Terminus + ArphicUMing + HanazonoMinCho (28px)
-!URxvt.font:     -*-terminus-medium-r-*-*-28-*-*-*-*-*-*-*, \
-!                xft:AR PL UMing TW:pixelsize=28:antialias=false:hinting=false:autohint=false, \
-!                xft:HanaMinA:pixelsize=28:antialias=false:hinting=false:autohint=false, \
-!                xft:HanaMinB:pixelsize=28:antialias=false:hinting=false:autohint=false
-
-! Terminus + ArphicUMing + HanazonoMinCho (32px)
-!URxvt.font:     -*-terminus-medium-r-*-*-32-*-*-*-*-*-*-*, \
-!                xft:AR PL UMing TW:pixelsize=32:antialias=false:hinting=false:autohint=false, \
-!                xft:HanaMinA:pixelsize=32:antialias=false:hinting=false:autohint=false, \
-!                xft:HanaMinB:pixelsize=32:antialias=false:hinting=false:autohint=false
+! Terminus, 文鼎UMing明體, 花園明朝A, 花園明朝B
+!URxvt.font: -*-terminus-medium-r-*-*-FONTSIZE-*-*-*-*-*-*-*, \
+!            xft:AR PL UMing TW:pixelsize=FONTSIZE, \
+!            xft:HanaMinA:pixelsize=FONTSIZE, \
+!            xft:HanaMinB:pixelsize=FONTSIZE
 
 ! vim: set ft=xdefaults:
