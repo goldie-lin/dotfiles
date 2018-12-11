@@ -86,7 +86,6 @@ source_list=(
   ~/.fzf.bash
   "${HOME}/opt/git/contrib/completion/git-completion.bash"
   "${HOME}/opt/git/contrib/completion/git-prompt.sh"
-  "${HOME}/opt/hub/etc/hub.bash_completion.sh"
   "${HOME}/opt/android-completion/repo"
   "${HOME}/opt/android-completion/android"
   "${HOME}/opt/crosstool-ng/src/ct-ng.comp"
