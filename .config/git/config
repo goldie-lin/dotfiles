@@ -109,6 +109,7 @@
 	show = diff-so-fancy | less -FRi
 	diff = diff-so-fancy | less -FRi
 	status = diff-so-fancy | less -FRi
+	range-diff = diff-so-fancy | less -FRi
 [log]
 	follow = true
 	date = format:%Y-%m-%d %H:%M:%S %z
