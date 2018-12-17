@@ -37,6 +37,11 @@
 	header = bold
 	help = red bold
 	error = red reverse
+[color "remote"]
+	hint = cyan
+	warning = yellow bold
+	success = green bold
+	error = red bold
 [color "status"]
 	header = normal
 	branch = green
