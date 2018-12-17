@@ -15,6 +15,20 @@
 	new = green
 	commit = yellow
 	whitespace = red reverse
+	oldMoved = magenta bold
+	oldMovedAlternative = blue bold
+	oldMovedDimmed = dim
+	oldMovedAlternativeDimmed = dim italic
+	newMoved = cyan bold
+	newMovedAlternative = yellow bold
+	newMovedDimmed = dim
+	newMovedAlternativeDimmed = dim italic
+	contextDimmed = dim
+	oldDimmed = red dim
+	newDimmed = green dim
+	contextBold = bold
+	oldBold = red bold
+	newBold = green bold
 [color "decorate"]
 	branch = green bold
 	remoteBranch = red bold
