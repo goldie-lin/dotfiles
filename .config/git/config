@@ -86,6 +86,7 @@
 	algorithm = histogram
 	compactionHeuristic = false
 	indentHeuristic = true
+	colorMoved = default
 [commit]
 	verbose = true
 [merge]
