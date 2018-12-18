@@ -121,6 +121,7 @@
 [blame]
 	date = format:%Y-%m-%d %H:%M:%S %z
 	showEmail = true
+	coloring = highlightRecent
 [push]
 	default = simple
 [branch]
