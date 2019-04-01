@@ -309,6 +309,15 @@ export FZF_DEFAULT_COMMAND='
   ) 2>/dev/null'
 export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 
+# skim (sk) default command/options.
+export SKIM_DEFAULT_OPTIONS="--reverse --inline-info"
+export SKIM_DEFAULT_COMMAND='
+  (git ls-tree -r --name-only HEAD ||
+    fd --color never --type f --follow --hidden --exclude .git --exclude .repo ||
+    ag --nocolor --hidden -f -g "" ||
+    find -L . \( -fstype dev -o -fstype proc \) -prune -o -type f -print -o -type l -print | sed s/^..//
+  ) 2>/dev/null'
+
 # functions
 # ---------
 
