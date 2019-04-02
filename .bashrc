@@ -537,4 +537,6 @@ alias udev_reload_rules='sudo udevadm control --reload'  # Trigger systemd-udevd
 alias sudo='sudo '  # Last blank character will make bash to check for alias expansion in the next command following this alias.
 
 # load ~/.bashrc.local
-[[ -f ~/.bashrc.local && -r ~/.bashrc.local ]] && eval source ~/.bashrc.local
+if [[ -f ~/.bashrc.local && -r ~/.bashrc.local ]]; then
+  eval source ~/.bashrc.local
+fi
