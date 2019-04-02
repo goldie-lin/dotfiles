@@ -209,7 +209,7 @@ __set_prompt() {
     color_on=1
   fi
 
-  prompt_pre="${debian_chroot:+($debian_chroot)}"
+  prompt_pre="${debian_chroot:+"($debian_chroot)"}"
   if [[ color_on -eq 1 ]]; then
     prompt_pre+='\[\e[1;32m\]\u\[\e[1;33m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\]'
   else
