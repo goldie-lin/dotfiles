@@ -371,6 +371,7 @@ whichpkg() {
     echo "Error: Unsupported distro: '${_distro}'!" >&2 ;;
   esac
 }
+complete -c command whichpkg
 
 # cd up.
 up() {
