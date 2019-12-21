@@ -303,6 +303,7 @@ export ANDROID_BUILD_SHELL
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 export FZF_DEFAULT_COMMAND="
   (git ls-tree -r --name-only HEAD ||
+    rg --color never --files --follow --hidden --glob '!.git/' --glob '!.repo/' ||
     ag --nocolor --hidden -f -g '' ||
     fd --color never --type f --follow --hidden --exclude .git --exclude .repo ||
     find -L . \\( -fstype dev -o -fstype proc \\) -prune -o -type f -print -o -type l -print | sed s/^..//
@@ -313,6 +314,7 @@ export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 export SKIM_DEFAULT_OPTIONS="--reverse --inline-info"
 export SKIM_DEFAULT_COMMAND="
   (git ls-tree -r --name-only HEAD ||
+    rg --color never --files --follow --hidden --glob '!.git/' --glob '!.repo/' ||
     ag --nocolor --hidden -f -g '' ||
     fd --color never --type f --follow --hidden --exclude .git --exclude .repo ||
     find -L . \\( -fstype dev -o -fstype proc \\) -prune -o -type f -print -o -type l -print | sed s/^..//
