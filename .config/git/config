@@ -89,6 +89,8 @@
 	compactionHeuristic = false
 	indentHeuristic = true
 	colorMoved = default
+[difftool "vimdiff3"]
+	path = nvim
 [merge]
 	tool = vimdiff3
 [rebase]
