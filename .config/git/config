@@ -78,6 +78,8 @@
 	#compression = 9
 	windowMemory = 32m
 	threads = 0
+[commit]
+	verbose = true
 [diff]
 	tool = vimdiff3
 	renameLimit = 0
@@ -87,8 +89,6 @@
 	compactionHeuristic = false
 	indentHeuristic = true
 	colorMoved = default
-[commit]
-	verbose = true
 [merge]
 	tool = vimdiff3
 [rebase]
