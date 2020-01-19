@@ -93,6 +93,8 @@
 	path = nvim
 [merge]
 	tool = vimdiff3
+[mergetool "vimdiff3"]
+	path = nvim
 [rebase]
 	autoSquash = true
 	autoStash = true
