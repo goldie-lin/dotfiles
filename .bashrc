@@ -263,13 +263,13 @@ PROMPT_COMMAND='__set_prompt'
 PAGER="$(which less) -s -R -i"
 export PAGER
 #export BROWSER="${PAGER}"
-export LESS_TERMCAP_mb=$'\e[0;34m'
-export LESS_TERMCAP_md=$'\e[0;34m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[0;33;44m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[0;33m'
+export LESS_TERMCAP_mb=$'\e[0;34m'      # begin blink
+export LESS_TERMCAP_md=$'\e[0;34m'      # begin bold
+export LESS_TERMCAP_me=$'\e[0m'         # reset bold/blink
+export LESS_TERMCAP_so=$'\e[0;33;44m'   # begin reverse video
+export LESS_TERMCAP_se=$'\e[0m'         # reset reverse video
+export LESS_TERMCAP_us=$'\e[0;33m'      # begin underline
+export LESS_TERMCAP_ue=$'\e[0m'         # reset underline
 
 # env vars
 # --------
