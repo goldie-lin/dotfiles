@@ -526,6 +526,7 @@ alias vless="$(__vim_or_nvim_less_sh_path vim)"
 alias nvless="$(__vim_or_nvim_less_sh_path nvim)"
 unset -f __vim_or_nvim_less_sh_path
 
+alias diff='diff --color=auto'
 alias grep='grep --color=auto --exclude-dir=.repo --exclude-dir=.git --exclude-dir=.svn --exclude-dir=.bzr --exclude-dir=.hg --exclude=cscope.* --exclude=tags --exclude=GTAGS --exclude=GRTAGS --exclude=GPATH'
 alias ag='ag --column --smart-case --color-line-number="0;32" --color-path="0;35" --color-match="1;31"'
 alias rg='rg --column --smart-case --colors "path:fg:magenta" --colors "path:style:nobold" --colors "line:fg:green" --colors "line:style:nobold" --colors "column:fg:cyan" --colors "column:style:nobold" --colors "match:fg:red" --colors "match:style:bold"'
