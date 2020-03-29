@@ -133,7 +133,6 @@
 [push]
 	default = simple
 [branch]
-	autoSetupRebase = remote
 	sort = refname
 [tag]
 	sort = version:refname
