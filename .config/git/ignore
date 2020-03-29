@@ -40,3 +40,11 @@ Session.vim
 # vim YouCompleteMe files
 .ycm_extra_conf.py
 .ycm_extra_conf.py[cod]
+
+# C/C++ files
+compile_commands.json
+compile_flags.txt
+.clangd/
+.ccls/
+*.plist
+*.map
