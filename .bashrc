@@ -260,6 +260,7 @@ __set_prompt() {
 PROMPT_COMMAND='__set_prompt'
 
 # colorful man page.
+# shellcheck disable=SC2230
 PAGER="$(which less) -s -R -i"
 export PAGER
 #export BROWSER="${PAGER}"
@@ -296,6 +297,7 @@ export FPP_DISABLE_SPLIT=1
 export XZ_OPT="--x86 --lzma2=preset=9e,dict=128MiB"
 
 # Android build env.
+# shellcheck disable=SC2230
 ANDROID_BUILD_SHELL="$(which bash)"
 export ANDROID_BUILD_SHELL
 
@@ -366,8 +368,10 @@ whichpkg() {
 
   case "${_distro}" in
   "Arch")
+    # shellcheck disable=SC2230
     readlink -f "$(which "$1")" | xargs --no-run-if-empty pacman -Qo ;;
   "Ubuntu")
+    # shellcheck disable=SC2230
     readlink -f "$(which "$1")" | xargs --no-run-if-empty dpkg -S ;;
   *)
     echo "Error: Unsupported distro: '${_distro}'!" >&2 ;;
