@@ -23,10 +23,12 @@ URxvt.font: xft:Fira Code:size=FONTSIZE, \
             xft:HanaMinA:size=FONTSIZE, \
             xft:HanaMinB:size=FONTSIZE
 
+#define FONTPIXELSIZE 16
+
 ! Terminus, 文鼎UMing明體, 花園明朝A, 花園明朝B
-!URxvt.font: -*-terminus-medium-r-*-*-FONTSIZE-*-*-*-*-*-*-*, \
-!            xft:AR PL UMing TW:pixelsize=FONTSIZE, \
-!            xft:HanaMinA:pixelsize=FONTSIZE, \
-!            xft:HanaMinB:pixelsize=FONTSIZE
+!URxvt.font: -*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*, \
+!            xft:AR PL UMing TW:pixelsize=FONTPIXELSIZE, \
+!            xft:HanaMinA:pixelsize=FONTPIXELSIZE, \
+!            xft:HanaMinB:pixelsize=FONTPIXELSIZE
 
 ! vim: set ft=xdefaults:
