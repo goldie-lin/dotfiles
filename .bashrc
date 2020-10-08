@@ -294,7 +294,8 @@ export FPP_EDITOR="vim"
 export FPP_DISABLE_SPLIT=1
 
 # xz options. (also affects: "tar -J".)
-export XZ_OPT="--x86 --lzma2=preset=9e,dict=128MiB"
+#export XZ_OPT="--lzma2=preset=9e,dict=128MiB"
+export XZ_OPT="-9e"  # default "dict=64MiB" for "-9"
 
 # Android build env.
 # shellcheck disable=SC2230
