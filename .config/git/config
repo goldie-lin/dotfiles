@@ -73,6 +73,16 @@
 	compression = 9
 	looseCompression = 1
 	pager = delta --highlight-removed --dark --theme='Monokai Extended Bright' --minus-color="#3f0001" --minus-emph-color="#901011" --plus-color="#003800" --plus-emph-color="#007800" --commit-color="#ff8700" --file-color="#1e9c1e" --hunk-color="#005eee"
+[interactive]
+	diffFilter = delta --color-only --highlight-removed --dark --theme='Monokai Extended Bright' --minus-color="#3f0001" --minus-emph-color="#901011" --plus-color="#003800" --plus-emph-color="#007800" --commit-color="#ff8700" --file-color="#1e9c1e" --hunk-color="#005eee"
+[pager]
+	# " = true" means use pager defined in [core]
+	#add = diff-so-fancy | less -FRi  # broken `git add -p`, use "interactive.diffFilter" instead.
+	log = true
+	show = true
+	diff = true
+	status = true
+	range-diff = true
 [protocol]
 	version = 2
 [pack]
@@ -105,16 +115,6 @@
 [stash]
 	showStat = true
 	showPatch = true
-[interactive]
-	diffFilter = delta --color-only --highlight-removed --dark --theme='Monokai Extended Bright' --minus-color="#3f0001" --minus-emph-color="#901011" --plus-color="#003800" --plus-emph-color="#007800" --commit-color="#ff8700" --file-color="#1e9c1e" --hunk-color="#005eee"
-[pager]
-	# " = true" means use pager defined in [core]
-	#add = diff-so-fancy | less -FRi  # broken `git add -p`, use "interactive.diffFilter" instead.
-	log = true
-	show = true
-	diff = true
-	status = true
-	range-diff = true
 [log]
 	follow = true
 	date = format:%Y-%m-%d %H:%M:%S %z
