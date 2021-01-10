@@ -66,15 +66,47 @@
 	changed = red
 	untracked = magenta
 	unmerged = red reverse
+[delta]
+	syntax-theme = Monokai Extended Bright
+	features = unobtrusive-line-numbers decorations
+	#side-by-side = true
+[delta "unobtrusive-line-numbers"]
+	line-numbers = true
+	line-numbers-minus-style  = "#444444"
+	line-numbers-zero-style   = "#444444"
+	line-numbers-plus-style   = "#444444"
+	line-numbers-left-format  = "{nm:>4}┊"
+	line-numbers-right-format = "{np:>4}│"
+	line-numbers-left-style   = blue
+	line-numbers-right-style  = blue
+	hunk-header-line-number-style = hidden
+[delta "decorations"]
+	hunk-header-style             = syntax
+	hunk-header-file-style        = blue
+	hunk-header-decoration-style  = blue box
+	minus-style                   = syntax "#3f0001"
+	minus-non-emph-style          = syntax "#3f0001"
+	minus-emph-style              = syntax "#901011" bold strike
+	minus-empty-line-marker-style = normal "#3f0001"
+	plus-style                    = syntax "#003800"
+	plus-non-emph-style           = syntax "#003800"
+	plus-emph-style               = syntax "#007800" bold
+	plus-empty-line-marker-style  = normal "#003800"
+	zero-style                    = syntax
+	file-style                    = "#005efe"
+	file-decoration-style         = "#005efe" bold ol
+	commit-style                  = raw
+	#commit-decoration-style       = "#ff8700" bold box ul
+	whitespace-error-style        = "#ff0055" reverse
 [core]
 	editor = nvim
 	untrackedCache = true
 	deltaBaseCacheLimit = 1g
 	compression = 9
 	looseCompression = 1
-	pager = delta --highlight-removed --dark --theme='Monokai Extended Bright' --minus-color="#3f0001" --minus-emph-color="#901011" --plus-color="#003800" --plus-emph-color="#007800" --commit-color="#ff8700" --file-color="#1e9c1e" --hunk-color="#005eee"
+	pager = delta
 [interactive]
-	diffFilter = delta --color-only --highlight-removed --dark --theme='Monokai Extended Bright' --minus-color="#3f0001" --minus-emph-color="#901011" --plus-color="#003800" --plus-emph-color="#007800" --commit-color="#ff8700" --file-color="#1e9c1e" --hunk-color="#005eee"
+	diffFilter = delta --color-only
 [pager]
 	# "true" means use what defined by "core.pager".
 	#add = true  # will break `git add -p`, use "interactive.diffFilter" instead.
