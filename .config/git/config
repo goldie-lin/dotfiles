@@ -76,8 +76,8 @@
 [interactive]
 	diffFilter = delta --color-only --highlight-removed --dark --theme='Monokai Extended Bright' --minus-color="#3f0001" --minus-emph-color="#901011" --plus-color="#003800" --plus-emph-color="#007800" --commit-color="#ff8700" --file-color="#1e9c1e" --hunk-color="#005eee"
 [pager]
-	# " = true" means use pager defined in [core]
-	#add = diff-so-fancy | less -FRi  # broken `git add -p`, use "interactive.diffFilter" instead.
+	# "true" means use what defined by "core.pager".
+	#add = true  # will break `git add -p`, use "interactive.diffFilter" instead.
 	log = true
 	show = true
 	diff = true
