@@ -106,8 +106,6 @@
 	showStat = true
 	showPatch = true
 [interactive]
-	#diffFilter = diff-highlight
-	#diffFilter = diff-so-fancy  # broken: input and output lines mismatched.
 	diffFilter = delta --color-only --highlight-removed --dark --theme='Monokai Extended Bright' --minus-color="#3f0001" --minus-emph-color="#901011" --plus-color="#003800" --plus-emph-color="#007800" --commit-color="#ff8700" --file-color="#1e9c1e" --hunk-color="#005eee"
 [pager]
 	# " = true" means use pager defined in [core]
