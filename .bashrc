@@ -75,8 +75,8 @@ fi
 
 # add $PATH.
 prepend_path_list=(
-  "${HOME}/bin"
-  "${HOME}/opt/crosstool-ng/bin/bin"
+  ~/bin
+  ~/opt/crosstool-ng/bin/bin
 )
 for i in "${prepend_path_list[@]}"; do
   if [[ "${UID}" -ge 1000 && -d "$i" ]] && ! grep -q "$i" <<< "${PATH}"; then
@@ -88,17 +88,17 @@ unset -v i prepend_path_list
 # bash-completion.
 source_list=(
   ~/.fzf.bash
-  "${HOME}/opt/git/contrib/completion/git-completion.bash"
-  "${HOME}/opt/git/contrib/completion/git-prompt.sh"
-  "${HOME}/opt/android-completion/repo"
-  "${HOME}/opt/android-completion/android"
-  "${HOME}/opt/crosstool-ng/src/ct-ng.comp"
-  "${HOME}/opt/completion-ruby/completion-ruby-all"
-  "${HOME}/opt/the_silver_searcher/ag.bashcomp.sh"
-  "${HOME}/opt/tmuxinator/completion/tmuxinator.bash"
-  "${HOME}/opt/tmux-bash-completion/completions/tmux"
-  '/usr/share/doc/pkgfile/command-not-found.bash'
-  '/usr/share/skim/completion.bash'
+  ~/opt/git/contrib/completion/git-completion.bash
+  ~/opt/git/contrib/completion/git-prompt.sh
+  ~/opt/android-completion/repo
+  ~/opt/android-completion/android
+  ~/opt/crosstool-ng/src/ct-ng.comp
+  ~/opt/completion-ruby/completion-ruby-all
+  ~/opt/the_silver_searcher/ag.bashcomp.sh
+  ~/opt/tmuxinator/completion/tmuxinator.bash
+  ~/opt/tmux-bash-completion/completions/tmux
+  /usr/share/doc/pkgfile/command-not-found.bash
+  /usr/share/skim/completion.bash
 )
 for i in "${source_list[@]}"; do
   [[ -f "$i" && -r "$i" ]] && eval source "$i"
