@@ -29,6 +29,10 @@ shopt -s checkwinsize
 # enable extended pattern matching.
 shopt -s extglob
 
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
 # make less more friendly for non-text input files.
 [[ -x /usr/bin/lesspipe ]] && eval "$(lesspipe)"        # for Ubuntu
 [[ -x /usr/bin/lesspipe.sh ]] && eval "$(lesspipe.sh)"  # for Arch Linux
