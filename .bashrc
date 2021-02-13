@@ -55,10 +55,8 @@ fi
 # enable system-wide bash-completion.
 if ! shopt -oq posix; then
   if [[ -f /usr/share/bash-completion/bash_completion ]]; then
-    # shellcheck disable=SC1094
     . /usr/share/bash-completion/bash_completion
   elif [[ -f /etc/bash_completion ]]; then
-    # shellcheck disable=SC1091
     . /etc/bash_completion
   fi
 fi
