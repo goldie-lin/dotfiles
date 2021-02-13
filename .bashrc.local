@@ -3,14 +3,168 @@
 # ~/.bashrc.local
 #
 
+# runtime env configs
+# -------------------
+
+# Go-lang configs.
+#export GOPATH="${HOME}/.go"
+
+# path
+# ----
+
+prepend_path_list=(
+  ~/bin
+  ~/.local/bin
+  ~/.cargo/bin
+  ~/.npm-packages/bin
+  ~/.gem/ruby/*/bin
+  #~/.go/bin
+  ~/opt/crosstool-ng/bin/bin
+  #~/opt/hub-bin/hub/bin
+  #~/opt/jiri/out/.jiri_root/bin
+  #~/opt/ripgrep-bin/ripgrep
+  ~/opt/tre-bin/tre/bin
+  #~/opt/tree-sitter/tree-sitter/bin
+)
+for i in "${prepend_path_list[@]}"; do
+  if [[ "${UID}" -ge 1000 && -d "$i" ]] && ! grep -q "$i" <<< "${PATH}"; then
+    PATH="$i:$PATH"
+  fi
+done
+export PATH
+unset -v i prepend_path_list
+
+append_path_list=(
+  # TODO
+)
+for i in "${append_path_list[@]}"; do
+  if [[ "${UID}" -ge 1000 && -d "$i" ]] && ! grep -q "$i" <<< "${PATH}"; then
+    PATH="$PATH:$i"
+  fi
+done
+export PATH
+unset -v i append_path_list
+
+# man path
+# --------
+
+prepend_man_path_list=(
+  ~/.npm-packages/share/man
+)
+prepend_man_paths=''
+for i in "${prepend_man_path_list[@]}"; do
+  if [[ "${UID}" -ge 1000 && -d "$i" ]] && ! grep -q "$i" <<< "${MANPATH}"; then
+    prepend_man_paths="${prepend_man_paths:+${prepend_man_paths}:}$i"
+  fi
+done
+ORIG_MANPATH="${MANPATH:-$(manpath 2>/dev/null)}"
+MANPATH="${ORIG_MANPATH}${prepend_man_paths:+:${prepend_man_paths}}"
+export MANPATH
+unset -v ORIG_MANPATH i prepend_man_paths prepend_man_path_list
+
+append_man_path_list=(
+  #~/opt/hub-bin/hub/share/man
+  #~/opt/ripgrep-bin/man
+)
+append_man_paths=''
+for i in "${append_man_path_list[@]}"; do
+  if [[ "${UID}" -ge 1000 && -d "$i" ]] && ! grep -q "$i" <<< "${MANPATH}"; then
+    append_man_paths="${append_man_paths:+${append_man_paths}:}$i"
+  fi
+done
+ORIG_MANPATH="${MANPATH:-$(manpath 2>/dev/null)}"
+MANPATH="${ORIG_MANPATH}${append_man_paths:+:${append_man_paths}}"
+export MANPATH
+unset -v ORIG_MANPATH i append_man_paths append_man_path_list
+
+# bash-completion
+# ---------------
+
+source_list=(
+  ~/.fzf.bash
+  ~/opt/android-completion/repo
+  ~/opt/android-completion/android
+  ~/opt/crosstool-ng/src/ct-ng.comp
+  ~/opt/completion-ruby/completion-ruby-all
+  ~/opt/git/contrib/completion/git-completion.bash
+  ~/opt/git/contrib/completion/git-prompt.sh
+  ~/opt/git-delta/etc/completion/completion.bash
+  ~/opt/hub-bin/hub/etc/hub.bash_completion.sh
+  ~/opt/jiri/jiri-master/scripts/jiri-bash-completion.sh
+  #~/opt/lftp/source_custom_build_lftp.sh
+  #~/opt/logcat-colorize/source_custom_build_logcat-colorize.sh
+  #~/opt/lz4/source_custom_build_lz4.sh
+  ~/opt/picocom/bash_completion/picocom
+  #~/opt/ripgrep-bin/ripgrep/complete/rg.bash
+  ~/opt/the_silver_searcher/ag.bashcomp.sh
+  #~/opt/tmux/source_custom_build_tmux.sh
+  ~/opt/tmux-bash-completion/completions/tmux
+  ~/opt/tmuxinator/completion/tmuxinator.bash
+  #~/opt/watchman/source_custom_build_watchman.sh
+  ~/opt/zdict.sh/zdict.bash-completion
+  #~/opt/zstd/source_custom_build_zstd.sh
+  /usr/etc/bash_completion.d/youtube-dlc
+  /usr/share/doc/pkgfile/command-not-found.bash
+  /usr/share/fzf/completion.bash
+  /usr/share/fzf/key-bindings.bash
+  /usr/share/skim/completion.bash
+  /usr/share/skim/key-bindings.bash
+)
+for i in "${source_list[@]}"; do
+  if [[ "${UID}" -ge 1000 && -f "$i" && -r "$i" ]]; then
+    eval source "$i"
+  fi
+done
+unset -v i source_list
+
+# other bash-completion
+# ---------------------
+
+# tmuxp bash-completion.
+if hash tmuxp &>/dev/null; then
+  eval "$(_TMUXP_COMPLETE=source tmuxp)"
+fi
+
 # env vars
 # --------
 
+# default text editor.
+export EDITOR="nvim"
+export VISUAL="nvim"
+export SUDO_EDITOR="nvim"
+export FPP_EDITOR="nvim"
+
+# fpp configs.
+export FPP_DISABLE_SPLIT=1
+
+# xz options. (also affects: "tar -J".)
+#export XZ_OPT="--lzma2=preset=9e,dict=128MiB"
+export XZ_OPT="-9e"  # default "dict=64MiB" for "-9"
+
+# gozilla (gnu global) default web browser.
+#export BROWSER="w3m"
+export BROWSER="firefox"
+
+# add for 'fcitx.vim' vim plugin.
+if hash "fcitx" &>/dev/null; then
+  FCITX_SOCKET="/tmp/fcitx-socket-${DISPLAY}"
+  if [[ -S "${FCITX_SOCKET}" ]]; then
+    export FCITX_SOCKET
+  else
+    unset -v FCITX_SOCKET
+  fi
+fi
+
+# disable python https verify?
+#export PYTHONHTTPSVERIFY=0
+
 # ccache configs.
+export CCACHE_DIR="${HOME}/.ccache"
 export CCACHE_MAX_SIZE="30G"
 
-# export ruby to PATH.
-#export PATH="${HOME}/.gem/ruby/2.3.0/bin:${PATH}"
+# Android build env.
+ANDROID_BUILD_SHELL="$(which bash)"
+export ANDROID_BUILD_SHELL
 
 # export Android NDK to PATH.
 #export PATH="${PATH}:${HOME}/opt/android-ndk/android-ndk"
@@ -22,11 +176,27 @@ export CCACHE_MAX_SIZE="30G"
 # export for cp-img-android-* shell script.
 export ANDROID_IMG_CP_DIR="${HOME}/prj/img"
 
+# export Android Jack server arguments.
+#export ANDROID_JACK_VM_ARGS="-Xmx3g -Dfile.encoding=UTF-8 -XX:+TieredCompilation"
+
 # add this to work with systemd user ssh-agent service for Arch Linux.
 # (used with ~/.config/systemd/user/ssh-agent.service)
 # ref: https://wiki.archlinux.org/index.php/SSH_keys#Start_ssh-agent_with_systemd_user
 #export XDG_RUNTIME_DIR="/run/user/${UID}"  # needed in Ubuntu 14.04
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+
+# initial gpg-agent.
+# use case: system has neither X server, nor systemd.
+# note: do not enable "enable-ssh-support" in ~/.gnupg/gpg-agent.conf file.
+#if [[ -f ~/.gpg-agent-info ]]; then
+#  eval source ~/.gpg-agent-info
+#else
+#  # no, gpg-agent not available; start gpg-agent.
+#  eval $(gpg-agent --daemon --write-env-file ~/.gpg-agent-info)
+#fi
+#export GPG_AGENT_INFO
+#GPG_TTY="$(tty)"
+#export GPG_TTY
 
 # proxy configs.
 #export no_proxy="localhost,127.0.0.1"
@@ -39,8 +209,14 @@ export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 # aliases
 # -------
 
-#alias repo='python2 "$(which repo)"'
+alias lsblk='sudo lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINT,UUID,LABEL,PARTUUID,PARTLABEL'
 alias watch_temperatures='sudo watch "hddtemp -q /dev/sda; sensors"'
+alias bbbbb='[[ $? -eq 0 ]] && beephappy || beephappy2'
+alias ip4='ip -4 a show dev eth0'
+alias ip6='ip -6 a show dev eth0'
+#alias repo='python2 "$(which repo)"'
+#alias vimenc='/usr/bin/vim.nox -u ~/.vimrc_encrypt -x'
+alias vimenc='/usr/bin/vim -u ~/.vimrc_encrypt -x'
 
 # exa - a modern replacement for ls
 #alias ls='exa --color=automatic'

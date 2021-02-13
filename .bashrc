@@ -61,53 +61,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# add for 'fcitx.vim' vim plugin.
-if hash "fcitx" &>/dev/null; then
-  FCITX_SOCKET="/tmp/fcitx-socket-${DISPLAY}"
-  if [[ -S "${FCITX_SOCKET}" ]]; then
-    export FCITX_SOCKET
-  else
-    unset -v FCITX_SOCKET
-  fi
-fi
-
-# add $PATH.
-prepend_path_list=(
-  ~/bin
-  ~/opt/crosstool-ng/bin/bin
-)
-for i in "${prepend_path_list[@]}"; do
-  if [[ "${UID}" -ge 1000 && -d "$i" ]] && ! grep -q "$i" <<< "${PATH}"; then
-    export PATH="$i:$PATH"
-  fi
-done
-unset -v i prepend_path_list
-
-# bash-completion.
-source_list=(
-  ~/.fzf.bash
-  ~/opt/git/contrib/completion/git-completion.bash
-  ~/opt/git/contrib/completion/git-prompt.sh
-  ~/opt/android-completion/repo
-  ~/opt/android-completion/android
-  ~/opt/crosstool-ng/src/ct-ng.comp
-  ~/opt/completion-ruby/completion-ruby-all
-  ~/opt/the_silver_searcher/ag.bashcomp.sh
-  ~/opt/tmuxinator/completion/tmuxinator.bash
-  ~/opt/tmux-bash-completion/completions/tmux
-  /usr/share/doc/pkgfile/command-not-found.bash
-  /usr/share/skim/completion.bash
-)
-for i in "${source_list[@]}"; do
-  [[ -f "$i" && -r "$i" ]] && eval source "$i"
-done
-unset -v i source_list
-
-# tmuxp's bash-completion.
-#if hash tmuxp &>/dev/null; then
-#  eval "$(_TMUXP_COMPLETE=source tmuxp)"
-#fi
-
 # my git ps1 prompt.
 # ref: https://github.com/josuah/config/blob/master/.local/bin/git-prompt
 __my_git_ps1() {
@@ -275,32 +228,6 @@ export LESS_TERMCAP_ue=$'\e[0m'         # reset underline
 
 # env vars
 # --------
-
-# default text editor. (may affects: crontab, git, visudo.)
-export EDITOR="vim"
-export VISUAL="vim"
-
-# sudoedit default text editor.
-export SUDO_EDITOR="vim"
-
-# gozilla (gnu global) default web browser.
-export BROWSER="firefox"
-
-# ccache configs.
-#export CCACHE_MAX_SIZE="30G"
-export CCACHE_DIR="${HOME}/.ccache"
-
-# fpp default editor and other configs.
-export FPP_EDITOR="vim"
-export FPP_DISABLE_SPLIT=1
-
-# xz options. (also affects: "tar -J".)
-#export XZ_OPT="--lzma2=preset=9e,dict=128MiB"
-export XZ_OPT="-9e"  # default "dict=64MiB" for "-9"
-
-# Android build env.
-ANDROID_BUILD_SHELL="$(which bash)"
-export ANDROID_BUILD_SHELL
 
 # fzf default command/options.
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
