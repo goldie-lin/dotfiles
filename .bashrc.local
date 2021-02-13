@@ -28,7 +28,7 @@ export ANDROID_IMG_CP_DIR="${HOME}/prj/img"
 #export XDG_RUNTIME_DIR="/run/user/${UID}"  # needed in Ubuntu 14.04
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
-# proxy settings.
+# proxy configs.
 #export no_proxy="localhost,127.0.0.1"
 #export http_proxy="http://127.0.0.1:3128/"
 #export https_proxy="${http_proxy}"
