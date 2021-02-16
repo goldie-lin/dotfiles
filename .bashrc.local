@@ -145,6 +145,14 @@ export XZ_OPT="-9e"  # default "dict=64MiB" for "-9"
 #export BROWSER="w3m"
 export BROWSER="firefox"
 
+# replace 'less' with 'bat' as the manpager.
+# ref: https://github.com/sharkdp/bat#man
+#if hash bat &>/dev/null; then
+#  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+#elif hash batcat &>/dev/null; then
+#  export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+#fi
+
 # add for 'fcitx.vim' vim plugin.
 if hash "fcitx" &>/dev/null; then
   FCITX_SOCKET="/tmp/fcitx-socket-${DISPLAY}"
