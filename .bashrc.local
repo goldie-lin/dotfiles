@@ -86,8 +86,8 @@ source_list=(
   ~/opt/android-completion/android
   ~/opt/crosstool-ng/src/ct-ng.comp
   ~/opt/completion-ruby/completion-ruby-all
-  ~/opt/git/contrib/completion/git-completion.bash
-  ~/opt/git/contrib/completion/git-prompt.sh
+  ~/opt/git/git-master/contrib/completion/git-completion.bash
+  ~/opt/git/git-master/contrib/completion/git-prompt.sh
   ~/opt/git-delta/etc/completion/completion.bash
   ~/opt/hub-bin/hub/etc/hub.bash_completion.sh
   ~/opt/jiri/jiri-master/scripts/jiri-bash-completion.sh
