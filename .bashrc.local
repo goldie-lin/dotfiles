@@ -58,7 +58,7 @@ for i in "${prepend_man_path_list[@]}"; do
   fi
 done
 ORIG_MANPATH="${MANPATH:-$(manpath 2>/dev/null)}"
-MANPATH="${ORIG_MANPATH}${prepend_man_paths:+:${prepend_man_paths}}"
+MANPATH="${prepend_man_paths:+${prepend_man_paths}:}${ORIG_MANPATH}"
 export MANPATH
 unset -v ORIG_MANPATH i prepend_man_paths prepend_man_path_list
 
