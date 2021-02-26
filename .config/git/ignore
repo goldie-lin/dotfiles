@@ -3,48 +3,88 @@
 # * https://github.com/github/gitignore
 #
 
-# (Exuberant) Ctags files
-tags
-!tags/
-TAGS
-!TAGS/
-
-# Cscope files
-cscope.*
-ncscope.*
-
-# GNU GLOBAL files
-GPATH
-GRTAGS
-GSYMS
-GTAGS
-
 # backup files
 *.orig
+*.ori
 *~
 
-# vim tmp files
-[._]*.s[a-w][a-z]
-[._]s[a-w][a-z]
-*.un~
-Session.vim
+# temporary files
+*.tmp
+
+# Linux trash folder
+.Trash-*
+
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Windows shortcuts
+*.lnk
+*.LNK
+
+# git patch files
+*.rej
+
+# svn files
+.svn/
+
+# ctags files
+tags
+.tags
+!tags/
+TAGS
+.TAGS
+!TAGS/
+
+# gnu global (gtags) files
+gtags.files
+GTAGS
+GRTAGS
+GPATH
+GSYMS
+
+# cscope files
+cscope.files
+cscope.out
+cscope.in.out
+cscope.po.out
+
+# Vim swap files
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Vim temporary files
 .netrwhist
 *~
 
-# vim Syntastic files
+# Vim Auto-generated tag files
+tags
+
+# Vim persistent undo files
+[._]*.un~
+
+# Vim session files
+Session.vim
+Sessionx.vim
+
+# Vim plugin Syntastic files
 .syntastic_*_config
 
-# vim color_coded files
-.color_coded
-
-# vim YouCompleteMe files
+# Vim plugin YouCompleteMe files
 .ycm_extra_conf.py
 .ycm_extra_conf.py[cod]
 
-# C/C++ files
+# Gerrit code review files
+.gitreview
+
+# Clang tooling files
 compile_commands.json
 compile_flags.txt
+.cache/
 .clangd/
 .ccls/
-*.plist
-*.map
