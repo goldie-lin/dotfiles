@@ -306,7 +306,7 @@ whichpkg() {
 complete -c command whichpkg
 
 # cd up.
-up() {
+__up() {
   if [[ -z "${1//[0-9]/}" ]]; then
     local i='' P='./'
     for (( i=0; i<${1:-1}; i++ )); do
@@ -314,7 +314,7 @@ up() {
     done
     cd "$P" || exit 1
   else
-    echo "usage: up N"
+    echo "usage: __up N"
   fi
 }
 
@@ -381,7 +381,7 @@ ccache_clearcache() {
 # aliases
 # -------
 
-alias ..='up'
+alias ..='__up'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
