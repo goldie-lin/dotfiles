@@ -398,6 +398,7 @@ unset -v __gnu_coreutils_version
 alias ll='ls -alF --time-style="+%Y-%m-%d_%H-%M-%S"'
 alias la='ls -ACF'
 alias l='ls -CF'
+alias tree='tree -a --dirsfirst'
 alias free='free -hltw'
 alias cgitroot='git rev-parse --is-inside-work-tree >/dev/null && cd "$(git rev-parse --show-toplevel)"'
 alias bash_disable_git_prompt='unset -f __git_ps1 __my_git_ps1'
