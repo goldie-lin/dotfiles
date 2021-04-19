@@ -121,6 +121,8 @@
 	#compression = 9
 	windowMemory = 32m
 	threads = 0
+[init]
+	defaultBranch = main
 [commit]
 	verbose = true
 [diff]
