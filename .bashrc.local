@@ -19,7 +19,6 @@ prepend_path_list=(
   ~/.npm-packages/bin
   ~/.gem/ruby/*/bin
   #~/.go/bin
-  ~/opt/crosstool-ng/bin/bin
   #~/opt/hub-bin/hub/bin
   #~/opt/jiri/out/.jiri_root/bin
   #~/opt/ripgrep-bin/ripgrep
@@ -84,7 +83,6 @@ source_list=(
   ~/.fzf.bash
   ~/opt/android-completion/repo
   ~/opt/android-completion/android
-  ~/opt/crosstool-ng/src/ct-ng.comp
   ~/opt/completion-ruby/completion-ruby-all
   ~/opt/git/git-master/contrib/completion/git-completion.bash
   ~/opt/git/git-master/contrib/completion/git-prompt.sh
