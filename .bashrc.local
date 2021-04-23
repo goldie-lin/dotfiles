@@ -94,7 +94,6 @@ source_list=(
   #~/opt/lftp/source_custom_build_lftp.sh
   #~/opt/logcat-colorize/source_custom_build_logcat-colorize.sh
   #~/opt/lz4/source_custom_build_lz4.sh
-  ~/opt/picocom/bash_completion/picocom
   #~/opt/ripgrep-bin/ripgrep/complete/rg.bash
   ~/opt/the_silver_searcher/ag.bashcomp.sh
   #~/opt/tmux/source_custom_build_tmux.sh
