@@ -9,6 +9,10 @@
 # Go-lang configs.
 #export GOPATH="${HOME}/.go"
 
+# Perl CPAN module manager (cpanminus) configs.
+#export PERL_CPANM_HOME="${HOME}/.config/cpanm"
+#export PERL_CPANM_OPT="--verify"
+
 # path
 # ----
 
