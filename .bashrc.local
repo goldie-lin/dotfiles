@@ -142,6 +142,10 @@ export FPP_DISABLE_SPLIT=1
 #export XZ_OPT="--lzma2=preset=9e,dict=128MiB"
 export XZ_OPT="-9e"  # default "dict=64MiB" for "-9"
 
+# zstd options.
+export ZSTD_CLEVEL="3"  # default compression level: 3
+export ZSTD_NBTHREADS="1"  # default number of threads: 1
+
 # gozilla (gnu global) default web browser.
 #export BROWSER="w3m"
 export BROWSER="firefox"
