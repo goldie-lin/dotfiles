@@ -144,7 +144,7 @@ export XZ_OPT="-9e"  # default "dict=64MiB" for "-9"
 
 # zstd options.
 export ZSTD_CLEVEL="3"  # default compression level: 3
-export ZSTD_NBTHREADS="1"  # default number of threads: 1
+export ZSTD_NBTHREADS="0"  # default number of threads: 1
 
 # gozilla (gnu global) default web browser.
 #export BROWSER="w3m"
