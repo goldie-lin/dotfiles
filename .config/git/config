@@ -70,6 +70,8 @@
 	syntax-theme = Monokai Extended Bright
 	features = unobtrusive-line-numbers decorations
 	#side-by-side = true
+	relative-paths = true
+	hyperlinks-file-link-format = "file://{path}:{line}"
 [delta "unobtrusive-line-numbers"]
 	line-numbers = true
 	line-numbers-minus-style  = "#444444"
@@ -81,8 +83,9 @@
 	line-numbers-right-style  = blue
 	hunk-header-line-number-style = hidden
 [delta "decorations"]
-	hunk-header-style             = syntax
+	hunk-header-style             = file line-number syntax
 	hunk-header-file-style        = blue
+	hunk-header-line-number-style = green
 	hunk-header-decoration-style  = blue box
 	minus-style                   = syntax "#3f0001"
 	minus-non-emph-style          = syntax "#3f0001"
