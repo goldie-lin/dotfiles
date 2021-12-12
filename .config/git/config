@@ -68,9 +68,10 @@
 	unmerged = red reverse
 [delta]
 	syntax-theme = Monokai Extended Bright
-	features = unobtrusive-line-numbers decorations
+	features = unobtrusive-line-numbers decorations grep-decorations
 	#side-by-side = true
 	relative-paths = true
+	hyperlinks = true
 	hyperlinks-file-link-format = "file://{path}:{line}"
 [delta "unobtrusive-line-numbers"]
 	line-numbers = true
@@ -101,6 +102,13 @@
 	commit-style                  = raw
 	#commit-decoration-style       = "#ff8700" bold box ul
 	whitespace-error-style        = "#ff0055" reverse
+[delta "grep-decorations"]
+	grep-match-line-style         = syntax "#003058"
+	grep-match-word-style         = syntax "#901011" bold
+	grep-context-line-style       = syntax
+	grep-file-style               = blue
+	grep-line-number-style        = green
+	grep-separator-symbol         = ":"
 [core]
 	editor = nvim
 	untrackedCache = true
@@ -118,6 +126,8 @@
 	diff = true
 	status = true
 	range-diff = true
+	grep = true
+	blame = true
 [protocol]
 	version = 2
 [pack]
@@ -141,6 +151,7 @@
 	path = nvim
 [merge]
 	tool = vimdiff3
+	#conflictStyle = diff3
 [mergetool "vimdiff3"]
 	path = nvim
 [rebase]
