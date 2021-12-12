@@ -159,7 +159,7 @@
 	showSignature = true
 [grep]
 	lineNumber = true
-	column = true
+	column = false
 [blame]
 	date = format:%Y-%m-%d %H:%M:%S %z
 	showEmail = true
