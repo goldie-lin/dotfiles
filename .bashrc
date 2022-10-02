@@ -437,7 +437,7 @@ __vim_or_nvim_less_sh_path() {
         nvim) _pkgname="neovim";;
       esac
       if pacman -Qs "${_pkgname}" &> /dev/null; then
-        pacman -Ql "${_pkgname}" | grep -o '\/usr\/share\/.*\/macros\/less\.sh' | uniq
+        pacman -Ql "${_pkgname}" | grep -o '/usr/share/.*/macros/less\.sh' | uniq
       fi
       ;;
     Ubuntu)
@@ -446,7 +446,7 @@ __vim_or_nvim_less_sh_path() {
         nvim) _pkgname="neovim-runtime";;
       esac
       if [[ "$(dpkg-query -W --showformat='${db:Status-Abbrev}' "${_pkgname}")" =~ ii ]]; then
-        dpkg -L "${_pkgname}" | grep -o '\/usr\/share\/.*\/macros\/less\.sh' | uniq
+        dpkg -L "${_pkgname}" | grep -o '/usr/share/.*/macros/less\.sh' | uniq
       fi
       ;;
   esac
