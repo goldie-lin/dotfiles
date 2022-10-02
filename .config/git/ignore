@@ -3,13 +3,16 @@
 # * https://github.com/github/gitignore
 #
 
-# backup files
-*.orig
+# Backup files
+*.bak
+*.gho
+*.old
 *.ori
-*~
+*.orig
 
-# temporary files
+# Temporary files
 *.tmp
+*~
 
 # Linux trash folder
 .Trash-*
@@ -27,10 +30,10 @@ ehthumbs_vista.db
 # git patch files
 *.rej
 
-# svn files
+# SVN dirs
 .svn/
 
-# ctags files
+# ctags/etags files
 tags
 .tags
 !tags/
@@ -38,7 +41,7 @@ TAGS
 .TAGS
 !TAGS/
 
-# gnu global (gtags) files
+# gtags (GNU Global) files
 gtags.files
 GTAGS
 GRTAGS
@@ -62,7 +65,7 @@ cscope.po.out
 .netrwhist
 *~
 
-# Vim Auto-generated tag files
+# Vim auto-generated tag files
 tags
 
 # Vim persistent undo files
@@ -71,6 +74,8 @@ tags
 # Vim session files
 Session.vim
 Sessionx.vim
+Session.*.vim
+Sessionx.*.vim
 
 # Vim plugin Syntastic files
 .syntastic_*_config
@@ -88,3 +93,7 @@ compile_flags.txt
 .cache/
 .clangd/
 .ccls/
+
+# C/C++ object files
+*.plist
+*.map
