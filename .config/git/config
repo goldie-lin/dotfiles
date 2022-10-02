@@ -183,6 +183,7 @@
 	sort = refname
 [tag]
 	sort = version:refname
+	sort = taggerdate
 [versionsort]
 	suffix = dev
 	suffix = .dev
