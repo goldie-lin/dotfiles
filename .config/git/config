@@ -71,7 +71,7 @@
 	features = unobtrusive-line-numbers decorations grep-decorations
 	#side-by-side = true
 	relative-paths = true
-	hyperlinks = true
+	hyperlinks = false
 	hyperlinks-file-link-format = "file://{path}:{line}"
 [delta "unobtrusive-line-numbers"]
 	line-numbers = true
